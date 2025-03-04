@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:padding="16dp"
+    android:gravity="center_horizontal">
+
+    <!-- Drag Handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:background="@android:color/darker_gray"
+        android:layout_gravity="center"
+        android:alpha="0.5"/>
+
+    <TextView
+        android:id="@+id/tvAddNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Media"
+        android:textSize="18sp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"/>
+
+    <!-- Note Input Field -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:background="@drawable/dashed_outline"
+        android:layout_marginBottom="12dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/upload_icon"
+            app:tint="@color/dark_greay"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Click to upload"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray"/>
+    </LinearLayout>
+
+
+    <!-- Add Media -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:gravity="start">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="or"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginRight="8dp"/>
+
+        <TextView
+            android:id="@+id/tvAddMedia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Note"
+            android:textSize="14sp"
+            android:textColor="@color/skyBlue"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <!-- Save Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/backBtnn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_48sdp"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/appColor"
+        android:text="Save"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:layout_marginTop="@dimen/_15sdp"
+        app:cornerRadius="@dimen/_10sdp" />
+
+</LinearLayout>
