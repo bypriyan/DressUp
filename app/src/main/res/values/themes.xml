@@ -1,0 +1,32 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.CothCrew" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/appColor</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/cc</item>
+        <item name="windowSplashScreenIconBackgroundColor">@color/appColor</item>
+        <item name="tint">@color/white</item>
+        <item name="postSplashScreenTheme">@style/Theme.CothCrew</item>
+    </style>
+
+    <style name="Theme.CothCrew" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/appColor</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="CustomBottomNavigationItem" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="tabRippleColor">@color/black</item>
+        <item name="rippleColor">@color/orange</item>
+        <item name="itemRippleColor">@color/red</item>
+    </style>
+
+
+    <style name="VariantButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">@drawable/border_background</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+</resources>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activity.SetupProfileActivity">
+
+    <FrameLayout
+        android:id="@+id/topImage"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:src="@drawable/login_girl_image"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="@dimen/_27sdp"
+            android:layout_height="@dimen/_27sdp"
+            android:src="@drawable/ic_back"
+            android:padding="@dimen/_2sdp"
+            android:layout_centerVertical="true"
+            app:tint="@color/white"
+            android:layout_alignParentStart="true"
+            android:layout_margin="@dimen/_15sdp"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/loginTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Complete Your profile"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_below="@id/topImage"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:textSize="@dimen/_13ssp"/>
+
+    <TextView
+        android:id="@+id/skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Skip"
+        android:textColor="@color/skyBlue"
+        android:textStyle="bold"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_below="@id/topImage"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:textSize="@dimen/_13ssp"/>
+
+    <FrameLayout
+        android:id="@+id/profile_frame"
+        android:layout_width="@dimen/_110sdp"
+        android:layout_height="@dimen/_110sdp"
+        android:layout_below="@id/skip"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_centerHorizontal="true">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_90sdp"
+            android:src="@drawable/login_girl_image"
+            app:civ_border_width="2dp"
+            android:layout_gravity="center"
+            app:civ_border_color="@color/transparent"/>
+
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@drawable/edit_profile"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="@dimen/_8sdp"/>
+
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/fullnameTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Full Name"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_below="@id/profile_frame"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:textSize="@dimen/_13ssp"/>
+
+    <EditText
+        android:id="@+id/editTextMobileNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Name"
+        android:inputType="phone"
+        android:layout_below="@id/fullnameTv"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:textSize="@dimen/_13ssp"
+        android:padding="@dimen/_10sdp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:background="@color/transparent"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_2sdp"
+        android:background="@color/bg"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_below="@id/editTextMobileNumber"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/requestOTPBtn"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_48sdp"
+        android:layout_below="@id/editTextMobileNumber"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/appColor"
+        android:text="Next"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:cornerRadius="@dimen/_10sdp" />
+
+
+</RelativeLayout>

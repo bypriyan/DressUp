@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".aut.LoginActivity">
+
+    <FrameLayout
+        android:id="@+id/topImage"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:src="@drawable/login_girl_image"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="@dimen/_27sdp"
+            android:layout_height="@dimen/_27sdp"
+            android:src="@drawable/ic_back"
+            android:padding="@dimen/_2sdp"
+            android:layout_centerVertical="true"
+            app:tint="@color/white"
+            android:layout_alignParentStart="true"
+            android:layout_margin="@dimen/_15sdp"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/loginTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login / Sign Up"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_below="@id/topImage"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:textSize="@dimen/_13ssp"/>
+
+    <TextView
+        android:id="@+id/mobTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter mobile number for OTP"
+        android:textColor="@color/dark_greay"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:textStyle="normal"
+        android:layout_below="@id/loginTv"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:textSize="@dimen/_11ssp"/>
+
+    <RelativeLayout
+        android:id="@+id/imputRv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mobTv"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:padding="@dimen/_15sdp">
+
+        <ImageView
+            android:id="@+id/indianflag"
+            android:layout_width="@dimen/_27sdp"
+            android:layout_height="@dimen/_27sdp"
+            android:src="@drawable/india_flag"
+            android:padding="@dimen/_2sdp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:id="@+id/countryCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+91"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/indianflag"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:textSize="@dimen/_13ssp"/>
+
+        <View
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_2sdp"
+            android:background="@color/bg"
+            android:layout_marginTop="@dimen/_9sdp"
+            android:layout_below="@id/indianflag"/>
+
+        <!-- Mobile number input -->
+        <EditText
+            android:id="@+id/editTextMobileNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mobile Number"
+            android:inputType="phone"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:textSize="@dimen/_13ssp"
+            android:padding="@dimen/_10sdp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_toRightOf="@id/countryCode"
+            android:background="@color/transparent"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_2sdp"
+            android:background="@color/bg"
+            android:layout_toRightOf="@id/countryCode"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_9sdp"
+            android:layout_below="@id/indianflag"/>
+
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/conditions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/by_continuing_i_agree_to_terms_of_use_privacy_policy"
+        android:textColor="@color/appColor"
+        android:layout_marginTop="@dimen/_60sdp"
+        android:textStyle="normal"
+        android:layout_below="@id/imputRv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:textSize="@dimen/_10ssp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/requestOTPBtn"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_48sdp"
+        android:layout_below="@id/conditions"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/appColor"
+        android:text="Request OTP"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:cornerRadius="@dimen/_10sdp" />
+
+</RelativeLayout>

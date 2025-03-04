@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activity.BodyMeasureActivity">
+
+    <RelativeLayout
+        android:id="@+id/rel"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/actionBarColor">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="@dimen/_27sdp"
+            android:layout_height="@dimen/_27sdp"
+            android:src="@drawable/ic_back"
+            android:padding="@dimen/_2sdp"
+            android:layout_centerVertical="true"
+            app:tint="@color/appColor"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_10sdp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Measurement"
+            android:layout_centerVertical="true"
+            android:textColor="@color/appColor"
+            android:layout_toRightOf="@id/back"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:layout_centerVertical="true"
+            android:textColor="@color/orange"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"/>
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rel">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_15sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gender"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- RadioGroup for Gender Selection -->
+            <RadioGroup
+                android:id="@+id/genderRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Male RadioButton -->
+                <RadioButton
+                    android:layout_weight="1"
+                    android:id="@+id/maleRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Male"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="16dp"/>
+
+                <!-- Female RadioButton -->
+                <RadioButton
+                    android:layout_weight="1"
+                    android:id="@+id/femaleRadioButton"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:text="Female"/>
+            </RadioGroup>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_250sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:src="@drawable/male_body_image"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Measurements (in inches)"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="16dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Armhole/armpit Column -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <!-- Label -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Armhole/armpit"
+                        android:textStyle="bold"
+                        android:textColor="@color/dark_greay"
+                        android:layout_gravity="start"
+                        android:layout_marginBottom="4dp"/>
+
+                    <!-- Spinner for Value -->
+                    <Spinner
+                        android:id="@+id/armholeSpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_gravity="start"
+                        android:layout_marginTop="@dimen/_8sdp"/>
+                </LinearLayout>
+
+                <!-- Shoulder Column -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <!-- Label -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Shoulder"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textColor="@color/dark_greay"
+                        android:layout_gravity="start"
+                        android:layout_marginBottom="4dp"/>
+
+                    <!-- Spinner for Value -->
+                    <Spinner
+                        android:id="@+id/shoulderSpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_gravity="start"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:orientation="horizontal">
+
+                <!-- Armhole/armpit Column -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <!-- Label -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Chest"
+                        android:textStyle="bold"
+                        android:textColor="@color/dark_greay"
+                        android:layout_gravity="start"
+                        android:layout_marginBottom="4dp"/>
+
+                    <!-- Spinner for Value -->
+                    <Spinner
+                        android:id="@+id/ChestSpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_gravity="start"
+                        android:layout_marginTop="@dimen/_8sdp"/>
+                </LinearLayout>
+
+                <!-- Shoulder Column -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <!-- Label -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Biceps"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textColor="@color/dark_greay"
+                        android:layout_gravity="start"
+                        android:layout_marginBottom="4dp"/>
+
+                    <!-- Spinner for Value -->
+                    <Spinner
+                        android:id="@+id/BicepsSpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_gravity="start"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:orientation="horizontal">
+
+                <!-- Armhole/armpit Column -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <!-- Label -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sleeve Length"
+                        android:textStyle="bold"
+                        android:textColor="@color/dark_greay"
+                        android:layout_gravity="start"
+                        android:layout_marginBottom="4dp"/>
+
+                    <!-- Spinner for Value -->
+                    <Spinner
+                        android:id="@+id/SleeveLengthSpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_gravity="start"
+                        android:layout_marginTop="@dimen/_8sdp"/>
+                </LinearLayout>
+
+                <!-- Shoulder Column -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <!-- Label -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Waist"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textColor="@color/dark_greay"
+                        android:layout_gravity="start"
+                        android:layout_marginBottom="4dp"/>
+
+                    <!-- Spinner for Value -->
+                    <Spinner
+                        android:id="@+id/WaistSpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_gravity="start"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:orientation="horizontal">
+
+                <!-- Armhole/armpit Column -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <!-- Label -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hips"
+                        android:textStyle="bold"
+                        android:textColor="@color/dark_greay"
+                        android:layout_gravity="start"
+                        android:layout_marginBottom="4dp"/>
+
+                    <!-- Spinner for Value -->
+                    <Spinner
+                        android:id="@+id/HipsSpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_gravity="start"
+                        android:layout_marginTop="@dimen/_8sdp"/>
+                </LinearLayout>
+
+                <!-- Shoulder Column -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <!-- Label -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Outside Leg"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textColor="@color/dark_greay"
+                        android:layout_gravity="start"
+                        android:layout_marginBottom="4dp"/>
+
+                    <!-- Spinner for Value -->
+                    <Spinner
+                        android:id="@+id/OutsideLegSpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_gravity="start"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:orientation="horizontal">
+
+                <!-- Armhole/armpit Column -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <!-- Label -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Thigh"
+                        android:textStyle="bold"
+                        android:textColor="@color/dark_greay"
+                        android:layout_gravity="start"
+                        android:layout_marginBottom="4dp"/>
+
+                    <!-- Spinner for Value -->
+                    <Spinner
+                        android:id="@+id/ThighSpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_gravity="start"
+                        android:layout_marginTop="@dimen/_8sdp"/>
+                </LinearLayout>
+
+                <!-- Shoulder Column -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <!-- Label -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ankle"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textColor="@color/dark_greay"
+                        android:layout_gravity="start"
+                        android:layout_marginBottom="4dp"/>
+
+                    <!-- Spinner for Value -->
+                    <Spinner
+                        android:id="@+id/AnkleSpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_gravity="start"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/FinishBtn"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_48sdp"
+                android:layout_below="@id/conditions"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_centerHorizontal="true"
+                android:backgroundTint="@color/appColor"
+                android:text="Finish"
+                android:textAllCaps="false"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/white"
+                app:cornerRadius="@dimen/_10sdp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

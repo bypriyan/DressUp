@@ -1,0 +1,80 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sort by"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingBottom="8dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginBottom="8dp" />
+
+    <RadioGroup
+        android:id="@+id/sortOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/bestSeller"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Best Seller"
+            android:textSize="@dimen/_11ssp"
+            android:textColor="@color/black"
+            android:padding="8dp" />
+
+        <RadioButton
+            android:id="@+id/newArrival"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Arrival"
+            android:textSize="@dimen/_11ssp"
+            android:textColor="@color/black"
+            android:padding="8dp" />
+
+        <RadioButton
+            android:id="@+id/popularity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Popularity"
+            android:textSize="@dimen/_11ssp"
+            android:textColor="@color/black"
+            android:padding="8dp" />
+
+        <RadioButton
+            android:id="@+id/bestMatches"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Best Matches"
+            android:padding="8dp" />
+
+        <RadioButton
+            android:id="@+id/priceLowToHigh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Price: Low To High"
+            android:textSize="@dimen/_11ssp"
+            android:textColor="@color/black"
+            android:padding="8dp" />
+
+        <RadioButton
+            android:id="@+id/priceHighToLow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Price: High To Low"
+            android:textSize="@dimen/_11ssp"
+            android:textColor="@color/black"
+            android:padding="8dp" />
+    </RadioGroup>
+</LinearLayout>

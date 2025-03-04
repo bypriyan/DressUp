@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.HomeActivity">
+
+    <RelativeLayout
+        android:id="@+id/rel"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/actionBarColor">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="@dimen/_27sdp"
+            android:layout_height="@dimen/_27sdp"
+            android:src="@drawable/ic_back"
+            android:padding="@dimen/_2sdp"
+            android:layout_centerVertical="true"
+            app:tint="@color/appColor"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_10sdp"/>
+
+        <ImageView
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_33sdp"
+            android:src="@drawable/logo"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/back"/>
+
+        <ImageView
+            android:id="@+id/notification"
+            android:layout_width="@dimen/_27sdp"
+            android:layout_height="@dimen/_27sdp"
+            android:src="@drawable/notifications_unread"
+            android:padding="@dimen/_4sdp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            app:tint="@color/appColor"
+            android:layout_marginRight="@dimen/_15sdp"/>
+
+        <ImageView
+            android:id="@+id/cart"
+            android:layout_width="@dimen/_27sdp"
+            android:layout_height="@dimen/_27sdp"
+            android:src="@drawable/shopping_cart"
+            android:padding="@dimen/_4sdp"
+            android:layout_centerVertical="true"
+            app:tint="@color/appColor"
+            android:layout_toLeftOf="@id/notification"
+            android:layout_marginRight="@dimen/_5sdp"/>
+
+
+        <ImageView
+            android:id="@+id/scanner"
+            android:layout_width="@dimen/_27sdp"
+            android:layout_height="@dimen/_27sdp"
+            android:src="@drawable/qr_code_scanner"
+            android:padding="@dimen/_4sdp"
+            android:layout_centerVertical="true"
+            app:tint="@color/appColor"
+            android:layout_toLeftOf="@id/cart"
+            android:layout_marginRight="@dimen/_5sdp"/>
+
+    </RelativeLayout>
+
+
+    <fragment
+        android:id="@+id/frameLayout"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        android:layout_below="@id/rel"
+        android:layout_above="@id/viewLine"
+        app:navGraph="@navigation/mobile_navigation" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height=".5dp"
+        android:background="@color/lite_greay"
+        android:layout_above="@id/frame"
+        android:id="@+id/viewLine" />
+
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:background="@color/actionBarColor"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            app:labelVisibilityMode="labeled"
+            app:itemTextColor="@color/icon_colors"
+            app:itemIconTint="@color/icon_colors"
+            app:itemRippleColor="@android:color/transparent"
+            app:itemBackground="@drawable/bottom_nav_item_background"
+            app:menu="@menu/bottom_navigation"
+            android:elevation="@dimen/_2sdp"
+            style="@style/CustomBottomNavigationItem"
+            android:padding="@dimen/_6sdp"
+            android:layout_alignParentBottom="true" />
+
+        <include
+            layout="@layout/bottom_nav_cc_item"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+
+
+</RelativeLayout>

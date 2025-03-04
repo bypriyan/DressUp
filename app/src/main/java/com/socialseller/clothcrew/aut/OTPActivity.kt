@@ -1,0 +1,57 @@
+package com.socialseller.clothcrew.aut
+
+import android.content.Intent
+import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
+import com.socialseller.clothcrew.activity.SetupProfileActivity
+import com.socialseller.clothcrew.databinding.ActivityOtpactivityBinding
+
+class OTPActivity : AppCompatActivity() {
+
+    private lateinit var binding : ActivityOtpactivityBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityOtpactivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setupOtpInput()
+
+        binding.requestOTPBtn.setOnClickListener{
+            startActivity(Intent(this, SetupProfileActivity::class.java))
+        }
+
+
+    }
+
+    private fun setupOtpInput() {
+        binding.otp1.addTextChangedListener(OtpTextWatcher(binding.otp1, null, binding.otp2))
+        binding.otp2.addTextChangedListener(OtpTextWatcher(binding.otp2, binding.otp1, binding.otp3))
+        binding.otp3.addTextChangedListener(OtpTextWatcher(binding.otp3, binding.otp2, binding.otp4))
+        binding.otp4.addTextChangedListener(OtpTextWatcher(binding.otp4, binding.otp3, binding.otp5))
+        binding.otp5.addTextChangedListener(OtpTextWatcher(binding.otp5, binding.otp4, binding.otp6))
+        binding.otp6.addTextChangedListener(OtpTextWatcher(binding.otp6, binding.otp5, null))
+    }
+
+    inner class OtpTextWatcher(
+        private val current: EditText,
+        private val previous: EditText?,
+        private val next: EditText?
+    ) : TextWatcher {
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            if (s?.length == 1) {
+                // Move focus to the next EditText when a character is entered
+                next?.requestFocus()
+            } else if (s.isNullOrEmpty()) {
+                // Move focus to the previous EditText when a character is deleted
+                previous?.requestFocus()
+            }
+        }
+
+        override fun afterTextChanged(s: Editable?) {}
+    }
+}

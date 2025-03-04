@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/_6sdp"
+    app:cardCornerRadius="@dimen/_10sdp"
+    app:strokeColor="@color/transparent"
+    app:cardBackgroundColor="#F9FCFF">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:src="@drawable/banner_girl"
+            android:scaleType="fitXY"/>
+        
+        <TextView
+            android:id="@+id/product_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/skyBlue"
+            android:layout_toRightOf="@+id/productImage"
+            android:layout_marginRight="@dimen/_14ssp"
+            android:text="#232"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_marginLeft="@dimen/_6sdp"/>
+
+        <TextView
+            android:id="@+id/productName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@+id/productImage"
+            android:text="Akash Baghel"
+            android:textSize="@dimen/_13ssp"
+            android:layout_below="@id/product_id"
+            android:layout_marginLeft="@dimen/_6sdp"/>
+
+        <ImageView
+            android:id="@+id/locationIv"
+            android:layout_width="@dimen/_12sdp"
+            android:layout_height="@dimen/_12sdp"
+            android:src="@drawable/location"
+            app:tint="@color/dark_greay"
+            android:layout_toRightOf="@id/productImage"
+            android:layout_marginLeft="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_below="@id/productName"/>
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dark_greay"
+            android:layout_toRightOf="@+id/locationIv"
+            android:text="Raipur"
+            android:textSize="@dimen/_10ssp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_below="@id/productName"
+            android:layout_marginLeft="@dimen/_2sdp"/>
+
+        <TextView
+            android:id="@+id/productsTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dark_greay"
+            android:text=". 5 products"
+            android:textSize="@dimen/_10ssp"
+            android:layout_toRightOf="@id/productImage"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_below="@id/location"
+            android:layout_marginLeft="@dimen/_6sdp"/>
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@+id/product_id"
+            android:text="25 Sep 2023 09:30"
+            android:textSize="@dimen/_10ssp"
+            android:gravity="end"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="@dimen/_4sdp"
+            android:layout_marginLeft="@dimen/_2sdp"/>
+
+        <TextView
+            android:id="@+id/returnDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@+id/product_id"
+            android:text="25 Sep 2023 09:30"
+            android:textSize="@dimen/_10ssp"
+            android:gravity="end"
+            android:layout_below="@id/date"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_4sdp"
+            android:layout_marginLeft="@dimen/_2sdp"/>
+
+
+        <TextView
+            android:id="@+id/paymentMethod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@+id/productName"
+            android:text="₹650"
+            android:textSize="@dimen/_14ssp"
+            android:gravity="end"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/location"
+            android:layout_marginLeft="@dimen/_6sdp"
+            android:textStyle="bold"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_2sdp"/>
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

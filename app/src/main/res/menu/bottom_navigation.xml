@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_ProPlan"
+        android:icon="@drawable/diamond"
+        android:title="Pro Plans" />
+
+    <item
+        android:id="@+id/navigation_Saved"
+        android:icon="@drawable/favorite"
+        android:title="Saved" />
+
+    <item
+        android:id="@+id/navigation_Home"
+        android:icon="@drawable/pv_invisible_image"
+        android:title="" />
+
+    <item
+        android:id="@+id/navigation_Orders"
+        android:icon="@drawable/shopping_bag"
+        android:title="Orders" />
+
+    <item
+        android:id="@+id/navigation_ContactUs"
+        android:icon="@drawable/call"
+        android:title="Contact Us" />
+
+</menu>

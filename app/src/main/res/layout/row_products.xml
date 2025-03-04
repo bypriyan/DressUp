@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    app:strokeColor="@color/transparent"
+    app:cardBackgroundColor="@color/white"
+    android:layout_margin="@dimen/_8sdp"
+    app:cardCornerRadius="@dimen/_10sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_140sdp"
+                android:src="@drawable/login_girl_image"
+                android:scaleType="centerCrop"/>
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="@dimen/_27sdp"
+                android:layout_height="@dimen/_27sdp"
+                android:src="@drawable/delete"
+                android:padding="@dimen/_2sdp"
+                android:layout_centerVertical="true"
+                android:layout_gravity="end"
+                android:layout_margin="@dimen/_15sdp"/>
+
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Charming 22 Karat Yellow Gold Long Beh"
+            android:textStyle="bold"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingTop="@dimen/_6sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:gravity="start"
+            android:textSize="@dimen/_12ssp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/dark_greay"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="₹58,720"
+            android:textStyle="bold"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingTop="@dimen/_6sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:gravity="start"
+            android:textSize="@dimen/_14ssp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="₹58,720"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingTop="@dimen/_3sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:gravity="start"
+            android:textSize="@dimen/_12ssp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/dark_greay"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2% OFF"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingTop="@dimen/_3sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:gravity="start"
+            android:textSize="@dimen/_13ssp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:textColor="@color/appColor"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Move to Cart"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingTop="@dimen/_3sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:gravity="start"
+            android:textSize="@dimen/_15ssp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/appColor"/>
+
+    </LinearLayout>
+
+
+</com.google.android.material.card.MaterialCardView>
