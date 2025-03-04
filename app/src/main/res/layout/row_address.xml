@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/_10sdp"
+    android:layout_marginTop="@dimen/_10sdp"
+    app:strokeColor="@color/transparent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp">
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:buttonTint="@color/appColor"/>
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KISHAN"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14sp"
+                android:layout_toRightOf="@id/radioButton"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/fullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mr. Kishan Sharma"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:layout_below="@id/name"
+                android:layout_toRightOf="@id/radioButton"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:textStyle="bold"/>
+
+            <!-- Phone Number -->
+            <TextView
+                android:id="@+id/phoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+91 8839468374"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:layout_below="@id/fullName"
+                android:layout_toRightOf="@id/radioButton"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:textStyle="bold"/>
+
+            <!-- Address -->
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="House No 11/2, Kachna, Raipur,\nChhattisgarh, Pin Code 492001"
+                android:textColor="@android:color/darker_gray"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_below="@id/phoneNumber"
+                android:layout_toRightOf="@id/radioButton"
+                android:textSize="14sp"/>
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/dark_greay"
+                android:layout_below="@id/address"
+                android:layout_marginTop="@dimen/_15sdp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/line1"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EDIT"
+                    android:padding="@dimen/_8sdp"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/dark_greay"
+                    android:textSize="16sp"
+                    android:layout_below="@id/name"
+                    android:layout_toRightOf="@id/radioButton"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textStyle="normal"/>
+
+                <View
+                    android:layout_width="@dimen/_1sdp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:background="@color/dark_greay"/>
+
+                <TextView
+                    android:id="@+id/delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DELETE"
+                    android:layout_weight="1"
+                    android:padding="@dimen/_8sdp"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/dark_greay"
+                    android:textSize="16sp"
+                    android:layout_below="@id/name"
+                    android:layout_toRightOf="@id/radioButton"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:textStyle="normal"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

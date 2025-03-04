@@ -1,4 +1,4 @@
-package com.socialseller.clothcrew.aut
+package com.socialseller.clothcrew.activity.auth
 
 import android.content.Intent
 import android.os.Bundle

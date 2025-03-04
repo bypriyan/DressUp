@@ -1,21 +1,17 @@
 package com.socialseller.clothcrew.ui
 
-import android.graphics.Color
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.view.MenuItem
-import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.socialseller.clothcrew.R
+import com.socialseller.clothcrew.activity.StoreLocationActivity
 import com.socialseller.clothcrew.databinding.ActivityHomeBinding
-import com.socialseller.clothcrew.databinding.ActivityLoginBinding
 
 class HomeActivity : AppCompatActivity() {
 
@@ -33,6 +29,10 @@ class HomeActivity : AppCompatActivity() {
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         navController = Navigation.findNavController(this, R.id.frameLayout);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
+
+        binding.locationStore.setOnClickListener{
+            startActivity(Intent(this, StoreLocationActivity::class.java))
+        }
 
     }
 

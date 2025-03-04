@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activity.address.AddressActivity">
+
+    <RelativeLayout
+        android:id="@+id/rel"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/actionBarColor">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="@dimen/_27sdp"
+            android:layout_height="@dimen/_27sdp"
+            android:src="@drawable/ic_back"
+            android:padding="@dimen/_2sdp"
+            android:layout_centerVertical="true"
+            app:tint="@color/appColor"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_10sdp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address Book"
+            android:layout_centerVertical="true"
+            android:textColor="@color/appColor"
+            android:layout_toRightOf="@id/back"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/notification"
+            android:layout_width="@dimen/_27sdp"
+            android:layout_height="@dimen/_27sdp"
+            android:src="@drawable/add"
+            android:padding="@dimen/_6sdp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            app:tint="@color/appColor"
+            android:layout_marginRight="@dimen/_15sdp"/>
+
+        <ImageView
+            android:id="@+id/cart"
+            android:layout_width="@dimen/_27sdp"
+            android:layout_height="@dimen/_27sdp"
+            android:src="@drawable/qr_code_scanner"
+            android:padding="@dimen/_4sdp"
+            android:layout_centerVertical="true"
+            app:tint="@color/appColor"
+            android:layout_toLeftOf="@id/notification"
+            android:layout_marginRight="@dimen/_5sdp"/>
+
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rel">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_15sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Default Address"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_10sdp"
+                android:elevation="@dimen/_1sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:strokeColor="@color/dark_greay">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_10sdp">
+
+                    <RadioButton
+                        android:id="@+id/radioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:buttonTint="@color/appColor"/>
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="KISHAN"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="14sp"
+                        android:layout_toRightOf="@id/radioButton"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/fullName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mr. Kishan Sharma"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:layout_below="@id/name"
+                        android:layout_toRightOf="@id/radioButton"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:textStyle="bold"/>
+
+                    <!-- Phone Number -->
+                    <TextView
+                        android:id="@+id/phoneNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+91 8839468374"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:layout_below="@id/fullName"
+                        android:layout_toRightOf="@id/radioButton"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:textStyle="bold"/>
+
+                    <!-- Address -->
+                    <TextView
+                        android:id="@+id/address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="House No 11/2, Kachna, Raipur,\nChhattisgarh, Pin Code 492001"
+                        android:textColor="@android:color/darker_gray"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_below="@id/phoneNumber"
+                        android:layout_toRightOf="@id/radioButton"
+                        android:textSize="14sp"/>
+
+                    <View
+                        android:id="@+id/line1"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/dark_greay"
+                        android:layout_below="@id/address"
+                        android:layout_marginTop="@dimen/_15sdp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_below="@id/line1"
+                        android:gravity="center_horizontal">
+
+                        <TextView
+                            android:id="@+id/edit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="EDIT"
+                            android:padding="@dimen/_8sdp"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal"
+                            android:textColor="@color/dark_greay"
+                            android:textSize="16sp"
+                            android:layout_below="@id/name"
+                            android:layout_toRightOf="@id/radioButton"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:textStyle="normal"/>
+
+                        <View
+                            android:layout_width="@dimen/_1sdp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:background="@color/dark_greay"/>
+
+                        <TextView
+                            android:id="@+id/delete"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="DELETE"
+                            android:layout_weight="1"
+                            android:padding="@dimen/_8sdp"
+                            android:gravity="center_horizontal"
+                            android:textColor="@color/dark_greay"
+                            android:textSize="16sp"
+                            android:layout_below="@id/name"
+                            android:layout_toRightOf="@id/radioButton"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:textStyle="normal"/>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Other Addresses"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14sp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:textStyle="bold"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/imageRV"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_below="@id/rel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/row_address"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
