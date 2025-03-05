@@ -1,4 +1,4 @@
-package com.socialseller.clothcrew.activity
+package com.socialseller.clothcrew.activity.profile
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

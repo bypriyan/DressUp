@@ -28,7 +28,7 @@
             android:name=".activity.SearchActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.EditProfileActivity"
+            android:name=".activity.profile.EditProfileActivity"
             android:exported="false" />
         <activity
             android:name=".TestingActivity"
@@ -36,7 +36,7 @@
             android:label="@string/title_activity_testing"
             android:theme="@style/Theme.CothCrew" />
         <activity
-            android:name=".activity.ProfileActivity"
+            android:name=".activity.profile.ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".activity.StoreLocationActivity"
@@ -51,7 +51,7 @@
             android:name=".activity.BodyMeasureActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.SetupProfileActivity"
+            android:name=".activity.profile.SetupProfileActivity"
             android:exported="false" />
         <activity
             android:name=".activity.auth.OTPActivity"

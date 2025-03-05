@@ -6,7 +6,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import com.socialseller.clothcrew.activity.SetupProfileActivity
+import com.socialseller.clothcrew.activity.profile.SetupProfileActivity
 import com.socialseller.clothcrew.databinding.ActivityOtpactivityBinding
 
 class OTPActivity : AppCompatActivity() {

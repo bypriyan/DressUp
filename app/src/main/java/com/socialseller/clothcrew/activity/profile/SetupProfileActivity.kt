@@ -1,8 +1,9 @@
-package com.socialseller.clothcrew.activity
+package com.socialseller.clothcrew.activity.profile
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.socialseller.clothcrew.activity.BodyMeasureActivity
 import com.socialseller.clothcrew.databinding.ActivitySetupProfileBinding
 
 class SetupProfileActivity : AppCompatActivity() {
