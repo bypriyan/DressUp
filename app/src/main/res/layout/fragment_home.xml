@@ -64,7 +64,7 @@
                 app:dotsColor="@color/appColor"
                 android:layout_margin="@dimen/_10sdp"
                 app:dotsStrokeColor="@color/greay"
-                app:dotsCornerRadius="4dp"
+                app:dotsCornerRadius="10dp"
                 app:dotsSize="10dp"
                 app:dotsSpacing="4dp"
                 app:dotsStrokeWidth="6dp" />

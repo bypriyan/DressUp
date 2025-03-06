@@ -21,6 +21,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.socialseller.clothcrew.R
 import com.socialseller.clothcrew.activity.StoreLocationActivity
+import com.socialseller.clothcrew.activity.profile.ProfileActivity
 import com.socialseller.clothcrew.adapter.NavDrawerAdapter
 import com.socialseller.clothcrew.databinding.ActivityHomeBinding
 import com.socialseller.clothcrew.model.NavMenuItem
@@ -30,10 +31,8 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navController: NavController
-//    private lateinit var navigationView: NavigationView
     lateinit var bottomNavigationView: BottomNavigationView
 
-    private lateinit var recyclerView: RecyclerView
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,8 +70,14 @@ class HomeActivity : AppCompatActivity() {
             }
         })
 
+        //clicks
         binding.locationStore.setOnClickListener {
             startActivity(Intent(this, StoreLocationActivity::class.java))
+        }
+
+        binding.profile.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+
         }
     }
 

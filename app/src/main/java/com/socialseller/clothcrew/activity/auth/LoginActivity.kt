@@ -2,6 +2,7 @@ package com.socialseller.clothcrew.activity.auth
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.socialseller.clothcrew.databinding.ActivityLoginBinding
@@ -17,7 +18,12 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.requestOTPBtn.setOnClickListener {
-            startActivity(Intent(this, OTPActivity::class.java))
+            if(binding.editTextMobileNumber.text.toString().isEmpty() || binding.editTextMobileNumber.text.toString().length!=10){
+                Toast.makeText(this, "Please enter valid mobile number", Toast.LENGTH_SHORT).show()
+            }else{
+                startActivity(Intent(this, OTPActivity::class.java))
+            }
+
         }
 
     }

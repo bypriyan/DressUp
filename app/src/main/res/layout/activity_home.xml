@@ -162,6 +162,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/_10sdp"
+                    android:id="@+id/profile"
                     android:layout_marginLeft="@dimen/_15sdp"
                     android:layout_marginRight="@dimen/_15sdp"
                     android:layout_marginTop="@dimen/_8sdp"
@@ -466,12 +467,6 @@
             </LinearLayout>
 
         </ScrollView>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:visibility="gone"
-            android:id="@+id/navRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
     </LinearLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

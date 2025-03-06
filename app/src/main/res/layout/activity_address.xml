@@ -38,7 +38,7 @@
             android:textStyle="bold"/>
 
         <ImageView
-            android:id="@+id/notification"
+            android:id="@+id/addAddress"
             android:layout_width="@dimen/_27sdp"
             android:layout_height="@dimen/_27sdp"
             android:src="@drawable/add"
@@ -56,7 +56,7 @@
             android:padding="@dimen/_4sdp"
             android:layout_centerVertical="true"
             app:tint="@color/appColor"
-            android:layout_toLeftOf="@id/notification"
+            android:layout_toLeftOf="@id/addAddress"
             android:layout_marginRight="@dimen/_5sdp"/>
 
 
