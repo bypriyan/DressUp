@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".activity.StoreLocationActivity">
+    tools:context=".activity.stores.StoreLocationActivity">
 
     <RelativeLayout
         android:id="@+id/rel"
@@ -66,7 +66,6 @@
             android:src="@drawable/location_icon_store"
             android:padding="@dimen/_2sdp"
             android:layout_centerVertical="true"
-            app:tint="@color/appColor"
             android:layout_toLeftOf="@id/cart"
             android:layout_marginRight="@dimen/_5sdp"/>
 
@@ -164,12 +163,13 @@
                 android:textStyle="bold"/>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
+                android:id="@+id/cityRv"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="3"
                 android:layout_marginTop="@dimen/_10sdp"
+                android:nestedScrollingEnabled="false"
                 tools:listitem="@layout/row_popular_cityes" />
 
             <TextView
@@ -186,11 +186,13 @@
                 android:textStyle="normal"/>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cardsRv"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="2"
                 android:layout_marginTop="@dimen/_10sdp"
+                android:descendantFocusability="blocksDescendants"
                 tools:listitem="@layout/row_image_cards" />
 
         </LinearLayout>

@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.socialseller.clothcrew.databinding.ActivityBodyMeasureBinding
-import com.socialseller.clothcrew.ui.HomeActivity
+import com.socialseller.clothcrew.activity.ui.HomeActivity
 
 class BodyMeasureActivity : AppCompatActivity() {
 

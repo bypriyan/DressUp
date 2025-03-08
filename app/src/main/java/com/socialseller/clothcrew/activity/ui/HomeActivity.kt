@@ -1,12 +1,9 @@
-package com.socialseller.clothcrew.ui
+package com.socialseller.clothcrew.activity.ui
 
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -15,16 +12,11 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationView
 import com.socialseller.clothcrew.R
-import com.socialseller.clothcrew.activity.StoreLocationActivity
+import com.socialseller.clothcrew.activity.stores.StoreLocationActivity
 import com.socialseller.clothcrew.activity.profile.ProfileActivity
-import com.socialseller.clothcrew.adapter.NavDrawerAdapter
 import com.socialseller.clothcrew.databinding.ActivityHomeBinding
-import com.socialseller.clothcrew.model.NavMenuItem
 
 class HomeActivity : AppCompatActivity() {
 

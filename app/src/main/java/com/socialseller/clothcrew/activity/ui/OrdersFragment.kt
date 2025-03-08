@@ -1,4 +1,4 @@
-package com.socialseller.clothcrew.ui
+package com.socialseller.clothcrew.activity.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
