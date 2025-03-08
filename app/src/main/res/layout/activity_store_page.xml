@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activity.stores.StorePageActivity">
+
+    <RelativeLayout
+        android:id="@+id/rel"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/actionBarColor">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="@dimen/_27sdp"
+            android:layout_height="@dimen/_27sdp"
+            android:src="@drawable/ic_back"
+            android:padding="@dimen/_2sdp"
+            android:layout_centerVertical="true"
+            app:tint="@color/appColor"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_10sdp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fashion Adda"
+            android:layout_centerVertical="true"
+            android:textColor="@color/appColor"
+            android:layout_toRightOf="@id/back"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/notification"
+            android:layout_width="@dimen/_27sdp"
+            android:layout_height="@dimen/_27sdp"
+            android:src="@drawable/notifications_unread"
+            android:padding="@dimen/_4sdp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            app:tint="@color/appColor"
+            android:layout_marginRight="@dimen/_15sdp"/>
+
+        <ImageView
+            android:id="@+id/cart"
+            android:layout_width="@dimen/_27sdp"
+            android:layout_height="@dimen/_27sdp"
+            android:src="@drawable/shopping_cart"
+            android:padding="@dimen/_4sdp"
+            android:layout_centerVertical="true"
+            app:tint="@color/appColor"
+            android:layout_toLeftOf="@id/notification"
+            android:layout_marginRight="@dimen/_5sdp"/>
+
+        <ImageView
+            android:id="@+id/locationStore"
+            android:layout_width="@dimen/_27sdp"
+            android:layout_height="@dimen/_27sdp"
+            android:src="@drawable/location_icon_store"
+            android:padding="@dimen/_2sdp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/cart"
+            android:layout_marginRight="@dimen/_5sdp"/>
+
+        <ImageView
+            android:id="@+id/scanner"
+            android:layout_width="@dimen/_27sdp"
+            android:layout_height="@dimen/_27sdp"
+            android:src="@drawable/qr_code_scanner"
+            android:padding="@dimen/_4sdp"
+            android:layout_centerVertical="true"
+            app:tint="@color/appColor"
+            android:layout_toLeftOf="@id/locationStore"
+            android:layout_marginRight="@dimen/_5sdp"/>
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rel">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/_15sdp"
+                android:paddingRight="@dimen/_15sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:background="@color/actionBarColor">
+
+                <EditText
+                    android:id="@+id/searchEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Search for Product on Clothcrew"
+                    android:inputType="text"
+                    android:textColorHint="@color/dark_greay"
+                    android:textColor="@color/black"
+                    android:background="@color/white"
+                    android:textSize="@dimen/_12ssp"
+                    android:padding="12dp"
+                    android:drawableStart="@drawable/search_icon"
+                    android:drawablePadding="@dimen/_15sdp"
+                    android:drawableEnd="@drawable/mic_icon"
+                    android:layout_marginBottom="16dp"/>
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCategory"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                tools:listitem="@layout/row_categories"
+                android:layout_margin="@dimen/_8sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_300sdp"
+                android:layout_above="@id/worm_dots_indicator" />
+
+            <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+                android:id="@+id/worm_dots_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                app:dotsColor="@color/appColor"
+                android:layout_margin="@dimen/_10sdp"
+                app:dotsStrokeColor="@color/greay"
+                app:dotsCornerRadius="10dp"
+                app:dotsSize="10dp"
+                app:dotsSpacing="4dp"
+                app:dotsStrokeWidth="6dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Special Collection"
+                android:layout_centerVertical="true"
+                android:textColor="@color/appColor"
+                android:layout_toRightOf="@id/back"
+                android:textSize="@dimen/_20ssp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Out top picks, just for you!"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black"
+                android:layout_toRightOf="@id/back"
+                android:textSize="@dimen/_12ssp"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_gravity="center_horizontal"
+                android:textStyle="normal"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:src="@drawable/line_design"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/bigCategoriesRV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                tools:listitem="@layout/row_big_categories"
+                android:layout_margin="@dimen/_8sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+            <!--            banner girl-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trending Products"
+                android:layout_centerVertical="true"
+                android:textColor="@color/appColor"
+                android:layout_toRightOf="@id/back"
+                android:textSize="@dimen/_20ssp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Top picks best sellers, just for your price!"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black"
+                android:layout_toRightOf="@id/back"
+                android:textSize="@dimen/_12ssp"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_gravity="center_horizontal"
+                android:textStyle="normal"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:src="@drawable/line_design"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/trandingRv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                android:descendantFocusability="blocksDescendants"
+                tools:listitem="@layout/row_products"/>
+
+            <!--            shop by gender-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shop by Gender"
+                android:layout_centerVertical="true"
+                android:textColor="@color/appColor"
+                android:layout_toRightOf="@id/back"
+                android:textSize="@dimen/_20ssp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="First Class Cloths for first-class Men, Women &amp; Children"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black"
+                android:layout_toRightOf="@id/back"
+                android:textSize="@dimen/_12ssp"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_gravity="center_horizontal"
+                android:textStyle="normal"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:src="@drawable/line_design"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/_10sdp">
+
+                <include
+                    android:layout_weight="1"
+                    layout="@layout/collection_categories"
+                    android:layout_width="match_parent"
+                    android:layout_marginRight="@dimen/_4sdp"
+                    android:layout_marginBottom="@dimen/_6sdp"
+                    android:layout_height="wrap_content" />
+                <include
+                    android:layout_weight="1"
+                    layout="@layout/collection_categories"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="@dimen/_4sdp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <include
+                layout="@layout/collection_categories"
+                android:layout_width="match_parent"
+                android:layout_marginRight="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:layout_height="wrap_content" />
+
+            <!--            festival collection-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Festival Collection"
+                android:layout_centerVertical="true"
+                android:textColor="@color/appColor"
+                android:layout_toRightOf="@id/back"
+                android:textSize="@dimen/_20ssp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Out top picks, just for you!"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black"
+                android:layout_toRightOf="@id/back"
+                android:textSize="@dimen/_12ssp"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_gravity="center_horizontal"
+                android:textStyle="normal"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:src="@drawable/line_design"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                android:src="@drawable/banner_girl"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/festBigCategoryBig"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                tools:listitem="@layout/row_big_categories"
+                android:layout_margin="@dimen/_8sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                android:src="@drawable/banner_girl_traditional"/>
+
+            <!--            shop by gender-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Best Sellers"
+                android:layout_centerVertical="true"
+                android:textColor="@color/appColor"
+                android:layout_toRightOf="@id/back"
+                android:textSize="@dimen/_20ssp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Top picks best sellers, just for your price!"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black"
+                android:layout_toRightOf="@id/back"
+                android:textSize="@dimen/_12ssp"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_gravity="center_horizontal"
+                android:textStyle="normal"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:src="@drawable/line_design"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/bestSellerRv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                android:descendantFocusability="blocksDescendants"
+                tools:listitem="@layout/row_products"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>
