@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/white"
+    app:strokeColor="@color/limeGreay"
+    android:layout_marginTop="@dimen/_10sdp"
+    app:cardCornerRadius="@dimen/_10sdp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/temp_cat_img_girl"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:id="@+id/productName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_toRightOf="@+id/productImage"
+            android:layout_marginLeft="@dimen/_6sdp"
+            android:textStyle="bold"
+            android:text="Postal Floral Gold and Diaomond Stud Earings"
+            android:textSize="@dimen/_11ssp" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="₹20,425"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_toRightOf="@+id/productImage"
+            android:layout_marginLeft="@dimen/_6sdp"
+            android:layout_below="@id/productName"/>
+
+        <TextView
+            android:id="@+id/quantity_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quantity :"
+            android:layout_below="@id/price"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/productImage"
+            android:layout_marginLeft="@dimen/_6sdp"
+            android:textColor="@color/dark_greay"
+            android:textSize="@dimen/_10ssp" />
+
+        <TextView
+            android:id="@+id/quantity_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:layout_below="@id/price"
+            android:textColor="@color/appColor"
+            android:textSize="10sp"
+            android:layout_marginTop="8dp"
+            android:textStyle="bold"
+            android:layout_toEndOf="@id/quantity_label"
+            android:layout_marginStart="4dp" />
+
+        <TextView
+            android:id="@+id/qr_code_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QR Code no. #A1234567890A"
+            android:textColor="@color/dark_greay"
+            android:textSize="@dimen/_10ssp"
+            android:layout_below="@id/quantity_value"
+            android:layout_toRightOf="@+id/productImage"
+            android:layout_marginLeft="@dimen/_6sdp"
+            android:layout_marginTop="8dp" />
+
+        <View
+            android:id="@+id/v1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/limeGreay"
+            android:layout_below="@id/qr_code_label"
+            android:layout_marginTop="@dimen/_15sdp"/>
+
+        <TextView
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="CANCEL ITEM"
+            android:textSize="@dimen/_10ssp"
+            android:layout_centerHorizontal="true"
+            android:padding="@dimen/_10sdp"
+            android:layout_below="@id/v1"/>
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

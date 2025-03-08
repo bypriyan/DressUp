@@ -26,5 +26,7 @@ class LoginActivity : AppCompatActivity() {
 
         }
 
+        binding.editTextMobileNumber.setText("9876543210")
+
     }
 }

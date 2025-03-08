@@ -8,6 +8,7 @@
     tools:context=".activity.ui.SavedFragment">
 
     <ScrollView
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -88,5 +89,15 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/savedProductRv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        android:descendantFocusability="blocksDescendants"
+        tools:listitem="@layout/row_products"/>
+
 
 </RelativeLayout>
