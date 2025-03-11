@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".PayOnDeliveryActivity">
+
+    <RelativeLayout
+        android:id="@+id/rel"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/actionBarColor">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="@dimen/_27sdp"
+            android:layout_height="@dimen/_27sdp"
+            android:src="@drawable/ic_back"
+            android:padding="@dimen/_2sdp"
+            android:layout_centerVertical="true"
+            app:tint="@color/appColor"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_10sdp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pay on delivery"
+            android:layout_centerVertical="true"
+            android:textColor="@color/appColor"
+            android:layout_toRightOf="@id/back"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_below="@id/rel"
+        android:layout_width="match_parent"
+        android:layout_above="@id/proceedBtn"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/_5sdp"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="@dimen/_2sdp"
+                app:strokeColor="@color/white"
+                android:layout_margin="@dimen/_15sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/_10sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="You Pay"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_13ssp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="₹8,737"
+                        android:gravity="end"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_13ssp"/>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@color/actionBarColor"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/line_bg"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp"
+                android:layout_margin="@dimen/_15sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Note : Pay on Delivery through Debit or Credit cards, NetBanking, UPI, Wallet."
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12ssp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="By placing the order, you have read and agreed to Cloth Crew Terms and Conditions and Privacy Policy."
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_6sdp"
+                android:text="Total breakdown"
+                android:textColor="@color/dark_greay"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="normal" />
+
+            <RelativeLayout
+                android:id="@+id/priseLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp">
+
+                <TextView
+                    android:id="@+id/firstInstallment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_5sdp"
+                    android:text="Subtotal (1 item)"
+                    android:textColor="@color/dark_greay" />
+
+
+                <TextView
+                    android:id="@+id/firstInstallmentTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:padding="@dimen/_5sdp"
+                    android:text="₹ 20,425"
+                    android:textColor="@color/black" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/firstInstallment"
+                    android:id="@+id/relativeLayout">
+
+                    <TextView
+
+                        android:id="@+id/secondInstallment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Security Deposit"
+                        android:textColor="@color/dark_greay" />
+
+                    <TextView
+                        android:id="@+id/SecondInstallmentTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:padding="@dimen/_5sdp"
+                        android:text="₹4,000"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/thirdInstallmentTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_below="@+id/secondInstallment"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Wallet coin"
+                        android:textColor="@color/dark_greay" />
+
+                    <TextView
+                        android:id="@+id/thirdInstallmentTv"
+                        android:layout_width="wrap_content"
+                        android:layout_below="@+id/SecondInstallmentTv"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:padding="@dimen/_5sdp"
+                        android:text="₹0"
+                        android:textColor="@color/black" />
+
+                    <!--                    new-->
+
+                    <TextView
+                        android:id="@+id/fourInstallmentTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_below="@+id/thirdInstallmentTv"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Discount"
+                        android:textColor="@color/dark_greay" />
+                    <TextView
+                        android:id="@+id/fourInstallmentTv"
+                        android:layout_width="wrap_content"
+                        android:layout_below="@+id/thirdInstallmentTv"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:padding="@dimen/_5sdp"
+                        android:text="₹0"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/fiveInstallmentTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_below="@+id/fourInstallmentTv"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Shipping"
+                        android:textColor="@color/dark_greay" />
+                    <TextView
+                        android:id="@+id/fiveInstallmentTv"
+                        android:layout_width="wrap_content"
+                        android:layout_below="@+id/fourInstallmentTv"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:padding="@dimen/_5sdp"
+                        android:text="FREE"
+                        android:textColor="@color/black" />
+
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_below="@id/relativeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@color/limeGreay"/>
+
+                <TextView
+                    android:id="@+id/totalLableTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view"
+                    android:padding="@dimen/_5sdp"
+                    android:text="Grand Total "
+                    android:textColor="@color/appColor"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/allTotalPriseTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view"
+                    android:layout_alignParentEnd="true"
+                    android:padding="@dimen/_5sdp"
+                    android:text="₹ 20,425"
+                    android:textColor="@color/appColor"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/allTotalPriseTv"
+                    android:padding="@dimen/_5sdp"
+                    android:text="*Inclusive of all taxes"
+                    android:textColor="@color/dark_greay"
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="normal" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/proceedBtn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/appColor"
+        android:text="Proceed"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        app:cornerRadius="@dimen/_5sdp" />
+
+</RelativeLayout>

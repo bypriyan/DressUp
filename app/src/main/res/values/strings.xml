@@ -18,5 +18,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_testing">TestingActivity</string>
+    <string name="product_description_text">This carousel neoprene ruffled gown features a fitted silhouette with flare at the bottom.Seller: Rent A Closet SKU: RIB_2578 Color: Pine Green Material: Neoprene Neck Design: Boat Neck Sleeves: Sleeveless</string>
+    <string name="dummy_address">Delivery to Akash h no 294, school chowk, pathari, raipur CG RAIPUR CHHATTISGAR...</string>
+    <string name="payment_info">In order to process your order, we need to gather your payment details, please select a form of payment below.</string>
 
 </resources>
