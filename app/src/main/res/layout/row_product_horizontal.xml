@@ -45,6 +45,7 @@
             android:paddingLeft="@dimen/_10sdp"
             android:paddingRight="@dimen/_10sdp"
             android:paddingTop="@dimen/_6sdp"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:paddingBottom="@dimen/_5sdp"
             android:gravity="start"
             android:textSize="@dimen/_11ssp"
@@ -60,6 +61,7 @@
             android:paddingRight="@dimen/_10sdp"
             android:paddingTop="@dimen/_6sdp"
             android:paddingBottom="@dimen/_5sdp"
+            android:fontFamily="@font/nunito_sans_bold"
             android:gravity="start"
             android:textSize="@dimen/_13ssp"
             android:layout_gravity="center_horizontal"
@@ -75,6 +77,7 @@
             android:paddingBottom="@dimen/_5sdp"
             android:gravity="start"
             android:textSize="@dimen/_11ssp"
+            android:fontFamily="@font/nunito_sans_bold"
             android:layout_gravity="center_horizontal"
             android:textColor="@color/dark_greay"/>
 
@@ -89,10 +92,12 @@
             android:gravity="start"
             android:textSize="@dimen/_11ssp"
             android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:layout_marginTop="@dimen/_2sdp"
-            android:textColor="@color/appColor"/>
+            android:textColor="@color/appTextColor"/>
 
         <TextView
+            android:id="@+id/addToCartTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Move to Cart"
@@ -103,8 +108,9 @@
             android:layout_marginBottom="@dimen/_15sdp"
             android:gravity="start"
             android:textSize="@dimen/_13ssp"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/appColor"/>
+            android:textColor="@color/appTextColor"/>
 
     </LinearLayout>
 

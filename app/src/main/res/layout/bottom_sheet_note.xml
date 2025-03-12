@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:text="Add Note"
         android:textSize="18sp"
+        android:fontFamily="@font/nunito_sans_bold"
         android:layout_marginTop="@dimen/_10sdp"
         android:textColor="@android:color/black"
         android:textStyle="bold"/>
@@ -55,7 +56,8 @@
             android:layout_height="wrap_content"
             android:text="or"
             android:textSize="14sp"
-            android:textColor="@android:color/darker_gray"
+            android:fontFamily="@font/nunito_sans_semi_bold"
+            android:textColor="@color/appDarkGreay"
             android:layout_marginRight="8dp"/>
 
         <TextView
@@ -64,6 +66,7 @@
             android:layout_height="wrap_content"
             android:text="Add Media"
             android:textSize="14sp"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:textColor="@color/skyBlue"
             android:textStyle="bold"/>
     </LinearLayout>
@@ -79,6 +82,6 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:layout_marginTop="@dimen/_15sdp"
-        app:cornerRadius="@dimen/_10sdp" />
+        app:cornerRadius="@dimen/_5sdp" />
 
 </LinearLayout>

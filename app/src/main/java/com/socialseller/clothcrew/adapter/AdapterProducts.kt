@@ -5,9 +5,11 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.socialseller.clothcrew.model.Item
 import com.socialseller.clothcrew.R
+import com.socialseller.clothcrew.activity.AddToCartActivity
 import com.socialseller.clothcrew.activity.ProductDetailsActivity
 import com.socialseller.clothcrew.activity.orders.OrderDetailsActivity
 
@@ -17,6 +19,7 @@ class AdapterProducts (private val context: Context,
 
     // ViewHolder class
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val addToCartTv: TextView = itemView.findViewById(R.id.addToCartTv)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -28,6 +31,9 @@ class AdapterProducts (private val context: Context,
         val item = itemList[position]
         holder.itemView.setOnClickListener {
             context.startActivity(Intent(context, ProductDetailsActivity::class.java))
+        }
+        holder.addToCartTv.setOnClickListener {
+            context.startActivity(Intent(context, AddToCartActivity::class.java))
         }
 
     }

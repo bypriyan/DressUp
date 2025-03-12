@@ -15,6 +15,7 @@
         android:text="Armpit"
         android:textSize="@dimen/_12ssp"
         android:layout_weight="1"
+        android:fontFamily="@font/nunito_sans_bold"
         android:layout_marginRight="@dimen/_10sdp"
         android:textColor="@color/dark_greay"
         android:textStyle="normal"/>
@@ -28,7 +29,7 @@
         android:layout_weight="1"
         android:textColor="@color/black"
         android:layout_centerHorizontal="true"
-        android:textStyle="bold"
+        android:fontFamily="@font/nunito_sans_bold"
         android:layout_marginTop="@dimen/_8sdp"/>
 
     <View

@@ -6,9 +6,9 @@
     android:background="@color/white"
     app:strokeColor="@color/transparent"
     app:cardBackgroundColor="@color/white"
-    android:layout_margin="@dimen/_8sdp"
+    android:layout_margin="@dimen/_4sdp"
     app:cardElevation="@dimen/_2sdp"
-    app:cardCornerRadius="@dimen/_10sdp">
+    app:cardCornerRadius="@dimen/_5sdp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,6 +48,7 @@
             android:paddingBottom="@dimen/_5sdp"
             android:gravity="start"
             android:textSize="@dimen/_11ssp"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:layout_gravity="center_horizontal"
             android:textColor="@color/dark_greay"/>
 
@@ -62,6 +63,7 @@
             android:paddingBottom="@dimen/_5sdp"
             android:gravity="start"
             android:textSize="@dimen/_13ssp"
+            android:fontFamily="@font/nunito_sans_bold"
             android:layout_gravity="center_horizontal"
             android:textColor="@color/black"/>
 
@@ -74,7 +76,8 @@
             android:paddingTop="@dimen/_1sdp"
             android:paddingBottom="@dimen/_5sdp"
             android:gravity="start"
-            android:textSize="@dimen/_11ssp"
+            android:textSize="@dimen/_10ssp"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:layout_gravity="center_horizontal"
             android:textColor="@color/dark_greay"/>
 
@@ -88,11 +91,13 @@
             android:paddingBottom="@dimen/_5sdp"
             android:gravity="start"
             android:textSize="@dimen/_11ssp"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/_2sdp"
-            android:textColor="@color/appColor"/>
+            android:textColor="@color/appTextColor"/>
 
         <TextView
+            android:id="@+id/addToCartTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Move to Cart"
@@ -103,8 +108,9 @@
             android:layout_marginBottom="@dimen/_15sdp"
             android:gravity="start"
             android:textSize="@dimen/_13ssp"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/appColor"/>
+            android:textColor="@color/appTextColor"/>
 
     </LinearLayout>
 

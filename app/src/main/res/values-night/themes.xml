@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Base.Theme.CothCrew" parent="Theme.SplashScreen" >
         <item name="windowSplashScreenBackground">@color/appColor</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/cc</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/cc_splash_logo</item>
         <item name="windowSplashScreenIconBackgroundColor">@color/appColor</item>
         <item name="tint">@color/white</item>
         <item name="postSplashScreenTheme">@style/Theme.CothCrew</item>

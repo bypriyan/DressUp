@@ -37,8 +37,10 @@
                     android:layout_height="wrap_content"
                     android:text="Variants"
                     android:layout_weight="1"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
                     android:textSize="@dimen/_12ssp"
-                    android:textColor="@color/black"/>
+                    android:textAllCaps="true"
+                    android:textColor="@color/appDarkGreay"/>
 
                 <ImageView
                     android:layout_width="@dimen/_25sdp"
@@ -53,7 +55,8 @@
                     android:layout_height="wrap_content"
                     android:text="Size Chart"
                     android:textSize="@dimen/_12ssp"
-                    android:textColor="@color/black"/>
+                    android:fontFamily="@font/nunito_sans_semi_bold"
+                    android:textColor="@color/appDarkGreay"/>
 
             </LinearLayout>
 
@@ -69,11 +72,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Variants"
+                android:text="select delivery date"
                 android:layout_weight="1"
                 android:layout_marginTop="@dimen/_15sdp"
+                android:textAllCaps="true"
                 android:textSize="@dimen/_12ssp"
-                android:textColor="@color/black"/>
+                android:fontFamily="@font/nunito_sans_semi_bold"
+                android:textColor="@color/appDarkGreay"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -97,6 +102,7 @@
                     android:textSize="@dimen/_10ssp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/_5sdp"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
                     android:textColor="@color/black"/>
 
                 <ImageView
@@ -117,6 +123,7 @@
                     android:gravity="end"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/_5sdp"
+                    android:fontFamily="@font/nunito_sans_bold"
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
 
@@ -151,7 +158,7 @@
             android:layout_height="wrap_content"
             android:text="Note or Media"
             android:textSize="@dimen/_12ssp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/appDarkGreay"/>
 
     </LinearLayout>
 
@@ -167,6 +174,6 @@
         android:layout_marginRight="@dimen/_15sdp"
         android:layout_marginBottom="@dimen/_15sdp"
         android:textColor="@color/white"
-        app:cornerRadius="@dimen/_10sdp" />
+        app:cornerRadius="@dimen/_5sdp" />
 
 </RelativeLayout>

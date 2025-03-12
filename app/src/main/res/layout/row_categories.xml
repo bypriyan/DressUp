@@ -3,9 +3,11 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="@dimen/_10sdp"
+    app:cardCornerRadius="@dimen/_6sdp"
     app:cardBackgroundColor="@color/white"
-    android:layout_margin="@dimen/_10sdp"
+    android:layout_marginLeft="@dimen/_6sdp"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:layout_marginBottom="@dimen/_5sdp"
     app:cardElevation="@dimen/_2sdp"
     app:strokeColor="@color/transparent">
 
@@ -19,14 +21,14 @@
             android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_100sdp"
             android:scaleType="centerCrop"
-            android:src="@drawable/login_girl_image"/>
+            android:src="@drawable/temp_cat_img_girl"/>
 
         <TextView
             android:id="@+id/catTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Traditional"
-            android:textStyle="bold"
+            android:fontFamily="@font/nunito_sans_bold"
             android:layout_margin="@dimen/_10sdp"
             android:textColor="@color/appColor"/>
 

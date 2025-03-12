@@ -23,6 +23,7 @@
             android:text="Advance booking"
             android:textColor="@color/black"
             android:textStyle="bold"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:layout_marginTop="@dimen/_6sdp"
             android:textSize="@dimen/_10ssp"/>
 
@@ -46,6 +47,7 @@
             android:text="Ship both ways"
             android:textColor="@color/black"
             android:textStyle="bold"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:layout_marginTop="@dimen/_6sdp"
             android:textSize="@dimen/_10ssp"/>
 
@@ -69,6 +71,7 @@
             android:text="Cash on Delivery"
             android:textColor="@color/black"
             android:textStyle="bold"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:layout_marginTop="@dimen/_6sdp"
             android:textSize="@dimen/_10ssp"/>
 

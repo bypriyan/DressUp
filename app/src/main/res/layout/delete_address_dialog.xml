@@ -54,11 +54,11 @@
             android:layout_height="@dimen/_48sdp"
             android:layout_alignParentBottom="true"
             android:backgroundTint="@color/appColor"
-            android:text="Log Out"
+            android:text="Delete"
             android:layout_marginLeft="@dimen/_6sdp"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            app:cornerRadius="@dimen/_10sdp" />
+            app:cornerRadius="@dimen/_5sdp" />
     </LinearLayout>
 
 

@@ -20,7 +20,7 @@
             android:layout_width="@dimen/_27sdp"
             android:layout_height="@dimen/_27sdp"
             android:src="@drawable/ic_back"
-            android:padding="@dimen/_2sdp"
+            android:padding="@dimen/_6sdp"
             android:layout_centerVertical="true"
             app:tint="@color/appColor"
             android:layout_alignParentStart="true"
@@ -35,6 +35,7 @@
             android:textColor="@color/appColor"
             android:layout_toRightOf="@id/back"
             android:textSize="@dimen/_13ssp"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:textStyle="bold"/>
 
         <TextView
@@ -46,7 +47,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginRight="@dimen/_15sdp"
             android:textSize="@dimen/_13ssp"
-            android:textStyle="bold"/>
+            android:fontFamily="@font/nunito_sans_semi_bold"/>
 
 
     </RelativeLayout>
@@ -66,7 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Gender"
-                android:textStyle="bold"
+                android:fontFamily="@font/nunito_sans_bold"
                 android:textColor="@color/black"
                 android:layout_marginBottom="8dp"/>
 
@@ -85,6 +86,7 @@
                     android:layout_height="wrap_content"
                     android:text="Male"
                     android:textColor="@color/black"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
                     android:layout_marginRight="16dp"/>
 
                 <!-- Female RadioButton -->
@@ -94,6 +96,7 @@
                     android:layout_width="wrap_content"
                     android:textColor="@color/black"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
                     android:text="Female"/>
             </RadioGroup>
 
@@ -107,8 +110,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Measurements (in inches)"
-                android:textStyle="bold"
                 android:textColor="@color/black"
+                android:fontFamily="@font/nunito_sans_semi_bold"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginBottom="16dp"/>
 
@@ -130,7 +133,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Armhole/armpit"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:textColor="@color/dark_greay"
                         android:layout_gravity="start"
                         android:layout_marginBottom="4dp"/>
@@ -158,7 +161,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Shoulder"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:gravity="center"
                         android:textColor="@color/dark_greay"
                         android:layout_gravity="start"
@@ -195,7 +198,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Chest"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:textColor="@color/dark_greay"
                         android:layout_gravity="start"
                         android:layout_marginBottom="4dp"/>
@@ -223,7 +226,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Biceps"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:gravity="center"
                         android:textColor="@color/dark_greay"
                         android:layout_gravity="start"
@@ -260,7 +263,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sleeve Length"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:textColor="@color/dark_greay"
                         android:layout_gravity="start"
                         android:layout_marginBottom="4dp"/>
@@ -288,7 +291,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Waist"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:gravity="center"
                         android:textColor="@color/dark_greay"
                         android:layout_gravity="start"
@@ -325,7 +328,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Hips"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:textColor="@color/dark_greay"
                         android:layout_gravity="start"
                         android:layout_marginBottom="4dp"/>
@@ -353,7 +356,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Outside Leg"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:gravity="center"
                         android:textColor="@color/dark_greay"
                         android:layout_gravity="start"
@@ -390,7 +393,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Thigh"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:textColor="@color/dark_greay"
                         android:layout_gravity="start"
                         android:layout_marginBottom="4dp"/>
@@ -418,7 +421,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Ankle"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:gravity="center"
                         android:textColor="@color/dark_greay"
                         android:layout_gravity="start"
@@ -449,7 +452,7 @@
                 android:textAllCaps="false"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/white"
-                app:cornerRadius="@dimen/_10sdp" />
+                app:cornerRadius="@dimen/_5sdp" />
 
         </LinearLayout>
 

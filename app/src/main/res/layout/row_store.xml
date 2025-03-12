@@ -26,8 +26,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Fashion Adda - The Cloth Crew Store"
-            android:textStyle="bold"
+            android:fontFamily="@font/nunito_sans_bold"
             android:padding="@dimen/_10sdp"
+            android:textSize="@dimen/_12ssp"
             android:textColor="@color/appColor"
             android:layout_marginBottom="8dp"/>
 
@@ -46,13 +47,16 @@
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
+            android:textSize="@dimen/_10ssp"
+            android:fontFamily="@font/nunito_sans_bold"
             android:textColor="@color/black"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Phone: +91 8839468374"
-            android:textStyle="bold"
+            android:fontFamily="@font/nunito_sans_bold"
+            android:textSize="@dimen/_10ssp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
@@ -62,7 +66,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Phone: +91 8839468374"
-            android:textStyle="bold"
+            android:fontFamily="@font/nunito_sans_bold"
+            android:textSize="@dimen/_10ssp"
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
@@ -94,10 +99,11 @@
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:backgroundTint="@color/appColor"
                 android:text="Get Direction"
+                android:textSize="@dimen/_9ssp"
                 android:layout_marginRight="@dimen/_6sdp"
-                android:textAllCaps="false"
+                android:textAllCaps="true"
                 android:textColor="@color/white"
-                app:cornerRadius="@dimen/_10sdp" />
+                app:cornerRadius="@dimen/_5sdp" />
 
 
             <com.google.android.material.button.MaterialButton
@@ -110,10 +116,11 @@
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:backgroundTint="@color/appColor"
                 android:text="Visit Store"
+                android:textSize="@dimen/_9ssp"
                 android:layout_marginLeft="@dimen/_6sdp"
-                android:textAllCaps="false"
+                android:textAllCaps="true"
                 android:textColor="@color/white"
-                app:cornerRadius="@dimen/_10sdp" />
+                app:cornerRadius="@dimen/_5sdp" />
 
         </LinearLayout>
 

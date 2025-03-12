@@ -6,6 +6,9 @@
     app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="@dimen/_10sdp"
     android:layout_marginTop="@dimen/_10sdp"
+    app:cardElevation="@dimen/_1sdp"
+    android:layout_marginLeft="@dimen/_5sdp"
+    android:layout_marginRight="@dimen/_5sdp"
     app:strokeColor="@color/transparent">
 
         <RelativeLayout
@@ -26,7 +29,8 @@
                 android:layout_height="wrap_content"
                 android:text="KISHAN"
                 android:textColor="@android:color/darker_gray"
-                android:textSize="14sp"
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="@font/nunito_sans_bold"
                 android:layout_toRightOf="@id/radioButton"
                 android:textStyle="bold"/>
 
@@ -40,7 +44,7 @@
                 android:layout_below="@id/name"
                 android:layout_toRightOf="@id/radioButton"
                 android:layout_marginTop="@dimen/_4sdp"
-                android:textStyle="bold"/>
+                android:fontFamily="@font/nunito_sans_semi_bold"/>
 
             <!-- Phone Number -->
             <TextView
@@ -53,7 +57,7 @@
                 android:layout_below="@id/fullName"
                 android:layout_toRightOf="@id/radioButton"
                 android:layout_marginTop="@dimen/_4sdp"
-                android:textStyle="bold"/>
+                android:fontFamily="@font/nunito_sans_semi_bold"/>
 
             <!-- Address -->
             <TextView
@@ -62,9 +66,10 @@
                 android:layout_height="wrap_content"
                 android:text="House No 11/2, Kachna, Raipur,\nChhattisgarh, Pin Code 492001"
                 android:textColor="@android:color/darker_gray"
-                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:layout_below="@id/phoneNumber"
                 android:layout_toRightOf="@id/radioButton"
+                android:fontFamily="@font/nunito_sans_semi_bold"
                 android:textSize="14sp"/>
 
             <View
@@ -95,7 +100,7 @@
                     android:layout_below="@id/name"
                     android:layout_toRightOf="@id/radioButton"
                     android:layout_marginTop="@dimen/_4sdp"
-                    android:textStyle="normal"/>
+                    android:fontFamily="@font/nunito_sans_medium"/>
 
                 <View
                     android:layout_width="@dimen/_1sdp"
@@ -116,7 +121,7 @@
                     android:layout_below="@id/name"
                     android:layout_toRightOf="@id/radioButton"
                     android:layout_marginTop="@dimen/_4sdp"
-                    android:textStyle="normal"/>
+                    android:fontFamily="@font/nunito_sans_medium"/>
 
             </LinearLayout>
 

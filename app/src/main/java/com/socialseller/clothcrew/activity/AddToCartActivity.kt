@@ -1,6 +1,8 @@
 package com.socialseller.clothcrew.activity
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +10,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.socialseller.clothcrew.R
 import com.socialseller.clothcrew.adapter.SizeAdapter
 import com.socialseller.clothcrew.databinding.ActivityAddToCartBinding
@@ -24,7 +27,7 @@ class AddToCartActivity : AppCompatActivity() {
         binding = ActivityAddToCartBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+        val recyclerView: RecyclerView = findViewById(R.id.sizeRV)
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         sizeAdapter = SizeAdapter(sizes) { selectedSize ->
@@ -32,5 +35,37 @@ class AddToCartActivity : AppCompatActivity() {
         }
         recyclerView.adapter = sizeAdapter
 
+        binding.note.setOnClickListener {
+            showBottomSheet()
+        }
+
+    }
+
+    private fun showBottomSheet() {
+        val dialog = BottomSheetDialog(this)
+        val view = layoutInflater.inflate(R.layout.bottom_sheet_note, null)
+        dialog.setContentView(view)
+
+        val tvAddMedia = view.findViewById<TextView>(R.id.tvAddMedia)
+        tvAddMedia.setOnClickListener {
+            showMediaBottomSheet()
+        }
+
+        dialog.show()
+
+    }
+
+    private fun showMediaBottomSheet() {
+        val dialog = BottomSheetDialog(this)
+        val view = layoutInflater.inflate(R.layout.bottom_sheet_addmedia, null)
+        dialog.setContentView(view)
+
+        val closeButton = view.findViewById<TextView>(R.id.tvAddMedia)
+        closeButton.setOnClickListener {
+            dialog.dismiss()
+            showBottomSheet()
+        }
+
+        dialog.show()
     }
 }

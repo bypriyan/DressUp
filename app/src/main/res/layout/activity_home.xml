@@ -96,6 +96,19 @@
             android:layout_above="@id/viewLine"
             app:navGraph="@navigation/mobile_navigation"/>
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:backgroundTint="@color/appColor"
+            app:tint="@color/white"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_70sdp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/call"/>
+
         <View
             android:id="@+id/viewLine"
             android:layout_width="match_parent"
@@ -176,6 +189,7 @@
                         android:text="My Profile"
                         android:layout_gravity="center_vertical"
                         android:textSize="@dimen/_12ssp"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:textColor="@color/black"/>
 
                     <ImageView
@@ -203,6 +217,7 @@
                         android:text="Order History"
                         android:layout_gravity="center_vertical"
                         android:textSize="@dimen/_12ssp"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:textColor="@color/black"/>
 
                     <ImageView
@@ -223,6 +238,7 @@
                     android:textSize="@dimen/_13ssp"
                     android:textColor="@color/appColor"
                     android:layout_marginTop="@dimen/_20sdp"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
                     android:layout_marginLeft="@dimen/_15sdp"/>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -239,6 +255,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Category"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:layout_gravity="center_vertical"
                         android:textSize="@dimen/_12ssp"
                         android:textColor="@color/black"/>
@@ -249,6 +266,7 @@
                         android:src="@drawable/right_shift_arrow"
                         app:tint="@color/black"
                         android:padding="@dimen/_4sdp"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:layout_gravity="center_vertical"/>
                 </LinearLayout>
                 <LinearLayout
@@ -268,6 +286,7 @@
                         android:text="All "
                         android:layout_gravity="center_vertical"
                         android:textSize="@dimen/_12ssp"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:textColor="@color/black"/>
 
                     <ImageView
@@ -295,6 +314,7 @@
                         android:text="Collections"
                         android:layout_gravity="center_vertical"
                         android:textSize="@dimen/_12ssp"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:textColor="@color/black"/>
 
                     <ImageView
@@ -315,6 +335,7 @@
                     android:textSize="@dimen/_13ssp"
                     android:textColor="@color/appColor"
                     android:layout_marginTop="@dimen/_20sdp"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
                     android:layout_marginLeft="@dimen/_15sdp"/>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -331,6 +352,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Men"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:layout_gravity="center_vertical"
                         android:textSize="@dimen/_12ssp"
                         android:textColor="@color/black"/>
@@ -358,6 +380,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Women"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:layout_gravity="center_vertical"
                         android:textSize="@dimen/_12ssp"
                         android:textColor="@color/black"/>
@@ -385,6 +408,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Kids"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:layout_gravity="center_vertical"
                         android:textSize="@dimen/_12ssp"
                         android:textColor="@color/black"/>
@@ -413,6 +437,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Store Location"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:layout_gravity="center_vertical"
                         android:textSize="@dimen/_12ssp"
                         android:textColor="@color/black"/>
@@ -440,6 +465,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Logout"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:layout_gravity="center_vertical"
                         android:textSize="@dimen/_12ssp"
                         android:textColor="@color/black"/>
@@ -458,6 +484,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Ver 2.1.8"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
                     android:layout_marginTop="@dimen/_8sdp"
                     android:layout_marginBottom="@dimen/_20sdp"
                     android:layout_gravity="center_horizontal"

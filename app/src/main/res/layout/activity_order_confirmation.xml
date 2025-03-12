@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activity.orders.OrderConfirmationActivity">
+
+    <RelativeLayout
+        android:id="@+id/rel"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/actionBarColor">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order Confirmation"
+            android:layout_centerVertical="true"
+            android:textColor="@color/appColor"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:textSize="@dimen/_13ssp"
+            android:fontFamily="@font/nunito_sans_semi_bold"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_above="@id/proceedBtn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rel">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_15sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/contact_details_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thank you for your order!"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/nunito_sans_semi_bold"
+                android:layout_below="@id/orderedItemsRv"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Order Number:"
+                    android:textColor="@color/dark_greay"
+                    android:textSize="16sp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
+                    android:layout_below="@id/orderedItemsRv"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SFTQ000124112"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_below="@id/orderedItemsRv"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Return Date/Time:"
+                    android:textColor="@color/dark_greay"
+                    android:textSize="16sp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
+                    android:layout_below="@id/orderedItemsRv"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="6 June 2024 / 10:00 Am"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_below="@id/orderedItemsRv"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="If you have any question about your order, we are happy to take your call at"
+                android:textColor="@color/dark_greay"
+                android:textSize="@dimen/_12ssp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_weight="1"
+                android:fontFamily="@font/nunito_sans_semi_bold"
+                android:gravity="center_horizontal"
+                android:layout_below="@id/orderedItemsRv"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Deliver"
+                    android:textColor="@color/dark_greay"
+                    android:textSize="@dimen/_14ssp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:gravity="start"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
+                    android:layout_below="@id/orderedItemsRv"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 item"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_below="@id/orderedItemsRv"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cartItemRV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/row_product_cart_order_item"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shipping Address"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_14ssp"
+                android:fontFamily="@font/nunito_sans_semi_bold"
+                android:layout_below="@id/name"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:textStyle="normal"/>
+
+            <TextView
+                android:id="@+id/fullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mr. Kishan Sharma"
+                android:textColor="@color/dark_greay"
+                android:textSize="@dimen/_11ssp"
+                android:fontFamily="@font/nunito_sans_semi_bold"
+                android:layout_below="@id/tv"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:textStyle="normal"/>
+
+            <!-- Phone Number -->
+            <TextView
+                android:id="@+id/phoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+91 8839468374"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="@font/nunito_sans_semi_bold"
+                android:layout_below="@id/fullName"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:textStyle="normal"/>
+
+            <!-- Address -->
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="House No 11/2,Anandam Road, Kachna, Raipur, Chhattisgarh.
+492001"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:fontFamily="@font/nunito_sans_semi_bold"
+                android:layout_below="@id/phoneNumber"
+                android:textSize="@dimen/_12ssp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_6sdp"
+                android:text="Total breakdown"
+                android:fontFamily="@font/nunito_sans_semi_bold"
+                android:textColor="@color/dark_greay"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="normal" />
+
+            <RelativeLayout
+                android:id="@+id/priseLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/firstInstallment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Subtotal (1 item)"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
+                    android:textColor="@color/dark_greay" />
+
+
+                <TextView
+                    android:id="@+id/firstInstallmentTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:padding="@dimen/_5sdp"
+                    android:text="₹ 20,425"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
+                    android:textColor="@color/black" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/firstInstallment"
+                    android:id="@+id/relativeLayout">
+
+                    <TextView
+
+                        android:id="@+id/secondInstallment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
+                        android:text="Security Deposit"
+                        android:textColor="@color/dark_greay" />
+
+                    <TextView
+                        android:id="@+id/SecondInstallmentTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:padding="@dimen/_5sdp"
+                        android:text="₹4,000"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/thirdInstallmentTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_below="@+id/secondInstallment"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
+                        android:text="Wallet coin"
+                        android:textColor="@color/dark_greay" />
+
+                    <TextView
+                        android:id="@+id/thirdInstallmentTv"
+                        android:layout_width="wrap_content"
+                        android:layout_below="@+id/SecondInstallmentTv"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:padding="@dimen/_5sdp"
+                        android:text="₹0"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
+                        android:textColor="@color/black" />
+
+                    <!--                    new-->
+
+                    <TextView
+                        android:id="@+id/fourInstallmentTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_below="@+id/thirdInstallmentTv"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Discount"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
+                        android:textColor="@color/dark_greay" />
+                    <TextView
+                        android:id="@+id/fourInstallmentTv"
+                        android:layout_width="wrap_content"
+                        android:layout_below="@+id/thirdInstallmentTv"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:padding="@dimen/_5sdp"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
+                        android:text="₹0"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/fiveInstallmentTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_below="@+id/fourInstallmentTv"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
+                        android:text="Shipping"
+                        android:textColor="@color/dark_greay" />
+                    <TextView
+                        android:id="@+id/fiveInstallmentTv"
+                        android:layout_width="wrap_content"
+                        android:layout_below="@+id/fourInstallmentTv"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:padding="@dimen/_5sdp"
+                        android:text="FREE"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
+                        android:textColor="@color/black" />
+
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_below="@id/relativeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@color/limeGreay"/>
+
+                <TextView
+                    android:id="@+id/totalLableTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view"
+                    android:padding="@dimen/_5sdp"
+                    android:text="Grand Total "
+                    android:fontFamily="@font/nunito_sans_semi_bold"
+                    android:textColor="@color/appColor"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/allTotalPriseTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view"
+                    android:layout_alignParentEnd="true"
+                    android:padding="@dimen/_5sdp"
+                    android:text="₹ 20,425"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
+                    android:textColor="@color/appColor"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/allTotalPriseTv"
+                    android:padding="@dimen/_5sdp"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
+                    android:text="*Inclusive of all taxes"
+                    android:textColor="@color/dark_greay"
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="normal" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view"
+                    android:padding="@dimen/_5sdp"
+                    android:text="Total Saving"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view"
+                    android:layout_alignParentEnd="true"
+                    android:padding="@dimen/_5sdp"
+                    android:text="₹ 20,425"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
+                    android:textColor="@color/appColor"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_10sdp"
+                android:background="@color/appGreay"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view"
+                android:padding="@dimen/_5sdp"
+                android:text="Billing Information"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13ssp"
+                android:fontFamily="@font/nunito_sans_semi_bold"
+                android:textStyle="normal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view"
+                    android:padding="@dimen/_5sdp"
+                    android:text="To be paid via cash"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
+                    android:textColor="@color/dark_greay"
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view"
+                    android:layout_alignParentEnd="true"
+                    android:padding="@dimen/_5sdp"
+                    android:text="₹ 8,737"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/proceedBtn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/appColor"
+        android:text="Continue Shopping"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        app:cornerRadius="0dp" />
+
+</RelativeLayout>

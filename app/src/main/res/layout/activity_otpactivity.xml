@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:text="Enter OTP"
         android:textColor="@color/black"
-        android:textStyle="bold"
+        android:fontFamily="@font/nunito_sans_regular"
         android:layout_below="@id/topImage"
         android:layout_marginLeft="@dimen/_15sdp"
         android:textSize="@dimen/_13ssp"/>
@@ -49,17 +49,29 @@
         android:layout_height="wrap_content"
         android:text="6 digit OTP sent to XXXXXX8374"
         android:textColor="@color/dark_greay"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:textStyle="normal"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/nunito_sans_regular"
         android:layout_below="@id/loginTv"
         android:layout_marginLeft="@dimen/_15sdp"
-        android:textSize="@dimen/_11ssp"/>
+        android:textSize="@dimen/_10ssp"/>
+
+    <TextView
+        android:id="@+id/aa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter OTP"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/nunito_sans_regular"
+        android:layout_below="@id/mobTv"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:textSize="@dimen/_10ssp"/>
 
     <RelativeLayout
         android:id="@+id/imputRv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/mobTv"
+        android:layout_below="@id/aa"
         android:layout_marginTop="@dimen/_15sdp"
         android:padding="@dimen/_15sdp">
 
@@ -133,18 +145,34 @@
 
     </RelativeLayout>
 
-    <TextView
+    <LinearLayout
         android:id="@+id/conditions"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/by_continuing_i_agree_to_terms_of_use_privacy_policy"
-        android:textColor="@color/appColor"
-        android:layout_marginTop="@dimen/_60sdp"
-        android:textStyle="normal"
+        android:orientation="horizontal"
         android:layout_below="@id/imputRv"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="@dimen/_15sdp"
-        android:textSize="@dimen/_10ssp"/>
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OTP not Received?"
+            android:textColor="@color/appDarkGreay"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:fontFamily="@font/nunito_sans_regular"
+            android:textSize="@dimen/_10ssp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resend OTP"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:textColor="@color/appTextColor"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:fontFamily="@font/nunito_sans_regular"
+            android:textSize="@dimen/_10ssp"/>
+
+    </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/requestOTPBtn"
@@ -155,9 +183,9 @@
         android:layout_marginBottom="@dimen/_10sdp"
         android:layout_centerHorizontal="true"
         android:backgroundTint="@color/appColor"
-        android:text="Request OTP"
+        android:text="Verify OTP"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        app:cornerRadius="@dimen/_10sdp" />
+        app:cornerRadius="@dimen/_5sdp" />
 
 </RelativeLayout>

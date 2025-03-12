@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".PayOnDeliveryActivity">
+    tools:context=".activity.PayOnDeliveryActivity">
 
     <RelativeLayout
         android:id="@+id/rel"
@@ -20,7 +20,7 @@
             android:layout_width="@dimen/_27sdp"
             android:layout_height="@dimen/_27sdp"
             android:src="@drawable/ic_back"
-            android:padding="@dimen/_2sdp"
+            android:padding="@dimen/_6sdp"
             android:layout_centerVertical="true"
             app:tint="@color/appColor"
             android:layout_alignParentStart="true"
@@ -35,6 +35,7 @@
             android:textColor="@color/appColor"
             android:layout_toRightOf="@id/back"
             android:textSize="@dimen/_13ssp"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:textStyle="bold"/>
 
     </RelativeLayout>
@@ -70,6 +71,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="You Pay"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:layout_gravity="center_vertical"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_13ssp"/>
@@ -80,6 +82,7 @@
                         android:layout_weight="1"
                         android:text="₹8,737"
                         android:gravity="end"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:layout_gravity="center_vertical"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_13ssp"/>
@@ -106,6 +109,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
                     android:text="Note : Pay on Delivery through Debit or Credit cards, NetBanking, UPI, Wallet."
                     android:layout_gravity="center_vertical"
                     android:textColor="@color/black"
@@ -118,6 +122,7 @@
                     android:text="By placing the order, you have read and agreed to Cloth Crew Terms and Conditions and Privacy Policy."
                     android:layout_marginTop="@dimen/_10sdp"
                     android:textColor="@color/black"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
                     android:textSize="@dimen/_11ssp"/>
 
             </LinearLayout>
@@ -129,6 +134,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_6sdp"
                 android:text="Total breakdown"
+                android:fontFamily="@font/nunito_sans_semi_bold"
                 android:textColor="@color/dark_greay"
                 android:textSize="@dimen/_14ssp"
                 android:textStyle="normal" />
@@ -144,6 +150,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/_5sdp"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
                     android:text="Subtotal (1 item)"
                     android:textColor="@color/dark_greay" />
 
@@ -154,6 +161,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:padding="@dimen/_5sdp"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
                     android:text="₹ 20,425"
                     android:textColor="@color/black" />
                 <RelativeLayout
@@ -168,6 +176,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/_5sdp"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:text="Security Deposit"
                         android:textColor="@color/dark_greay" />
 
@@ -178,6 +187,7 @@
                         android:layout_alignParentRight="true"
                         android:padding="@dimen/_5sdp"
                         android:text="₹4,000"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -186,6 +196,7 @@
                         android:layout_below="@+id/secondInstallment"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/_5sdp"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:text="Wallet coin"
                         android:textColor="@color/dark_greay" />
 
@@ -197,6 +208,7 @@
                         android:layout_alignParentRight="true"
                         android:padding="@dimen/_5sdp"
                         android:text="₹0"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:textColor="@color/black" />
 
                     <!--                    new-->
@@ -207,6 +219,7 @@
                         android:layout_below="@+id/thirdInstallmentTv"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/_5sdp"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:text="Discount"
                         android:textColor="@color/dark_greay" />
                     <TextView
@@ -217,6 +230,7 @@
                         android:layout_alignParentRight="true"
                         android:padding="@dimen/_5sdp"
                         android:text="₹0"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -226,6 +240,7 @@
                         android:layout_height="wrap_content"
                         android:padding="@dimen/_5sdp"
                         android:text="Shipping"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:textColor="@color/dark_greay" />
                     <TextView
                         android:id="@+id/fiveInstallmentTv"
@@ -235,6 +250,7 @@
                         android:layout_alignParentRight="true"
                         android:padding="@dimen/_5sdp"
                         android:text="FREE"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:textColor="@color/black" />
 
 
@@ -254,6 +270,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/view"
                     android:padding="@dimen/_5sdp"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
                     android:text="Grand Total "
                     android:textColor="@color/appColor"
                     android:textSize="@dimen/_13ssp"
@@ -267,6 +284,7 @@
                     android:layout_alignParentEnd="true"
                     android:padding="@dimen/_5sdp"
                     android:text="₹ 20,425"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
                     android:textColor="@color/appColor"
                     android:textSize="@dimen/_13ssp"
                     android:textStyle="normal" />
@@ -279,6 +297,7 @@
                     android:text="*Inclusive of all taxes"
                     android:textColor="@color/dark_greay"
                     android:textSize="@dimen/_10ssp"
+                    android:fontFamily="@font/nunito_sans_semi_bold"
                     android:textStyle="normal" />
 
             </RelativeLayout>

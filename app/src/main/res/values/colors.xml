@@ -28,4 +28,6 @@
     <color name="appColor">#832728</color>
     <color name="actionBarColor">#F2EAE8</color>
     <color name="appGreay">#f8f8f8</color>
+    <color name="appTextColor">#6a474a</color>
+    <color name="appDarkGreay">#727270</color>
 </resources>

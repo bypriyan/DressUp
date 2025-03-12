@@ -32,6 +32,7 @@
             android:layout_toRightOf="@+id/productImage"
             android:layout_marginLeft="@dimen/_6sdp"
             android:textStyle="bold"
+            android:fontFamily="@font/nunito_sans_bold"
             android:text="Postal Floral Gold and Diaomond Stud Earings"
             android:textSize="@dimen/_11ssp" />
 
@@ -42,6 +43,7 @@
             android:textColor="@color/black"
             android:text="₹20,425"
             android:textSize="@dimen/_12ssp"
+            android:fontFamily="@font/nunito_sans_bold"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_toRightOf="@+id/productImage"
             android:layout_marginLeft="@dimen/_6sdp"
@@ -56,6 +58,7 @@
             android:layout_marginTop="8dp"
             android:layout_toRightOf="@+id/productImage"
             android:layout_marginLeft="@dimen/_6sdp"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:textColor="@color/dark_greay"
             android:textSize="@dimen/_10ssp" />
 
@@ -68,6 +71,7 @@
             android:textColor="@color/appColor"
             android:textSize="10sp"
             android:layout_marginTop="8dp"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:textStyle="bold"
             android:layout_toEndOf="@id/quantity_label"
             android:layout_marginStart="4dp" />
@@ -82,6 +86,7 @@
             android:layout_below="@id/quantity_value"
             android:layout_toRightOf="@+id/productImage"
             android:layout_marginLeft="@dimen/_6sdp"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:layout_marginTop="8dp" />
 
         <View
@@ -99,6 +104,7 @@
             android:textColor="@color/black"
             android:text="CANCEL ITEM"
             android:textSize="@dimen/_10ssp"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:layout_centerHorizontal="true"
             android:padding="@dimen/_10sdp"
             android:layout_below="@id/v1"/>

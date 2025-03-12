@@ -1,11 +1,13 @@
 package com.socialseller.clothcrew.activity.orders
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.socialseller.clothcrew.R
+import com.socialseller.clothcrew.activity.cancel.CancelOrderActivity
 import com.socialseller.clothcrew.adapter.AdapterOrderItems
 import com.socialseller.clothcrew.adapter.AdapterStore
 import com.socialseller.clothcrew.databinding.ActivityOrderDetailsBinding
@@ -28,6 +30,10 @@ class OrderDetailsActivity : AppCompatActivity() {
             Item(R.drawable.category_girl_img, "Gown")
         )
         binding.orderedItemsRv.adapter = AdapterOrderItems(this, itemList)
+
+        binding.cancelOrder.setOnClickListener {
+            startActivity(Intent(this, CancelOrderActivity::class.java))
+        }
 
     }
 }

@@ -23,7 +23,7 @@
 
     <item
         android:id="@+id/navigation_ContactUs"
-        android:icon="@drawable/call"
-        android:title="Contact Us" />
+        android:icon="@drawable/order_return"
+        android:title="Returns" />
 
 </menu>

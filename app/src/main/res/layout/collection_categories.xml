@@ -28,12 +28,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Men's"
-                android:textStyle="bold"
+                android:text="Mens"
+                android:fontFamily="@font/nunito_sans_bold"
                 android:layout_weight="1"
                 android:textSize="@dimen/_14ssp"
                 android:layout_margin="@dimen/_10sdp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/appTextColor"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -41,8 +41,9 @@
                 android:text="Explore"
                 android:textStyle="normal"
                 android:textSize="@dimen/_10ssp"
+                android:fontFamily="@font/gilroy_medium"
                 android:layout_gravity="center_vertical"
-                android:textColor="@color/black"/>
+                android:textColor="@color/appTextColor"/>
 
             <ImageView
                 android:layout_width="@dimen/_14sdp"

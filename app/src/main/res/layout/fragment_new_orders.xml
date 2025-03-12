@@ -12,7 +12,7 @@
     android:layout_marginRight="@dimen/_10sdp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:listitem="@layout/row_store"
+    tools:listitem="@layout/row_orders"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 

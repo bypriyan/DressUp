@@ -33,9 +33,9 @@
     </fragment>
 
     <fragment android:id="@+id/navigation_ContactUs"
-        android:name="com.socialseller.clothcrew.activity.ui.OrdersFragment"
-        android:label="Contact Us"
-        tools:layout="@layout/fragment_orders">
+        android:name="com.socialseller.clothcrew.activity.ui.ProPlanFragment"
+        android:label="Returns"
+        tools:layout="@layout/fragment_pro_plan">
     </fragment>
 
 </navigation>

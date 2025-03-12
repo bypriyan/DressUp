@@ -20,7 +20,7 @@
             android:layout_width="@dimen/_27sdp"
             android:layout_height="@dimen/_27sdp"
             android:src="@drawable/ic_back"
-            android:padding="@dimen/_2sdp"
+            android:padding="@dimen/_6sdp"
             android:layout_centerVertical="true"
             app:tint="@color/appColor"
             android:layout_alignParentStart="true"
@@ -35,6 +35,7 @@
             android:textColor="@color/appColor"
             android:layout_toRightOf="@id/back"
             android:textSize="@dimen/_13ssp"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:textStyle="bold"/>
 
         <ImageView
@@ -63,7 +64,7 @@
 
     </RelativeLayout>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/rel">
@@ -78,7 +79,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Default Address"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/appDarkGreay"
+                android:fontFamily="@font/nunito_sans_semi_bold"
                 android:textSize="14sp"
                 android:textStyle="bold"/>
 
@@ -108,7 +110,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="KISHAN"
-                        android:textColor="@android:color/darker_gray"
+                        android:textColor="@color/appDarkGreay"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:textSize="14sp"
                         android:layout_toRightOf="@id/radioButton"
                         android:textStyle="bold"/>
@@ -118,7 +121,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Mr. Kishan Sharma"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:textSize="16sp"
                         android:layout_below="@id/name"
                         android:layout_toRightOf="@id/radioButton"
@@ -131,7 +135,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="+91 8839468374"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:textSize="16sp"
                         android:layout_below="@id/fullName"
                         android:layout_toRightOf="@id/radioButton"
@@ -144,9 +149,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="House No 11/2, Kachna, Raipur,\nChhattisgarh, Pin Code 492001"
-                        android:textColor="@android:color/darker_gray"
-                        android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:layout_below="@id/phoneNumber"
+                        android:textColor="@color/appDarkGreay"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
                         android:layout_toRightOf="@id/radioButton"
                         android:textSize="14sp"/>
 
@@ -176,6 +182,7 @@
                             android:textColor="@color/dark_greay"
                             android:textSize="16sp"
                             android:layout_below="@id/name"
+                            android:fontFamily="@font/nunito_sans_semi_bold"
                             android:layout_toRightOf="@id/radioButton"
                             android:layout_marginTop="@dimen/_4sdp"
                             android:textStyle="normal"/>
@@ -198,6 +205,7 @@
                             android:textSize="16sp"
                             android:layout_below="@id/name"
                             android:layout_toRightOf="@id/radioButton"
+                            android:fontFamily="@font/nunito_sans_semi_bold"
                             android:layout_marginTop="@dimen/_4sdp"
                             android:textStyle="normal"/>
 
@@ -211,13 +219,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Other Addresses"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/appDarkGreay"
+                android:fontFamily="@font/nunito_sans_semi_bold"
                 android:textSize="14sp"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:textStyle="bold"/>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/imageRV"
+                android:id="@+id/addreddRv"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_below="@id/rel"
                 android:layout_width="match_parent"
@@ -227,6 +236,6 @@
 
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </RelativeLayout>

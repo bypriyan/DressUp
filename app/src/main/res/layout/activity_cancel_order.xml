@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".activity.CancelOrderActivity">
+    tools:context=".activity.cancel.CancelOrderActivity">
 
     <RelativeLayout
         android:id="@+id/rel"
@@ -20,7 +20,7 @@
             android:layout_width="@dimen/_27sdp"
             android:layout_height="@dimen/_27sdp"
             android:src="@drawable/ic_back"
-            android:padding="@dimen/_2sdp"
+            android:padding="@dimen/_6sdp"
             android:layout_centerVertical="true"
             app:tint="@color/appColor"
             android:layout_alignParentStart="true"
@@ -35,8 +35,55 @@
             android:textColor="@color/appColor"
             android:layout_toRightOf="@id/back"
             android:textSize="@dimen/_13ssp"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:textStyle="bold"/>
 
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_cancel_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="You are about to cancel your order: JGAGFYYH809384587, please let us know the reason for this cancellation."
+        android:textSize="@dimen/_10ssp"
+        android:textColor="@color/dark_greay"
+        android:layout_below="@id/rel"
+        android:layout_margin="@dimen/_15sdp"
+        android:fontFamily="@font/nunito_sans_semi_bold"
+        android:paddingBottom="8dp" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextViewClass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Price was too high"
+        android:padding="@dimen/_12sdp"
+        android:focusable="false"
+        android:clickable="true"
+        app:hintTextColor="@color/black"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:boxStrokeColor="@color/black"
+        android:layout_below="@id/tv_cancel_message"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:backgroundTint="@color/black"
+        android:textSize="@dimen/_13ssp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/proceedBtn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:backgroundTint="@color/appColor"
+        android:text="Cancel Order"
+        android:textAllCaps="true"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:textColor="@color/white"
+        app:cornerRadius="@dimen/_5sdp" />
 
 </RelativeLayout>

@@ -12,7 +12,8 @@
         android:paddingHorizontal="16dp"
         android:gravity="center"
         android:textStyle="bold"
-        android:textSize="@dimen/_11ssp"
+        android:fontFamily="@font/nunito_sans_semi_bold"
+        android:textSize="@dimen/_10ssp"
         android:textColor="@color/appColor"
         android:background="@drawable/tab_unselected_background" />
 </LinearLayout>

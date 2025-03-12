@@ -1,5 +1,6 @@
 package com.socialseller.clothcrew.activity.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.bypriyan.sharemarketcourseinhindi.adapter.AdapterOnBordingScreen
 import com.socialseller.clothcrew.R
+import com.socialseller.clothcrew.activity.SearchActivity
 import com.socialseller.clothcrew.adapter.AdapyterBigCategory
 import com.socialseller.clothcrew.adapter.AdapyterCategory
 import com.socialseller.clothcrew.adapter.AdapterStore
@@ -47,6 +49,10 @@ class HomeFragment : Fragment() {
         binding.viewPager2.adapter = adapter
         binding.wormDotsIndicator.attachTo(binding.viewPager2)
         binding.viewPager2.isUserInputEnabled = true
+
+        binding.searchClickView.setOnClickListener {
+            startActivity(Intent(requireContext(),SearchActivity::class.java))
+        }
     }
 
     fun getListOfOnBordingScreenContent():List<Int>{

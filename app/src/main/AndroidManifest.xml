@@ -13,10 +13,16 @@
         android:theme="@style/Theme.CothCrew"
         tools:targetApi="31">
         <activity
-            android:name=".activity.CancelOrderActivity"
+            android:name=".activity.orders.OrderConfirmationActivity"
             android:exported="false" />
         <activity
-            android:name=".PayOnDeliveryActivity"
+            android:name=".activity.cancel.CancelConfirmationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.cancel.CancelOrderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.PayOnDeliveryActivity"
             android:exported="false" />
         <activity
             android:name=".activity.PaymentScreenActivity"

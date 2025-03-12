@@ -20,7 +20,7 @@
             android:layout_width="@dimen/_27sdp"
             android:layout_height="@dimen/_27sdp"
             android:src="@drawable/ic_back"
-            android:padding="@dimen/_2sdp"
+            android:padding="@dimen/_6sdp"
             android:layout_centerVertical="true"
             app:tint="@color/appColor"
             android:layout_alignParentStart="true"
@@ -35,6 +35,7 @@
             android:textColor="@color/appColor"
             android:layout_toRightOf="@id/back"
             android:textSize="@dimen/_13ssp"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:textStyle="bold"/>
 
         <TextView
@@ -46,6 +47,7 @@
             android:textSize="@dimen/_13ssp"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="@dimen/_15sdp"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:textStyle="normal"/>
 
 
@@ -94,6 +96,7 @@
             android:layout_below="@id/profile_frame"
             android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:textSize="@dimen/_11ssp"/>
 
         <TextView
@@ -106,6 +109,7 @@
             android:layout_below="@id/profile_frame"
             android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:textSize="@dimen/_13ssp"/>
 
         <EditText
@@ -139,6 +143,7 @@
             android:layout_below="@id/profile_frame"
             android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/nunito_sans_semi_bold"
             android:textSize="@dimen/_13ssp"/>
 
         <EditText
@@ -178,7 +183,7 @@
             android:text="Save"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            app:cornerRadius="@dimen/_10sdp" />
+            app:cornerRadius="@dimen/_5sdp" />
 
     </LinearLayout>
 

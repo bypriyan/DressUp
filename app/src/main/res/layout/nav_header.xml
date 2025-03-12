@@ -35,9 +35,10 @@
         android:layout_below="@id/backBtn"
         android:layout_toRightOf="@id/profile_image"
         android:layout_marginLeft="@dimen/_10sdp"
-        android:textColor="@color/appColor"
+        android:textColor="@color/appTextColor"
         android:layout_marginTop="@dimen/_8sdp"
         android:textStyle="bold"
+        android:fontFamily="@font/nunito_sans_bold"
         android:textSize="@dimen/_14ssp"/>
 
     <TextView
@@ -48,9 +49,10 @@
         android:layout_toRightOf="@id/profile_image"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_below="@id/name"
-        android:textColor="@color/appColor"
+        android:textColor="@color/appTextColor"
+        android:fontFamily="@font/nunito_sans_regular"
         android:textStyle="normal"
-        android:textSize="@dimen/_11ssp"/>
+        android:textSize="@dimen/_10ssp"/>
 
     <ImageView
         android:layout_width="@dimen/_45sdp"

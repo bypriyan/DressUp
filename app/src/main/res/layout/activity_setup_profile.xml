@@ -38,10 +38,10 @@
         android:layout_height="wrap_content"
         android:text="Complete Your profile"
         android:textColor="@color/black"
-        android:textStyle="bold"
+        android:fontFamily="@font/nunito_sans_semi_bold"
         android:layout_below="@id/topImage"
         android:layout_marginLeft="@dimen/_15sdp"
-        android:textSize="@dimen/_13ssp"/>
+        android:textSize="@dimen/_12ssp"/>
 
     <TextView
         android:id="@+id/skip"
@@ -49,12 +49,12 @@
         android:layout_height="wrap_content"
         android:text="Skip"
         android:textColor="@color/skyBlue"
-        android:textStyle="bold"
+        android:fontFamily="@font/nunito_sans_semi_bold"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="@dimen/_15sdp"
         android:layout_below="@id/topImage"
         android:layout_marginLeft="@dimen/_15sdp"
-        android:textSize="@dimen/_13ssp"/>
+        android:textSize="@dimen/_12ssp"/>
 
     <FrameLayout
         android:id="@+id/profile_frame"
@@ -89,11 +89,11 @@
         android:layout_height="wrap_content"
         android:text="Full Name"
         android:textColor="@color/black"
-        android:textStyle="bold"
+        android:fontFamily="@font/nunito_sans_semi_bold"
         android:layout_below="@id/profile_frame"
         android:layout_marginLeft="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_15sdp"
-        android:textSize="@dimen/_13ssp"/>
+        android:textSize="@dimen/_10ssp"/>
 
     <EditText
         android:id="@+id/editTextMobileNumber"
@@ -104,10 +104,11 @@
         android:layout_below="@id/fullnameTv"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_15sdp"
-        android:textSize="@dimen/_13ssp"
+        android:textSize="@dimen/_11ssp"
         android:padding="@dimen/_10sdp"
         android:textColor="@color/black"
-        android:textStyle="normal"
+        android:textColorHint="@color/black"
+        android:fontFamily="@font/nunito_sans_bold"
         android:background="@color/transparent"/>
     <View
         android:layout_width="match_parent"
@@ -129,7 +130,7 @@
         android:text="Next"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        app:cornerRadius="@dimen/_10sdp" />
+        app:cornerRadius="@dimen/_5sdp" />
 
 
 </RelativeLayout>
