@@ -2,6 +2,7 @@ package com.socialseller.clothcrew.activity.orders
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -34,6 +35,16 @@ class OrderDetailsActivity : AppCompatActivity() {
         binding.cancelOrder.setOnClickListener {
             startActivity(Intent(this, CancelOrderActivity::class.java))
         }
+
+        binding.back.setOnClickListener{
+            onBackPressedDispatcher.onBackPressed()
+        }
+        //back pressed
+        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                finish()
+            }
+        })
 
     }
 }

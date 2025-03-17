@@ -6,6 +6,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.KeyEvent
 import android.widget.EditText
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.socialseller.clothcrew.activity.profile.SetupProfileActivity
 import com.socialseller.clothcrew.databinding.ActivityOtpactivityBinding
@@ -24,6 +25,16 @@ class OTPActivity : AppCompatActivity() {
             if (areAllEditTextsFilled())
                 startActivity(Intent(this, SetupProfileActivity::class.java))
         }
+
+        binding.back.setOnClickListener{
+            onBackPressedDispatcher.onBackPressed()
+        }
+        //back pressed
+        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                finish()
+            }
+        })
     }
 
     private fun setupOtpInput() {

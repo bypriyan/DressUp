@@ -21,21 +21,37 @@
                 android:orientation="horizontal"
                 android:background="@color/actionBarColor">
 
-                <EditText
-                    android:id="@+id/searchEditText"
+                <FrameLayout
+                    android:id="@+id/searchClick"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Search for Product on Clothcrew"
-                    android:inputType="text"
-                    android:textColorHint="@color/dark_greay"
-                    android:textColor="@color/black"
-                    android:background="@color/white"
-                    android:textSize="@dimen/_12ssp"
-                    android:padding="12dp"
-                    android:drawableStart="@drawable/search_icon"
-                    android:drawablePadding="@dimen/_15sdp"
-                    android:drawableEnd="@drawable/mic_icon"
-                    android:layout_marginBottom="16dp"/>
+                    android:background="@color/transparent">
+
+                    <EditText
+                        android:id="@+id/searchEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Search for Product on Clothcrew"
+                        android:inputType="text"
+                        android:fontFamily="@font/nunito_sans_semi_bold"
+                        android:textColorHint="@color/dark_greay"
+                        android:textColor="@color/black"
+                        android:background="@color/white"
+                        android:textSize="@dimen/_12ssp"
+                        android:padding="12dp"
+                        android:enabled="false"
+                        android:drawableStart="@drawable/search_icon"
+                        android:drawablePadding="@dimen/_15sdp"
+                        android:drawableEnd="@drawable/mic_icon"
+                        android:layout_marginBottom="16dp"/>
+
+                    <View
+                        android:id="@+id/searchClickView"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_45sdp"
+                        android:background="@color/transparent"/>
+
+                </FrameLayout>
 
             </LinearLayout>
 

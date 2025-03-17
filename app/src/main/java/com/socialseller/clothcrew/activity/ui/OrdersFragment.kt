@@ -1,5 +1,6 @@
 package com.socialseller.clothcrew.activity.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.widget.TextView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.socialseller.clothcrew.R
+import com.socialseller.clothcrew.activity.SearchActivity
 import com.socialseller.clothcrew.adapter.OrdersPagerAdapter
 import com.socialseller.clothcrew.databinding.FragmentOrdersBinding
 
@@ -58,6 +60,10 @@ class OrdersFragment : Fragment() {
 
             override fun onTabReselected(tab: TabLayout.Tab?) {}
         })
+
+        binding.searchClickView.setOnClickListener {
+            startActivity(Intent(requireContext(),SearchActivity::class.java))
+        }
 
         return binding.root
     }

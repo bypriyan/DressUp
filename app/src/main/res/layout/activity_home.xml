@@ -98,16 +98,53 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_gravity="bottom|end"
             android:backgroundTint="@color/appColor"
             app:tint="@color/white"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="@dimen/_20sdp"
             android:layout_marginBottom="@dimen/_70sdp"
+            android:padding="@dimen/_7sdp"
+            app:fabSize="mini"
+            app:maxImageSize="@dimen/_14sdp"
             android:layout_alignParentBottom="true"
             android:src="@drawable/call"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/callFab"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="bottom|end"
+            android:backgroundTint="@color/appColor"
+            app:tint="@color/white"
+            android:layout_above="@id/fab"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:padding="@dimen/_8sdp"
+            app:fabSize="mini"
+            android:visibility="gone"
+            app:maxImageSize="@dimen/_14sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:src="@drawable/call_icon_fab"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/whatsappFab"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="bottom|end"
+            android:backgroundTint="#29a71a"
+            app:tint="@color/white"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:padding="@dimen/_8sdp"
+            app:fabSize="mini"
+            android:visibility="gone"
+            android:layout_above="@id/callFab"
+            app:maxImageSize="@dimen/_18sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:src="@drawable/whatsapp_icon"/>
 
         <View
             android:id="@+id/viewLine"

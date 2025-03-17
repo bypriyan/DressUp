@@ -4,6 +4,7 @@ import android.R
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.socialseller.clothcrew.databinding.ActivityBodyMeasureBinding
 import com.socialseller.clothcrew.activity.ui.HomeActivity
@@ -29,5 +30,15 @@ class BodyMeasureActivity : AppCompatActivity() {
         binding.FinishBtn.setOnClickListener{
             startActivity(Intent(this, HomeActivity::class.java))
         }
+
+        binding.back.setOnClickListener{
+            onBackPressedDispatcher.onBackPressed()
+        }
+        //back pressed
+        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                finish()
+            }
+        })
     }
 }

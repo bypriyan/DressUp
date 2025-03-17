@@ -20,6 +20,7 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/back"
                 android:layout_width="@dimen/_27sdp"
                 android:layout_height="@dimen/_27sdp"
                 android:src="@drawable/cancel_icon"

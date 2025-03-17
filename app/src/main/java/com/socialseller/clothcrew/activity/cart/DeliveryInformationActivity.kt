@@ -2,6 +2,7 @@ package com.socialseller.clothcrew.activity.cart
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.socialseller.clothcrew.R
 import com.socialseller.clothcrew.activity.PaymentScreenActivity
@@ -31,6 +32,15 @@ class DeliveryInformationActivity : AppCompatActivity() {
             startActivity(Intent(this, PaymentScreenActivity::class.java))
         }
 
+        binding.back.setOnClickListener{
+            onBackPressedDispatcher.onBackPressed()
+        }
+        //back pressed
+        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                finish()
+            }
+        })
 
     }
 }

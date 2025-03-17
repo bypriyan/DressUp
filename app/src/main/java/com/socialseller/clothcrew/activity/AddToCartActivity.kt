@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -38,6 +39,16 @@ class AddToCartActivity : AppCompatActivity() {
         binding.note.setOnClickListener {
             showBottomSheet()
         }
+
+        binding.back.setOnClickListener{
+            onBackPressedDispatcher.onBackPressed()
+        }
+        //back pressed
+        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                finish()
+            }
+        })
 
     }
 

@@ -7,7 +7,9 @@
     app:strokeColor="@color/transparent"
     android:layout_marginTop="@dimen/_5sdp"
     android:layout_marginLeft="@dimen/_5sdp"
+    app:cardBackgroundColor="@color/white"
     android:layout_marginBottom="@dimen/_2sdp"
+    app:cardElevation="@dimen/_1sdp"
     app:cardCornerRadius="@dimen/_10sdp">
 
     <LinearLayout
@@ -35,6 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/_5sdp"
+            android:background="@color/white"
             android:orientation="vertical">
 
 

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.Window
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.socialseller.clothcrew.R
 import com.socialseller.clothcrew.activity.address.AddressActivity
@@ -32,6 +33,16 @@ class ProfileActivity : AppCompatActivity() {
         binding.logout.setOnClickListener {
             showLogoutDialog()
         }
+
+        binding.back.setOnClickListener{
+            onBackPressedDispatcher.onBackPressed()
+        }
+        //back pressed
+        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                finish()
+            }
+        })
 
     }
 

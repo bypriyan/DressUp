@@ -1,5 +1,6 @@
 package com.socialseller.clothcrew.activity.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.bypriyan.sharemarketcourseinhindi.adapter.AdapterOnBordingScreen
 import com.socialseller.clothcrew.R
+import com.socialseller.clothcrew.activity.SearchActivity
 import com.socialseller.clothcrew.adapter.AdapterProducts
 import com.socialseller.clothcrew.adapter.AdapterStore
 import com.socialseller.clothcrew.adapter.AdapyterBigCategory
@@ -36,6 +38,10 @@ class SavedFragment : Fragment() {
         )
 
         binding.savedProductRv.adapter = AdapterProducts(requireContext(), itemList)
+
+        binding.searchClickView.setOnClickListener {
+            startActivity(Intent(requireContext(),SearchActivity::class.java))
+        }
     }
 
 

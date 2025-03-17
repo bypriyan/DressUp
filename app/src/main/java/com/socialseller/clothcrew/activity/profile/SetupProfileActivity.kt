@@ -2,6 +2,7 @@ package com.socialseller.clothcrew.activity.profile
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.socialseller.clothcrew.activity.BodyMeasureActivity
 import com.socialseller.clothcrew.databinding.ActivitySetupProfileBinding
@@ -20,6 +21,15 @@ class SetupProfileActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.back.setOnClickListener{
+            onBackPressedDispatcher.onBackPressed()
+        }
+        //back pressed
+        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                finish()
+            }
+        })
 
     }
 }
