@@ -7,73 +7,104 @@ import android.text.TextWatcher
 import android.view.KeyEvent
 import android.widget.EditText
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.bypriyan.bustrackingsystem.utility.Constants
 import com.socialseller.clothcrew.activity.profile.SetupProfileActivity
+import com.socialseller.clothcrew.databinding.ActivityLoginBinding
 import com.socialseller.clothcrew.databinding.ActivityOtpactivityBinding
+import com.socialseller.clothcrew.utility.MyActivity
+import com.socialseller.clothcrew.viewModel.AuthViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlin.getValue
 
-class OTPActivity : AppCompatActivity() {
+@AndroidEntryPoint
+class OTPActivity : MyActivity() {
 
-    private lateinit var binding: ActivityOtpactivityBinding
+    private val binding by lazy { ActivityOtpactivityBinding.inflate(layoutInflater) }
+    private val authViewModel: AuthViewModel by viewModels()
+    private lateinit var phoneNumberValue: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityOtpactivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Initialize UI components
+        phoneNumberValue = intent.getStringExtra(Constants.KEY_USER_PHONE_NUMBER) ?: ""
         setupOtpInput()
+        setupBackButton(binding.back)
+        setupButtonState()
 
         binding.requestOTPBtn.setOnClickListener {
-            if (areAllEditTextsFilled())
-                startActivity(Intent(this, SetupProfileActivity::class.java))
+            val otp = getOtpString()
+            authViewModel.verifyOtp("+91"+phoneNumberValue, otp)
         }
 
-        binding.back.setOnClickListener{
-            onBackPressedDispatcher.onBackPressed()
-        }
-        //back pressed
-        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                finish()
-            }
-        })
     }
 
     private fun setupOtpInput() {
-        binding.otp1.addTextChangedListener(OtpTextWatcher(binding.otp1, null, binding.otp2))
-        binding.otp2.addTextChangedListener(OtpTextWatcher(binding.otp2, binding.otp1, binding.otp3))
-        binding.otp3.addTextChangedListener(OtpTextWatcher(binding.otp3, binding.otp2, binding.otp4))
-        binding.otp4.addTextChangedListener(OtpTextWatcher(binding.otp4, binding.otp3, binding.otp5))
-        binding.otp5.addTextChangedListener(OtpTextWatcher(binding.otp5, binding.otp4, binding.otp6))
-        binding.otp6.addTextChangedListener(OtpTextWatcher(binding.otp6, binding.otp5, null))
+        val otpFields = listOf(
+            binding.otp1, binding.otp2, binding.otp3,
+            binding.otp4, binding.otp5, binding.otp6
+        )
 
-        setOnKeyListener(binding.otp1, null, binding.otp2)
-        setOnKeyListener(binding.otp2, binding.otp1, binding.otp3)
-        setOnKeyListener(binding.otp3, binding.otp2, binding.otp4)
-        setOnKeyListener(binding.otp4, binding.otp3, binding.otp5)
-        setOnKeyListener(binding.otp5, binding.otp4, binding.otp6)
-        setOnKeyListener(binding.otp6, binding.otp5, null)
+        otpFields.forEachIndexed { index, editText ->
+            val previous = otpFields.getOrNull(index - 1)
+            val next = otpFields.getOrNull(index + 1)
+            editText.addTextChangedListener(OtpTextWatcher(editText, previous, next))
+            setOnKeyListener(editText, previous)
+        }
     }
 
-    private fun setOnKeyListener(current: EditText, previous: EditText?, next: EditText?) {
+    private fun setOnKeyListener(current: EditText, previous: EditText?) {
         current.setOnKeyListener { _, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_DEL && event.action == KeyEvent.ACTION_DOWN) {
-                if (current.text.isEmpty() && previous != null) {
-                    previous.requestFocus()
-                    previous.text.clear()
+            if (keyCode == KeyEvent.KEYCODE_DEL && event.action == KeyEvent.ACTION_DOWN && current.text.isEmpty()) {
+                previous?.apply {
+                    requestFocus()
+                    text.clear()
                 }
             }
             false
         }
     }
 
-    private fun areAllEditTextsFilled(): Boolean {
+    private fun setupButtonState() {
+        binding.requestOTPBtn.isEnabled = false
+        binding.requestOTPBtn.alpha = 0.5f
+
+        val otpFields = listOf(
+            binding.otp1, binding.otp2, binding.otp3,
+            binding.otp4, binding.otp5, binding.otp6
+        )
+
+        otpFields.forEach { editText ->
+            editText.addTextChangedListener(object : TextWatcher {
+                override fun afterTextChanged(s: Editable?) {
+                    binding.requestOTPBtn.isEnabled = isOtpFilled()
+                    binding.requestOTPBtn.alpha = if (isOtpFilled()) 1.0f else 0.5f
+                }
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            })
+        }
+    }
+
+    private fun isOtpFilled(): Boolean {
         return listOf(
-            binding.otp1,
-            binding.otp2,
-            binding.otp3,
-            binding.otp4,
-            binding.otp5,
-            binding.otp6
-        ).all { it.text?.isNotEmpty() == true }
+            binding.otp1, binding.otp2, binding.otp3,
+            binding.otp4, binding.otp5, binding.otp6
+        ).all { it.text?.length == 1 }
+    }
+
+    private fun getOtpString(): String {
+        return listOf(
+            binding.otp1.text.toString(),
+            binding.otp2.text.toString(),
+            binding.otp3.text.toString(),
+            binding.otp4.text.toString(),
+            binding.otp5.text.toString(),
+            binding.otp6.text.toString()
+        ).joinToString("")
     }
 
     inner class OtpTextWatcher(
@@ -84,20 +115,10 @@ class OTPActivity : AppCompatActivity() {
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            if (s?.length == 1) {
-                // Move focus to the next EditText when a character is entered
-                next?.requestFocus()
-            } else if (s.isNullOrEmpty() && previous != null) {
-                // Move focus to the previous EditText when a character is deleted
-                previous.requestFocus()
-            }
+            if (s?.length == 1) next?.requestFocus()
+            else if (s.isNullOrEmpty()) previous?.requestFocus()
         }
 
-        override fun afterTextChanged(s: Editable?) {
-            // Ensure that if a number is entered in a previous EditText, focus moves to the next EditText
-            if (!s.isNullOrEmpty() && s.length == 1 && next != null) {
-                next.requestFocus()
-            }
-        }
+        override fun afterTextChanged(s: Editable?) {}
     }
 }

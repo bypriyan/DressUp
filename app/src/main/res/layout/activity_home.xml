@@ -107,8 +107,6 @@
             android:layout_marginRight="@dimen/_20sdp"
             android:layout_marginBottom="@dimen/_70sdp"
             android:padding="@dimen/_7sdp"
-            app:fabSize="mini"
-            app:maxImageSize="@dimen/_14sdp"
             android:layout_alignParentBottom="true"
             android:src="@drawable/call"/>
 
@@ -123,9 +121,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginRight="@dimen/_20sdp"
             android:padding="@dimen/_8sdp"
-            app:fabSize="mini"
             android:visibility="gone"
-            app:maxImageSize="@dimen/_14sdp"
             android:layout_marginBottom="@dimen/_20sdp"
             android:src="@drawable/call_icon_fab"/>
 
@@ -139,10 +135,8 @@
             android:layout_alignParentEnd="true"
             android:layout_marginRight="@dimen/_20sdp"
             android:padding="@dimen/_8sdp"
-            app:fabSize="mini"
             android:visibility="gone"
             android:layout_above="@id/callFab"
-            app:maxImageSize="@dimen/_18sdp"
             android:layout_marginBottom="@dimen/_20sdp"
             android:src="@drawable/whatsapp_icon"/>
 
