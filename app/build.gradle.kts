@@ -100,6 +100,10 @@ dependencies {
     implementation("io.github.chaosleung:pinview:1.4.4")
     //circle image view
     implementation ("de.hdodenhof:circleimageview:3.1.0")
+    //data store
+    implementation("androidx.datastore:datastore-preferences:1.1.3")
+    //auth api phone
+    implementation("com.google.android.gms:play-services-auth-api-phone:18.1.0")
 
 }
 

@@ -44,7 +44,7 @@
         android:textSize="@dimen/_13ssp"/>
 
     <TextView
-        android:id="@+id/mobTv"
+        android:id="@+id/otpMessageTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="6 digit OTP sent to XXXXXX8374"
@@ -63,7 +63,7 @@
         android:textColor="@color/black"
         android:layout_marginTop="@dimen/_10sdp"
         android:fontFamily="@font/nunito_sans_regular"
-        android:layout_below="@id/mobTv"
+        android:layout_below="@id/otpMessageTv"
         android:layout_marginLeft="@dimen/_15sdp"
         android:textSize="@dimen/_10ssp"/>
 
@@ -195,7 +195,7 @@
         android:layout_marginTop="@dimen/_30sdp">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/requestOTPBtn"
+            android:id="@+id/verifyOTPBtn"
             android:layout_width="@dimen/_200sdp"
             android:layout_height="@dimen/_48sdp"
             android:layout_below="@id/conditions"

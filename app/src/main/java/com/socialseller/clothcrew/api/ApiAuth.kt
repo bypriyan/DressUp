@@ -33,15 +33,20 @@ data class OtpVerifyResponse(
     val jwt: String,
     val message: String,
     val status: String,
-    val user: User
+    val user: User?
 )
 
 data class User(
-    val avatar: String?,
+    val avatar: Avatar?,  // Change this from String? to Avatar?
     val countryCode: String,
     val id: Int,
     val name: String?,
     val otp: String,
     val otp_expiration: String,
     val phone: String
+)
+
+// Define a separate data class for avatar
+data class Avatar(
+    val url: String
 )
