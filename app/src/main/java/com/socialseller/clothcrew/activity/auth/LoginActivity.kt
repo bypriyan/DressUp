@@ -47,7 +47,6 @@ class LoginActivity : MyActivity() {
         super.onCreate(savedInstanceState)
 
         checkUserSession()
-
     }
 
     private fun checkUserSession() {

@@ -48,6 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Skip"
+        android:visibility="gone"
         android:textColor="@color/skyBlue"
         android:fontFamily="@font/nunito_sans_semi_bold"
         android:layout_alignParentEnd="true"
@@ -96,7 +97,7 @@
         android:textSize="@dimen/_10ssp"/>
 
     <EditText
-        android:id="@+id/editTextMobileNumber"
+        android:id="@+id/nameET"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Name"
@@ -116,21 +117,41 @@
         android:background="@color/bg"
         android:layout_marginLeft="@dimen/_15sdp"
         android:layout_marginRight="@dimen/_15sdp"
-        android:layout_below="@id/editTextMobileNumber"/>
+        android:layout_below="@id/nameET"/>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/requestOTPBtn"
-        android:layout_width="@dimen/_200sdp"
-        android:layout_height="@dimen/_48sdp"
-        android:layout_below="@id/editTextMobileNumber"
-        android:layout_marginTop="@dimen/_30sdp"
+    <FrameLayout
+        android:id="@+id/btnFrame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_below="@id/nameET"
         android:layout_marginBottom="@dimen/_10sdp"
         android:layout_centerHorizontal="true"
-        android:backgroundTint="@color/appColor"
-        android:text="Next"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:cornerRadius="@dimen/_5sdp" />
+        android:layout_marginTop="@dimen/_30sdp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/saveBtn"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_below="@id/editTextMobileNumber"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/appColor"
+            android:text="Next"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:cornerRadius="@dimen/_5sdp" />
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/appColor"
+            android:visibility="invisible"/>
+
+    </FrameLayout>
 
 
 </RelativeLayout>

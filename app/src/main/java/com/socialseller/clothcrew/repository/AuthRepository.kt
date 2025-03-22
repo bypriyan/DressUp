@@ -2,9 +2,14 @@ package com.socialseller.clothcrew.repository
 
 import android.util.Log
 import com.bypriyan.bustrackingsystem.utility.Constants
+import com.google.android.gms.common.api.Response
 import com.socialseller.clothcrew.api.ApiAuth
 import com.socialseller.clothcrew.api.OtpResponse
 import com.socialseller.clothcrew.api.OtpVerifyResponse
+import com.socialseller.clothcrew.api.UserRequest
+import com.socialseller.clothcrew.api.UserResponse
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -37,6 +42,12 @@ class AuthRepository @Inject constructor(private val apiAuth: ApiAuth) {
         } catch (e: Exception) {
             Log.d("otprespo", "verifyOtp: ${e.message}")
             OtpVerifyResponse("error", "Network error: ${e.message}", "error", null)
+        }
+    }
+
+    suspend fun registerUser(userRequest: UserRequest): retrofit2.Response<UserResponse> {
+        return withContext(Dispatchers.IO) {
+            apiAuth.registerUser(userRequest)
         }
     }
 

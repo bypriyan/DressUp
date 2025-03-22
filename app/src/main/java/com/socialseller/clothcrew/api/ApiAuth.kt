@@ -21,6 +21,9 @@ interface ApiAuth {
         @Field("otp") otp: String
     ): Response<OtpVerifyResponse>
 
+    @POST("auth/local/register")
+    suspend fun registerUser(@Body userRequest: UserRequest): Response<UserResponse>
+
 }
 
 // Response data class
@@ -49,4 +52,23 @@ data class User(
 // Define a separate data class for avatar
 data class Avatar(
     val url: String
+)
+
+//profile create
+data class UserRequest(
+    val email: String?=null,
+    val username: String?=null,
+    val phone: String,
+    val name: String
+)
+
+data class UserResponse(
+    val email: String?,
+    val username: String?,
+    val phone: String?,
+    val name: String?
+)
+
+data class ErrorResponse(
+    val message: String
 )
