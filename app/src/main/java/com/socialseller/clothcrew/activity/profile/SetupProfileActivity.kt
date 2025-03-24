@@ -13,6 +13,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.bypriyan.bustrackingsystem.utility.Constants
 import com.bypriyan.bustrackingsystem.utility.DataStoreManager
@@ -56,6 +57,7 @@ class SetupProfileActivity : MyActivity() {
         binding.saveBtn.setOnClickListener {
             var name  = binding.nameET.text.toString()
             if(!name.isEmpty()){
+                isLoading(true)
                 authViewModel.registerUser(userRequest = UserRequest(name = name, phone = phoneNumber))
             }
         }
@@ -78,19 +80,28 @@ class SetupProfileActivity : MyActivity() {
     }
 
     private fun obsurvePhoneNumber(){
-        lifecycleScope.launch {
-           dataStoreManager.getString(Constants.KEY_USER_PHONE_NUMBER).collect{
-               Log.d("ala", "obsurvePhoneNumber: $it")
-               phoneNumber = it!!
+        authViewModel.userPhoneNumber.observe(this){phoneNumber->
+            phoneNumber?.let {
+                this.phoneNumber = it
             }
         }
     }
 
     private fun obsurveRegisterResponce(){
-        authViewModel.registerRresponse.observe(this){
+        authViewModel.registerRresponse.observe(this){name->
+            isLoading(false)
+            lifecycleScope.launch {
+                dataStoreManager.putString(Constants.KEY_USER_NAME,name)
+            }
             startActivity(Intent(this, BodyMeasureActivity::class.java))
+            finish()
         }
 
+    }
+
+    private fun isLoading(isLoading: Boolean) {
+        binding.progressbar.isVisible = isLoading
+        binding.saveBtn.isVisible = !isLoading
     }
 
 }

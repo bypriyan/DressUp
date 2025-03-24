@@ -49,7 +49,6 @@ class OTPActivity : MyActivity() {
         binding.verifyOTPBtn.setOnClickListener {
             val otp = getOtpString()
             isLoading(true)
-            showToast(otp)
             authViewModel.verifyOtp("+91$phoneNumberValue", otp)
         }
 

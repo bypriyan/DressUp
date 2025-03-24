@@ -51,6 +51,7 @@ class LoginActivity : MyActivity() {
 
     private fun checkUserSession() {
         authViewModel.savedUserToken.observe(this){token->
+            Log.d("token", "checkUserSession: $token")
             if (token.isNullOrEmpty()) {
                 setupUI()
             }else{

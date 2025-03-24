@@ -46,6 +46,9 @@ class AuthViewModel @Inject constructor(
     private val _userName = MutableLiveData<String?>()
     val userName: LiveData<String?> get() = _userName
 
+    private val _userPhoneNumber = MutableLiveData<String?>()
+    val userPhoneNumber: LiveData<String?> get() = _userPhoneNumber
+
     private val _registerRresponse = MutableLiveData<String>()
     val registerRresponse: LiveData<String> get() = _registerRresponse
 
@@ -60,6 +63,12 @@ class AuthViewModel @Inject constructor(
         viewModelScope.launch {
             dataStoreManager.getString(Constants.KEY_USER_NAME).collect { name ->
                 _userName.value = name
+            }
+        }
+
+        viewModelScope.launch {
+            dataStoreManager.getString(Constants.KEY_USER_PHONE_NUMBER).collect { phoneNumber ->
+                _userPhoneNumber.value = phoneNumber
             }
         }
     }
@@ -85,18 +94,16 @@ class AuthViewModel @Inject constructor(
     }
 
     private fun saveUserToken(token: String) = viewModelScope.launch {
-        Log.d("modelsave", "saveUserToken: $token")
         dataStoreManager.putString(Constants.KEY_USER_TOKEN, token)
         _savedUserToken.value = token
     }
 
     private fun saveUserDetails(user: User) = viewModelScope.launch {
-        Log.d("modelsave", "saveUserToken: $user")
         dataStoreManager.putString(Constants.KEY_USER_ID, user.id.toString())
+        dataStoreManager.putString(Constants.KEY_USER_PHONE_NUMBER, user.phone)
         user.name?.let { dataStoreManager.putString(Constants.KEY_USER_NAME, it) }
         dataStoreManager.putString(Constants.KEY_USER_COUNTRY_CODE, user.countryCode)
         user.avatar?.url?.let { dataStoreManager.putString(Constants.KEY_USER_AVATAR, it) }
-        dataStoreManager.putString(Constants.KEY_USER_PHONE_NUMBER, user.phone)
         // Update LiveData for username
         _userName.value = user.name
     }
@@ -105,6 +112,7 @@ class AuthViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val result = authRepository.registerUser(userRequest)
+                Log.d("result", "registerUser: $result")
                 if (result.isSuccessful) {
                     _registerRresponse.postValue("Registration Successful: ${result.body()?.name}")
                 } else {
