@@ -1,9 +1,12 @@
 package com.socialseller.clothcrew.api
 
+import com.socialseller.clothcrew.apiResponce.ApiResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface ApiAuth {
@@ -23,6 +26,9 @@ interface ApiAuth {
 
     @POST("auth/local/register")
     suspend fun registerUser(@Body userRequest: UserRequest): Response<UserResponse>
+
+    @GET("users/me?populate=avatar")
+    suspend fun getUserInfo(@Header("Authorization") token: String): Response<UserResponse>
 
 }
 
@@ -72,3 +78,31 @@ data class UserResponse(
 data class ErrorResponse(
     val message: String
 )
+
+data class UserResponce(
+    val id: String?,
+    val username: String?,
+    val email: String?,
+    val provider: String?,
+    val confirmed: String?,
+    val blocked: String?,
+    val isPremium: String?,
+    val phone: String?,
+    val isAdmin: String?,
+    val wallet_balance: String?,
+    val countryCode: String?,
+    val name: String?,
+    val fcmToken: String?,
+    val businessName: String?,
+    val ordersCount: String?,
+    val profit: String?,
+    val shares: String?,
+    val otp: String?,
+    val otp_expiration: String?,
+    val personal_id: String?,
+    val createdAt: String?,
+    val updatedAt: String?,
+    val nick_name: String?,
+    val avatar: String?
+)
+

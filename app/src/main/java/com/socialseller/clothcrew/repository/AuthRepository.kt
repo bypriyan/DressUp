@@ -2,16 +2,18 @@ package com.socialseller.clothcrew.repository
 
 import android.util.Log
 import com.bypriyan.bustrackingsystem.utility.Constants
-import com.google.android.gms.common.api.Response
 import com.socialseller.clothcrew.api.ApiAuth
 import com.socialseller.clothcrew.api.OtpResponse
 import com.socialseller.clothcrew.api.OtpVerifyResponse
 import com.socialseller.clothcrew.api.UserRequest
 import com.socialseller.clothcrew.api.UserResponse
+import com.socialseller.clothcrew.apiResponce.ApiResponse
+import com.socialseller.clothcrew.utility.HttpStatusHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
+import retrofit2.Response
 
 @Singleton
 class AuthRepository @Inject constructor(private val apiAuth: ApiAuth) {
@@ -48,6 +50,23 @@ class AuthRepository @Inject constructor(private val apiAuth: ApiAuth) {
     suspend fun registerUser(userRequest: UserRequest): retrofit2.Response<UserResponse> {
         return withContext(Dispatchers.IO) {
             apiAuth.registerUser(userRequest)
+        }
+    }
+
+    suspend fun getUserInfo(token: String): ApiResponse<UserResponse> {
+        return safeApiCall { apiAuth.getUserInfo("Bearer $token") }
+    }
+
+    private suspend fun <T> safeApiCall(apiCall: suspend () -> Response<T>): ApiResponse<T> {
+        return try {
+            val response = apiCall()
+            if (response.isSuccessful) {
+                ApiResponse.Success(response.body()!!)
+            } else {
+                ApiResponse.Error(HttpStatusHelper.getMessage(response.code()), null)
+            }
+        } catch (e: Exception) {
+            ApiResponse.Error("Network Error: ${e.message}")
         }
     }
 
