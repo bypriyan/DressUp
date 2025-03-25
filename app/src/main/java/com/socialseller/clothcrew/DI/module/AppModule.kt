@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.location.Geocoder
 import com.socialseller.clothcrew.api.ApiAuth
+import com.socialseller.clothcrew.api.ApiProducts
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,19 +33,11 @@ object AppModule {
     fun provideApiAuth(retrofit: Retrofit): ApiAuth {
         return retrofit.create(ApiAuth::class.java)
     }
-//
-//
-//
-//    @Provides
-//    @Singleton
-//    fun providePreferenceManager(@ApplicationContext context: Context): PreferenceManager {
-//        return PreferenceManager(context)
-//    }
-//
-//    @Provides
-//    @Singleton
-//    fun providePdfRepository(@ApplicationContext context: Context): PdfRepository {
-//        return PdfRepository(context)
-//    }
+
+    @Provides
+    @Singleton
+    fun provideApiProducts(retrofit: Retrofit): ApiProducts {
+        return retrofit.create(ApiProducts::class.java)
+    }
 
 }

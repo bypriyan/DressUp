@@ -55,7 +55,7 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
 
     //multidex
-    implementation ("androidx.annotation:annotation:1.6.0")
+    implementation ("androidx.annotation:annotation:1.9.1")
     implementation ("org.jetbrains:annotations:24.0.1")
     implementation ("androidx.multidex:multidex:2.0.1")
     //sdp ssp
@@ -64,17 +64,17 @@ dependencies {
     //lottie anim
     implementation ("com.airbnb.android:lottie:6.4.0")
     //coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
     //mvvm
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
     // Lifecycles only (without ViewModel or LiveData)
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
     // LiveData
-    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
-    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-    implementation ("androidx.core:core-ktx:1.12.0")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.8.7")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
+    implementation ("androidx.core:core-ktx:1.15.0")
     //anim
     implementation ("com.flaviofaria:kenburnsview:1.0.7")
     //coil

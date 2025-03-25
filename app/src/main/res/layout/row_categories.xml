@@ -17,14 +17,14 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/catImg"
+            android:id="@+id/categoryImage"
             android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_100sdp"
             android:scaleType="centerCrop"
             android:src="@drawable/temp_cat_img_girl"/>
 
         <TextView
-            android:id="@+id/catTitle"
+            android:id="@+id/categoryName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Traditional"

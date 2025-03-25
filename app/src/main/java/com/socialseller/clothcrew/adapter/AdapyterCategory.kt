@@ -11,35 +11,33 @@ import androidx.recyclerview.widget.RecyclerView
 import com.socialseller.clothcrew.model.Item
 import com.socialseller.clothcrew.R
 import com.socialseller.clothcrew.activity.stores.StoreLocationActivity
+import com.socialseller.clothcrew.api.Category
+import com.socialseller.clothcrew.databinding.RowCategoriesBinding
+import com.socialseller.clothcrew.utility.GlideHelper
 
-class AdapyterCategory (private val context: Context,
-private val itemList: List<Item>
+class AdapyterCategory(
+    private val context: Context,
+    private val itemList: List<Category>
 ) : RecyclerView.Adapter<AdapyterCategory.ItemViewHolder>() {
 
-    // ViewHolder class
-    inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageView: ImageView = itemView.findViewById(R.id.catImg)
-        val titleTextView: TextView = itemView.findViewById(R.id.catTitle)
-    }
+    // ViewHolder with View Binding
+    inner class ItemViewHolder(val binding: RowCategoriesBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.row_categories, parent, false)
-        return ItemViewHolder(view)
+        val binding = RowCategoriesBinding.inflate(LayoutInflater.from(context), parent, false)
+        return ItemViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = itemList[position]
 
-        // Set the image and title
-        holder.imageView.setImageResource(item.imageResId)
-        holder.titleTextView.text = item.title
+        GlideHelper.loadImage(holder.binding.categoryImage, item.thumbnail.formats.small?.url)
+        holder.binding.categoryName.text = item.name
 
-        holder.itemView.setOnClickListener {
+        holder.binding.root.setOnClickListener {
             context.startActivity(Intent(context, StoreLocationActivity::class.java))
         }
     }
 
-    override fun getItemCount(): Int {
-        return itemList.size
-    }
+    override fun getItemCount(): Int = itemList.size
 }
