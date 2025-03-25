@@ -6,8 +6,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.bypriyan.bustrackingsystem.utility.DataStoreManager
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -38,6 +40,13 @@ abstract  class MyActivity : AppCompatActivity() {
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 
         }
+    }
+
+    fun clearDataStore(){
+        lifecycleScope.launch {
+            dataStoreManager.clear()
+        }
+
     }
 
 }

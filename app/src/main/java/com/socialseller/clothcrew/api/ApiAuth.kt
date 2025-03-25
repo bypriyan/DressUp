@@ -28,7 +28,7 @@ interface ApiAuth {
     suspend fun registerUser(@Body userRequest: UserRequest): Response<UserResponse>
 
     @GET("users/me?populate=avatar")
-    suspend fun getUserInfo(@Header("Authorization") token: String): Response<UserResponse>
+    suspend fun getUserInfo(@Header("Authorization") token: String): Response<UserInfoResponce>
 
 }
 
@@ -79,7 +79,7 @@ data class ErrorResponse(
     val message: String
 )
 
-data class UserResponce(
+data class UserInfoResponce(
     val id: String?,
     val username: String?,
     val email: String?,

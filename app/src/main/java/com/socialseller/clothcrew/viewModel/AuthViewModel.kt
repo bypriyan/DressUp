@@ -12,7 +12,10 @@ import com.socialseller.clothcrew.api.ErrorResponse
 import com.socialseller.clothcrew.api.OtpResponse
 import com.socialseller.clothcrew.api.OtpVerifyResponse
 import com.socialseller.clothcrew.api.User
+import com.socialseller.clothcrew.api.UserInfoResponce
 import com.socialseller.clothcrew.api.UserRequest
+import com.socialseller.clothcrew.api.UserResponse
+import com.socialseller.clothcrew.apiResponce.ApiResponse
 import com.socialseller.clothcrew.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -51,6 +54,9 @@ class AuthViewModel @Inject constructor(
 
     private val _registerRresponse = MutableLiveData<String>()
     val registerRresponse: LiveData<String> get() = _registerRresponse
+
+    private val _userInfo = MutableStateFlow<String?>(null)
+    val userInfo: StateFlow<String?> = _userInfo
 
     init {
         // Load saved user token and username when ViewModel is created
@@ -127,6 +133,43 @@ class AuthViewModel @Inject constructor(
         }
     }
 
+    fun fetchUserInfo(token: String) {
+        viewModelScope.launch {
+            var response = authRepository.getUserInfo(token)
+            when (response) {
+                is ApiResponse.Success -> {
+                    saveUserInfromation(response.data!!)
+                    _userInfo.value = Constants.KEY_RESPONCE_SUCCESS
+                }
+                is ApiResponse.Error -> {
+                    _userInfo.value = response.message
+                }
+                is ApiResponse.Loading -> {
+                }
+            }
+        }
+    }
+
+    suspend fun saveUserInfromation(userInfo: UserInfoResponce){
+        dataStoreManager.putString(Constants.KEY_USER_ID, userInfo.id.toString())
+        dataStoreManager.putString(Constants.KEY_USER_NAME, userInfo.name ?: "")
+        dataStoreManager.putString(Constants.KEY_USER_EMAIL, userInfo.email ?: "")
+        dataStoreManager.putString(Constants.KEY_USER_BLOCKED, userInfo.blocked ?: "")
+        userInfo.isPremium?.let { dataStoreManager.putString(Constants.KEY_USER_IS_PREMIUM, it) }
+        userInfo.isAdmin?.let { dataStoreManager.putString(Constants.KEY_USER_IS_ADMIN, it) }
+        dataStoreManager.putString(Constants.KEY_USER_WALLET_BALANCE, userInfo.wallet_balance ?: "")
+        userInfo.name?.let { dataStoreManager.putString(Constants.KEY_USER_NAME, it) }
+
+        userInfo.fcmToken?.let { dataStoreManager.putString(Constants.KEY_USER_FCM_TOKEN, it) }
+        userInfo.businessName?.let { dataStoreManager.putString(Constants.KEY_USER_BUSINESS_NAME, it) }
+        userInfo.ordersCount?.let { dataStoreManager.putString(Constants.KEY_USER_ORDERS_COUNT, it) }
+        userInfo.profit?.let { dataStoreManager.putString(Constants.KEY_USER_PROFIT, it) }
+        userInfo.shares?.let { dataStoreManager.putString(Constants.KEY_USER_SHARES, it) }
+
+        userInfo.personal_id?.let { dataStoreManager.putString(Constants.KEY_USER_PERSONAL_ID, it) }
+        userInfo.nick_name?.let { dataStoreManager.putString(Constants.KEY_USER_NICKNAME, it) }
+    }
+
     private fun parseError(response: Response<*>): String {
         return try {
             val errorBody = response.errorBody()?.string()
@@ -136,4 +179,5 @@ class AuthViewModel @Inject constructor(
             "Unknown Error"
         }
     }
+
 }

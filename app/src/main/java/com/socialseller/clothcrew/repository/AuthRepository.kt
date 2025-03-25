@@ -5,6 +5,7 @@ import com.bypriyan.bustrackingsystem.utility.Constants
 import com.socialseller.clothcrew.api.ApiAuth
 import com.socialseller.clothcrew.api.OtpResponse
 import com.socialseller.clothcrew.api.OtpVerifyResponse
+import com.socialseller.clothcrew.api.UserInfoResponce
 import com.socialseller.clothcrew.api.UserRequest
 import com.socialseller.clothcrew.api.UserResponse
 import com.socialseller.clothcrew.apiResponce.ApiResponse
@@ -53,7 +54,7 @@ class AuthRepository @Inject constructor(private val apiAuth: ApiAuth) {
         }
     }
 
-    suspend fun getUserInfo(token: String): ApiResponse<UserResponse> {
+    suspend fun getUserInfo(token: String): ApiResponse<UserInfoResponce> {
         return safeApiCall { apiAuth.getUserInfo("Bearer $token") }
     }
 
