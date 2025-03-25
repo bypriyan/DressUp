@@ -45,6 +45,7 @@ class LoginActivity : MyActivity() {
         splashScreen = installSplashScreen()
         splashScreen.setKeepOnScreenCondition { true }
         super.onCreate(savedInstanceState)
+        i++
 
         checkUserSession()
     }

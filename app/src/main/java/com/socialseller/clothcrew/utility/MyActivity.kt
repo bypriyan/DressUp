@@ -17,6 +17,7 @@ abstract  class MyActivity : AppCompatActivity() {
 
     @Inject
     lateinit var dataStoreManager: DataStoreManager
+    var i=0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
