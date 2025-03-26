@@ -32,17 +32,17 @@ class StorePageActivity : AppCompatActivity() {
         )
         val adapterBig = AdapyterBigCategory(this,itemList)
         val adapterProducts = AdapterProducts(this, itemList)
-        binding.rvCategory.adapter = AdapyterCategory(this,itemList)
+//        binding.rvCategory.adapter = AdapyterCategory(this,itemList)
         binding.bigCategoriesRV.adapter = adapterBig
         binding.trandingRv.adapter = adapterProducts
         binding.festBigCategoryBig.adapter = adapterBig
         binding.bestSellerRv.adapter = adapterProducts
 
         //view pager
-        var adapter = AdapterOnBordingScreen(this, getListOfOnBordingScreenContent())
-        binding.viewPager2.adapter = adapter
-        binding.wormDotsIndicator.attachTo(binding.viewPager2)
-        binding.viewPager2.isUserInputEnabled = true
+//        var adapter = AdapterOnBordingScreen(this, getListOfOnBordingScreenContent())
+//        binding.viewPager2.adapter = adapter
+//        binding.wormDotsIndicator.attachTo(binding.viewPager2)
+//        binding.viewPager2.isUserInputEnabled = true
 
         binding.back.setOnClickListener{
             onBackPressedDispatcher.onBackPressed()

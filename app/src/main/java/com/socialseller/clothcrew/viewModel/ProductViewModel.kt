@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.bypriyan.bustrackingsystem.utility.Constants
 import com.bypriyan.bustrackingsystem.utility.DataStoreManager
 import com.google.gson.Gson
+import com.socialseller.clothcrew.api.BannerResponse
 import com.socialseller.clothcrew.api.Category
 import com.socialseller.clothcrew.api.ErrorResponse
 import com.socialseller.clothcrew.api.OtpResponse
@@ -37,15 +38,18 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ProductViewModel @Inject constructor(
-    private val productRepository: ProductRepository,
-    private val dataStoreManager: DataStoreManager
+    private val productRepository: ProductRepository
 ) : ViewModel() {
 
     private val _collections = MutableStateFlow<ApiResponse<collectionsResponse>>(ApiResponse.Loading())
     val collections: StateFlow<ApiResponse<collectionsResponse>> = _collections
 
+    private val _banners = MutableStateFlow<ApiResponse<BannerResponse>>(ApiResponse.Loading())
+    val banners: StateFlow<ApiResponse<BannerResponse>> = _banners
+
     init {
         getCollections()
+        getBanners()
     }
 
     private fun getCollections() {
@@ -59,4 +63,17 @@ class ProductViewModel @Inject constructor(
             }
         }
     }
+
+    private fun getBanners() {
+        viewModelScope.launch {
+            _banners.value = ApiResponse.Loading() // Set loading state
+            try {
+                val response = productRepository.getBanners()
+                _banners.value = response
+            } catch (e: Exception) {
+                _banners.value = ApiResponse.Error("Unexpected error: ${e.message}")
+            }
+        }
+    }
+
 }

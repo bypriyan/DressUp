@@ -8,7 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.bypriyan.sharemarketcourseinhindi.adapter.AdapterOnBordingScreen
 import com.socialseller.clothcrew.R
 import com.socialseller.clothcrew.activity.SearchActivity
@@ -31,7 +33,9 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val productViewModel: ProductViewModel by viewModels()
-    private lateinit var adapter: AdapyterCategory
+
+    private val adapterCategory by lazy { AdapyterCategory(requireContext(), mutableListOf()) }
+    private val adapterOnboarding by lazy { AdapterOnBordingScreen(requireContext(), mutableListOf()) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,58 +48,72 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //onsurve category
-        observeCollections()
+        setupRecyclerViews()
+        observeData()
 
-        var adapter = AdapterOnBordingScreen(requireContext(), getListOfOnBordingScreenContent())
-        val itemList = listOf(
-            Item(R.drawable.category_girl_img, "Traditional"),
-            Item(R.drawable.category_girl_img, "Printed"),
-            Item(R.drawable.category_girl_img, "Ethnic Wear"),
-            Item(R.drawable.category_girl_img, "Gown")
-        )
-        var adaptercategory = AdapyterCategory(requireContext(),itemList)
-        binding.rvCategory.adapter = adaptercategory
-
-        var adaptercategoryBig = AdapyterBigCategory(requireContext(),itemList)
-        var adapterStore = AdapterStore(requireContext(),itemList)
-        binding.bigCategoriesRV.adapter = adaptercategoryBig
-        binding.festBigCategoryBig.adapter = adaptercategoryBig
-        binding.storeRv.adapter = adapterStore
-        //view pager
-        binding.viewPager2.adapter = adapter
-        binding.wormDotsIndicator.attachTo(binding.viewPager2)
-        binding.viewPager2.isUserInputEnabled = true
-
+        // Search button click listener
         binding.searchClickView.setOnClickListener {
-            startActivity(Intent(requireContext(),SearchActivity::class.java))
+            startActivity(Intent(requireContext(), SearchActivity::class.java))
         }
     }
 
-    private fun observeCollections() {
+    private fun setupRecyclerViews() {
+        binding.rvCategory.adapter = adapterCategory
+        binding.viewPager2.adapter = adapterOnboarding
+        binding.wormDotsIndicator.attachTo(binding.viewPager2)
+        binding.viewPager2.isUserInputEnabled = true
+    }
+
+    private fun observeData() {
         viewLifecycleOwner.lifecycleScope.launch {
-            productViewModel.collections.collectLatest { response ->
-                when (response) {
-                    is ApiResponse.Loading -> {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                launch { observeCollections() }
+                launch { observeBanners() }
+            }
+        }
+    }
+
+    private suspend fun observeBanners() {
+        productViewModel.banners.collectLatest { response ->
+            when (response) {
+                is ApiResponse.Loading -> {
+                    // Handle loading state (if needed)
+                }
+                is ApiResponse.Success -> {
+                    response.data?.data?.let { itemList ->
+                        Log.d("banners", "observeBanners: $itemList")
+                        adapterOnboarding.updateData(itemList)
                     }
-                    is ApiResponse.Success -> {
-                        Log.d("checking", "observeCollections: ${response.data?.data}")
-                    }
-                    is ApiResponse.Error -> {
-//                        binding.progressBar.visibility = View.GONE
-//                        Toast.makeText(requireContext(), response.message, Toast.LENGTH_SHORT).show()
-                    }
+                }
+                is ApiResponse.Error -> {
+                    Log.e("HomeFragment", "Error fetching banners: ${response.message}")
                 }
             }
         }
     }
 
-    fun getListOfOnBordingScreenContent():List<Int>{
-        return listOf(
-            R.drawable.banner_zero,
-            R.drawable.banner_one,
-            R.drawable.banner_two,
-            R.drawable.banner_three
-        )
+    private suspend fun observeCollections() {
+        productViewModel.collections.collectLatest { response ->
+            when (response) {
+                is ApiResponse.Loading -> {
+                    // Handle loading state (if needed)
+                }
+                is ApiResponse.Success -> {
+                    response.data?.data?.let { itemList ->
+                        adapterCategory.updateData(itemList)
+                    }
+                }
+                is ApiResponse.Error -> {
+                    Log.e("HomeFragment", "Error fetching categories: ${response.message}")
+                }
+            }
+        }
+    }
+
+    override fun onDestroyView() {
+        _binding?.let {
+            _binding = null // Prevent memory leaks
+        }
+        super.onDestroyView()
     }
 }

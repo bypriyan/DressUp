@@ -2,12 +2,15 @@ package com.socialseller.clothcrew.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bypriyan.bustrackingsystem.utility.Constants
 import com.socialseller.clothcrew.model.Item
 import com.socialseller.clothcrew.R
 import com.socialseller.clothcrew.activity.stores.StoreLocationActivity
@@ -17,7 +20,7 @@ import com.socialseller.clothcrew.utility.GlideHelper
 
 class AdapyterCategory(
     private val context: Context,
-    private val itemList: List<Category>
+    private var itemList: MutableList<Category> // Changed to MutableList for modifications
 ) : RecyclerView.Adapter<AdapyterCategory.ItemViewHolder>() {
 
     // ViewHolder with View Binding
@@ -30,8 +33,7 @@ class AdapyterCategory(
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = itemList[position]
-
-        GlideHelper.loadImage(holder.binding.categoryImage, item.thumbnail.formats.small?.url)
+        GlideHelper.loadImage(holder.binding.categoryImage, Constants.KEY_IMAGE_PATH + item.thumbnail.url)
         holder.binding.categoryName.text = item.name
 
         holder.binding.root.setOnClickListener {
@@ -40,4 +42,25 @@ class AdapyterCategory(
     }
 
     override fun getItemCount(): Int = itemList.size
+
+    // Efficiently update the list using DiffUtil
+    fun updateData(newList: List<Category>) {
+        val diffCallback = object : DiffUtil.Callback() {
+            override fun getOldListSize(): Int = itemList.size
+            override fun getNewListSize(): Int = newList.size
+
+            override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+                return itemList[oldItemPosition].id == newList[newItemPosition].id
+            }
+
+            override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+                return itemList[oldItemPosition] == newList[newItemPosition]
+            }
+        }
+
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+        itemList.clear()
+        itemList.addAll(newList)
+        diffResult.dispatchUpdatesTo(this) // Optimized updates instead of full refresh
+    }
 }

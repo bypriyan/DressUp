@@ -7,7 +7,7 @@
     android:background="@color/white">
 
     <ImageView
-        android:id="@+id/imgOnBording"
+        android:id="@+id/bannerImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"/>

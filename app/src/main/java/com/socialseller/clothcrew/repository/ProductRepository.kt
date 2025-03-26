@@ -4,6 +4,7 @@ import android.util.Log
 import com.bypriyan.bustrackingsystem.utility.Constants
 import com.socialseller.clothcrew.api.ApiAuth
 import com.socialseller.clothcrew.api.ApiProducts
+import com.socialseller.clothcrew.api.BannerResponse
 import com.socialseller.clothcrew.api.OtpResponse
 import com.socialseller.clothcrew.api.OtpVerifyResponse
 import com.socialseller.clothcrew.api.UserInfoResponce
@@ -23,6 +24,10 @@ class ProductRepository @Inject constructor(private val apiProduct: ApiProducts)
 
     suspend fun getCollection(): ApiResponse<collectionsResponse> {
         return safeApiCall { apiProduct.getCollections() }
+    }
+
+    suspend fun getBanners(): ApiResponse<BannerResponse> {
+        return safeApiCall { apiProduct.getBanners() }
     }
 
     private suspend fun <T> safeApiCall(apiCall: suspend () -> Response<T>): ApiResponse<T> {
