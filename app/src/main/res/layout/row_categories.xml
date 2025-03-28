@@ -28,6 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Traditional"
+            android:maxLength="12"
             android:fontFamily="@font/nunito_sans_bold"
             android:layout_margin="@dimen/_10sdp"
             android:textColor="@color/appColor"/>

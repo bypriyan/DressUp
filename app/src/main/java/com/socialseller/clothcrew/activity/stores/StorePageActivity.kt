@@ -30,13 +30,13 @@ class StorePageActivity : AppCompatActivity() {
             Item(R.drawable.category_girl_img, "Ethnic Wear"),
             Item(R.drawable.category_girl_img, "Gown")
         )
-        val adapterBig = AdapyterBigCategory(this,itemList)
+//        val adapterBig = AdapyterBigCategory(this,itemList)
         val adapterProducts = AdapterProducts(this, itemList)
 //        binding.rvCategory.adapter = AdapyterCategory(this,itemList)
-        binding.bigCategoriesRV.adapter = adapterBig
-        binding.trandingRv.adapter = adapterProducts
-        binding.festBigCategoryBig.adapter = adapterBig
-        binding.bestSellerRv.adapter = adapterProducts
+//        binding.bigCategoriesRV.adapter = adapterBig
+//        binding.trandingRv.adapter = adapterProducts
+//        binding.festBigCategoryBig.adapter = adapterBig
+//        binding.bestSellerRv.adapter = adapterProducts
 
         //view pager
 //        var adapter = AdapterOnBordingScreen(this, getListOfOnBordingScreenContent())

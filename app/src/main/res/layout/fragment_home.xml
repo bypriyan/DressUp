@@ -161,8 +161,8 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/storeRv"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
                 android:layout_below="@id/rel"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

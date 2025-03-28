@@ -17,8 +17,8 @@ import com.bumptech.glide.Glide
 import com.bypriyan.bustrackingsystem.utility.Constants
 import com.google.android.material.card.MaterialCardView
 import com.socialseller.clothcrew.R
-import com.socialseller.clothcrew.api.BannerData
 import com.socialseller.clothcrew.databinding.RowBannerBinding
+import com.socialseller.clothcrew.modelResponce.BannerData
 import com.socialseller.clothcrew.utility.GlideHelper
 
 class AdapterOnBordingScreen(
@@ -34,7 +34,7 @@ class AdapterOnBordingScreen(
     override fun onBindViewHolder(holder: HolderOnBordingScreen, position: Int) {
         GlideHelper.loadImage(
             holder.binding.bannerImage,
-            Constants.KEY_IMAGE_PATH + (elementList[position].attributes.image.data.attributes.formats.thumbnail?.url ?: "")
+            Constants.KEY_IMAGE_PATH + (elementList[position].attributes.image.data.attributes.formats.thumbnail?.url?:"")
         )
     }
 

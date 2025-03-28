@@ -14,8 +14,8 @@ import com.bypriyan.bustrackingsystem.utility.Constants
 import com.socialseller.clothcrew.model.Item
 import com.socialseller.clothcrew.R
 import com.socialseller.clothcrew.activity.stores.StoreLocationActivity
-import com.socialseller.clothcrew.api.Category
 import com.socialseller.clothcrew.databinding.RowCategoriesBinding
+import com.socialseller.clothcrew.modelResponce.Category
 import com.socialseller.clothcrew.utility.GlideHelper
 
 class AdapyterCategory(
@@ -33,7 +33,9 @@ class AdapyterCategory(
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = itemList[position]
-        GlideHelper.loadImage(holder.binding.categoryImage, Constants.KEY_IMAGE_PATH + item.thumbnail.url)
+        GlideHelper.loadImage(holder.binding.categoryImage,
+            (Constants.KEY_IMAGE_PATH + item.thumbnail.formats.thumbnailFormat?.url) ?: ""
+        )
         holder.binding.categoryName.text = item.name
 
         holder.binding.root.setOnClickListener {

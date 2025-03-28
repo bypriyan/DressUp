@@ -29,8 +29,8 @@ class StoresByCityActivity : AppCompatActivity() {
             Item(R.drawable.category_girl_img, "Ethnic Wear"),
             Item(R.drawable.category_girl_img, "Gown")
         )
-        var adapterStore = AdapterStore(this, itemList)
-        binding.storeRv.adapter = adapterStore
+//        var adapterStore = AdapterStore(this, itemList)
+//        binding.storeRv.adapter = adapterStore
 
         binding.back.setOnClickListener{
             onBackPressedDispatcher.onBackPressed()

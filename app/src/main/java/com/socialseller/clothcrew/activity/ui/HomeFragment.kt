@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.bypriyan.bustrackingsystem.utility.Constants
 import com.bypriyan.sharemarketcourseinhindi.adapter.AdapterOnBordingScreen
 import com.socialseller.clothcrew.R
 import com.socialseller.clothcrew.activity.SearchActivity
@@ -22,6 +23,8 @@ import com.socialseller.clothcrew.databinding.FragmentHomeBinding
 import com.socialseller.clothcrew.model.Item
 import com.socialseller.clothcrew.viewModel.ProductViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlin.getValue
@@ -34,8 +37,12 @@ class HomeFragment : Fragment() {
 
     private val productViewModel: ProductViewModel by viewModels()
 
-    private val adapterCategory by lazy { AdapyterCategory(requireContext(), mutableListOf()) }
+    private val adapterBigCategory by lazy { AdapyterBigCategory(requireContext(), mutableListOf()) }
     private val adapterOnboarding by lazy { AdapterOnBordingScreen(requireContext(), mutableListOf()) }
+    private val adapterCategory by lazy { AdapyterCategory(requireContext(), mutableListOf()) }
+    private val adapterStore by lazy { AdapterStore(requireContext(), mutableListOf()) }
+
+    private var slidingJob: Job? = null // Job for automatic sliding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,69 +58,116 @@ class HomeFragment : Fragment() {
         setupRecyclerViews()
         observeData()
 
-        // Search button click listener
         binding.searchClickView.setOnClickListener {
             startActivity(Intent(requireContext(), SearchActivity::class.java))
         }
     }
 
-    private fun setupRecyclerViews() {
-        binding.rvCategory.adapter = adapterCategory
-        binding.viewPager2.adapter = adapterOnboarding
-        binding.wormDotsIndicator.attachTo(binding.viewPager2)
-        binding.viewPager2.isUserInputEnabled = true
+    private fun setupRecyclerViews() = binding.apply {
+        bigCategoriesRV.adapter = adapterBigCategory
+        storeRv.adapter = adapterStore
+        rvCategory.adapter = adapterCategory
+        viewPager2.adapter = adapterOnboarding
+        wormDotsIndicator.attachTo(viewPager2)
+        viewPager2.isUserInputEnabled = true
     }
 
     private fun observeData() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                launch { observeCollections() }
-                launch { observeBanners() }
+                observeCollections()
+                observeBanners()
+                observeCategories()
+                observeStores()
             }
         }
     }
 
-    private suspend fun observeBanners() {
-        productViewModel.banners.collectLatest { response ->
-            when (response) {
-                is ApiResponse.Loading -> {
-                    // Handle loading state (if needed)
-                }
-                is ApiResponse.Success -> {
-                    response.data?.data?.let { itemList ->
-                        Log.d("banners", "observeBanners: $itemList")
-                        adapterOnboarding.updateData(itemList)
-                    }
-                }
-                is ApiResponse.Error -> {
-                    Log.e("HomeFragment", "Error fetching banners: ${response.message}")
-                }
+    private  fun  observeStores() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            productViewModel.stores.collectLatest { response ->
+                handleApiResponse(
+                    response,
+                    onSuccess = { adapterStore.updateData(it.data) },
+                    logTag = "store"
+                )
             }
         }
     }
 
-    private suspend fun observeCollections() {
-        productViewModel.collections.collectLatest { response ->
-            when (response) {
-                is ApiResponse.Loading -> {
-                    // Handle loading state (if needed)
-                }
-                is ApiResponse.Success -> {
-                    response.data?.data?.let { itemList ->
-                        adapterCategory.updateData(itemList)
-                    }
-                }
-                is ApiResponse.Error -> {
-                    Log.e("HomeFragment", "Error fetching categories: ${response.message}")
+    private fun observeCategories() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            productViewModel.categories.collectLatest { response ->
+                handleApiResponse(
+                    response,
+                    onSuccess = { adapterCategory.updateData(it.categories) },
+                    logTag = "Categories"
+                )
+            }
+        }
+    }
+
+    private fun observeBanners() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            productViewModel.banners.collectLatest { response ->
+                handleApiResponse(
+                    response,
+                    onSuccess = {
+                        adapterOnboarding.updateData(it.data)
+                        startAutoSlide()
+                                },
+                    logTag = "Banners"
+                )
+            }
+        }
+    }
+
+    private fun observeCollections() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            productViewModel.collections.collectLatest { response ->
+                handleApiResponse(
+                    response,
+                    onSuccess = { adapterBigCategory.updateData(it.data) },
+                    logTag = "Collections"
+                )
+            }
+        }
+    }
+
+    private fun <T> handleApiResponse(
+        response: ApiResponse<T>,
+        onSuccess: (T) -> Unit,
+        logTag: String
+    ) {
+        when (response) {
+            is ApiResponse.Loading -> {
+                // Show a loading state if needed
+            }
+            is ApiResponse.Success -> {
+                response.data?.let(onSuccess)
+            }
+            is ApiResponse.Error -> {
+                Log.d("HomeFragment", "Error fetching $logTag: ${response.message}")
+            }
+        }
+    }
+
+    private fun startAutoSlide() {
+        slidingJob?.cancel() // Cancel existing job if running
+        slidingJob = viewLifecycleOwner.lifecycleScope.launch {
+            while (true) {
+                delay(3000) // Slide every 3 seconds
+                binding.viewPager2.let { viewPager ->
+                    val nextItem = (viewPager.currentItem + 1) % adapterOnboarding.itemCount
+                    viewPager.setCurrentItem(nextItem, true)
                 }
             }
         }
     }
 
     override fun onDestroyView() {
-        _binding?.let {
-            _binding = null // Prevent memory leaks
-        }
+        _binding = null // Prevent memory leaks
+        slidingJob?.cancel() // Stop sliding when view is destroyed
         super.onDestroyView()
     }
 }
