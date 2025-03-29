@@ -19,11 +19,13 @@ import com.socialseller.clothcrew.activity.ProductDetailsActivity
 import com.socialseller.clothcrew.activity.orders.OrderDetailsActivity
 import com.socialseller.clothcrew.databinding.RowProductsBinding
 import com.socialseller.clothcrew.modelResponce.CategoryProductResponce
+import com.socialseller.clothcrew.modelResponce.Product
 import com.socialseller.clothcrew.utility.GlideHelper
+import kotlin.math.ceil
 
 class AdapterProducts(
     private val context: Context,
-    private var itemList: MutableList<CategoryProductResponce>
+    private var itemList: MutableList<Product>
 ) : RecyclerView.Adapter<AdapterProducts.ItemViewHolder>() {
 
     inner class ItemViewHolder(val binding: RowProductsBinding) : RecyclerView.ViewHolder(binding.root)
@@ -37,15 +39,18 @@ class AdapterProducts(
         val item = itemList[position]
 
         holder.binding.productName.text = item.name
-        holder.binding.productSellingPrice.text = "₹${item.name}"
-        holder.binding.productMrp.text = "₹${item.name}".let {
+        holder.binding.productSellingPrice.text = "₹${item.product_variants[0].price}"
+        holder.binding.productMrp.text = "₹${item.product_variants[0].strikePrice}".let {
             val spannable = SpannableString(it)
             spannable.setSpan(StrikethroughSpan(), 0, it.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
             spannable
         }
-        holder.binding.productDiscountPercentage.text = "${item.name}% OFF"
+        holder.binding.productDiscountPercentage.text = "${calculateDiscount(
+            item.product_variants[0].strikePrice,
+            item.product_variants[0].price
+        )}% OFF"
 
-        GlideHelper.loadImage(holder.binding.productImage, (Constants.KEY_IMAGE_PATH + item.thumbnail.formats.thumbnail?.url) ?: "")
+        GlideHelper.loadImage(holder.binding.productImage, (Constants.KEY_IMAGE_PATH + item.thumbnail?.formats?.thumbnail?.url) ?: "")
 
         holder.binding.root.setOnClickListener {
             context.startActivity(Intent(context, ProductDetailsActivity::class.java))
@@ -59,7 +64,7 @@ class AdapterProducts(
     override fun getItemCount(): Int = itemList.size
 
     // Efficiently update the list using DiffUtil
-    fun updateData(newList: List<CategoryProductResponce>) {
+    fun updateData(newList: List<Product>) {
         val diffCallback = object : DiffUtil.Callback() {
             override fun getOldListSize(): Int = itemList.size
             override fun getNewListSize(): Int = newList.size
@@ -77,5 +82,13 @@ class AdapterProducts(
         itemList.clear()
         itemList.addAll(newList)
         diffResult.dispatchUpdatesTo(this) // Optimized updates instead of full refresh
+    }
+
+
+    fun calculateDiscount(mrp: Double, sellingPrice: Double): Int {
+        if (mrp <= 0 || sellingPrice < 0 || sellingPrice > mrp) {
+            throw IllegalArgumentException("Invalid prices: MRP should be greater than 0 and selling price should not exceed MRP")
+        }
+        return ceil(((mrp - sellingPrice) / mrp) * 100).toInt()
     }
 }

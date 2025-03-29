@@ -21,6 +21,7 @@ import com.socialseller.clothcrew.adapter.AdapterStore
 import com.socialseller.clothcrew.apiResponce.ApiResponse
 import com.socialseller.clothcrew.databinding.FragmentHomeBinding
 import com.socialseller.clothcrew.model.Item
+import com.socialseller.clothcrew.utility.ResponceHelper
 import com.socialseller.clothcrew.viewModel.ProductViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
@@ -86,7 +87,7 @@ class HomeFragment : Fragment() {
     private  fun  observeStores() {
         viewLifecycleOwner.lifecycleScope.launch {
             productViewModel.stores.collectLatest { response ->
-                handleApiResponse(
+                ResponceHelper.handleApiResponse(
                     response,
                     onSuccess = { adapterStore.updateData(it.data) },
                     logTag = "store"
@@ -98,7 +99,7 @@ class HomeFragment : Fragment() {
     private fun observeCategories() {
         viewLifecycleOwner.lifecycleScope.launch {
             productViewModel.categories.collectLatest { response ->
-                handleApiResponse(
+                ResponceHelper.handleApiResponse(
                     response,
                     onSuccess = { adapterCategory.updateData(it.categories) },
                     logTag = "Categories"
@@ -110,7 +111,7 @@ class HomeFragment : Fragment() {
     private fun observeBanners() {
         viewLifecycleOwner.lifecycleScope.launch {
             productViewModel.banners.collectLatest { response ->
-                handleApiResponse(
+                ResponceHelper.handleApiResponse(
                     response,
                     onSuccess = {
                         adapterOnboarding.updateData(it.data)
@@ -125,7 +126,7 @@ class HomeFragment : Fragment() {
     private fun observeCollections() {
         viewLifecycleOwner.lifecycleScope.launch {
             productViewModel.collections.collectLatest { response ->
-                handleApiResponse(
+                ResponceHelper.handleApiResponse(
                     response,
                     onSuccess = { adapterBigCategory.updateData(it.data) },
                     logTag = "Collections"
@@ -134,23 +135,6 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun <T> handleApiResponse(
-        response: ApiResponse<T>,
-        onSuccess: (T) -> Unit,
-        logTag: String
-    ) {
-        when (response) {
-            is ApiResponse.Loading -> {
-                // Show a loading state if needed
-            }
-            is ApiResponse.Success -> {
-                response.data?.let(onSuccess)
-            }
-            is ApiResponse.Error -> {
-                Log.d("HomeFragment", "Error fetching $logTag: ${response.message}")
-            }
-        }
-    }
 
     private fun startAutoSlide() {
         slidingJob?.cancel() // Cancel existing job if running

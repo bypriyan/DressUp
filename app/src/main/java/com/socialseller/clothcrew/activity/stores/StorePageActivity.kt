@@ -31,7 +31,7 @@ class StorePageActivity : AppCompatActivity() {
             Item(R.drawable.category_girl_img, "Gown")
         )
 //        val adapterBig = AdapyterBigCategory(this,itemList)
-        val adapterProducts = AdapterProducts(this, itemList)
+//        val adapterProducts = AdapterProducts(this, itemList)
 //        binding.rvCategory.adapter = AdapyterCategory(this,itemList)
 //        binding.bigCategoriesRV.adapter = adapterBig
 //        binding.trandingRv.adapter = adapterProducts

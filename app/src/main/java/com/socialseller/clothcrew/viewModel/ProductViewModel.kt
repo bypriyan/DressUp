@@ -16,6 +16,7 @@ import com.socialseller.clothcrew.api.UserInfoResponce
 import com.socialseller.clothcrew.api.UserRequest
 import com.socialseller.clothcrew.api.UserResponse
 import com.socialseller.clothcrew.apiResponce.ApiResponse
+import com.socialseller.clothcrew.apiResponce.SearchProductApiResponce
 import com.socialseller.clothcrew.modelResponce.BannerResponse
 import com.socialseller.clothcrew.modelResponce.CategoriesResponse
 import com.socialseller.clothcrew.modelResponce.CategoryProductResponce
@@ -36,6 +37,7 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import retrofit2.Response
+import retrofit2.http.Query
 import java.io.IOException
 import javax.inject.Inject
 
@@ -59,6 +61,9 @@ class ProductViewModel @Inject constructor(
 
     private val _categoryProducts = MutableStateFlow<ApiResponse<CategoryProductResponce>>(ApiResponse.Loading())
     val categoryProducts: StateFlow<ApiResponse<CategoryProductResponce>> = _categoryProducts
+
+    private val _searchProduct = MutableStateFlow<ApiResponse<SearchProductApiResponce>>(ApiResponse.Loading())
+    val searchProduct: StateFlow<ApiResponse<SearchProductApiResponce>> = _searchProduct
 
     init {
         getCollections()
@@ -103,7 +108,7 @@ class ProductViewModel @Inject constructor(
         }
     }
 
-    private fun getCategoriesProduct(id: String) {
+     fun getCategoriesProduct(id: String) {
         viewModelScope.launch {
             _categoryProducts.value = ApiResponse.Loading() // Set loading state
             try {
@@ -111,6 +116,18 @@ class ProductViewModel @Inject constructor(
                 _categoryProducts.value = response
             } catch (e: Exception) {
                 _categoryProducts.value = ApiResponse.Error("Unexpected error: ${e.message}")
+            }
+        }
+    }
+
+    fun getSearchProduct(query: String) {
+        viewModelScope.launch {
+            _searchProduct.value = ApiResponse.Loading() // Set loading state
+            try {
+                val response = productRepository.getSearchProduct(query)
+                _searchProduct.value = response
+            } catch (e: Exception) {
+                _searchProduct.value = ApiResponse.Error("Unexpected error: ${e.message}")
             }
         }
     }

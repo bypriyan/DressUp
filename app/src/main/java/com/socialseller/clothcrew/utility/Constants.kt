@@ -9,6 +9,7 @@ object Constants{
 
     const val KEY_USER_PHONE_NUMBER = "user_phone_number"
     const val KEY_USER_TOKEN = "userToken"
+    const val KEY_CATEGORY_ID = "categoryId"
     //user
     const val KEY_USER_ID = "id"
     const val KEY_USER_NAME = "name"

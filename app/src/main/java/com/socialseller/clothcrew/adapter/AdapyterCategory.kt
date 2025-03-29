@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bypriyan.bustrackingsystem.utility.Constants
 import com.socialseller.clothcrew.model.Item
 import com.socialseller.clothcrew.R
+import com.socialseller.clothcrew.activity.SearchActivity
 import com.socialseller.clothcrew.activity.stores.StoreLocationActivity
 import com.socialseller.clothcrew.databinding.RowCategoriesBinding
 import com.socialseller.clothcrew.modelResponce.Category
@@ -39,7 +40,10 @@ class AdapyterCategory(
         holder.binding.categoryName.text = item.name
 
         holder.binding.root.setOnClickListener {
-            context.startActivity(Intent(context, StoreLocationActivity::class.java))
+            Log.d("prodId", "onBindViewHolder: ${item.id}")
+            val intent = Intent(context, SearchActivity::class.java)
+            intent.putExtra(Constants.KEY_CATEGORY_ID, item.id.toString())
+            context.startActivity(intent)
         }
     }
 

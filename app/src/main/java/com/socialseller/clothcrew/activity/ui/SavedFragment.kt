@@ -37,7 +37,7 @@ class SavedFragment : Fragment() {
             Item(R.drawable.category_girl_img, "Gown")
         )
 
-        binding.savedProductRv.adapter = AdapterProducts(requireContext(), itemList)
+//        binding.savedProductRv.adapter = AdapterProducts(requireContext(), itemList)
 
         binding.searchClickView.setOnClickListener {
             startActivity(Intent(requireContext(),SearchActivity::class.java))

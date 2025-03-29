@@ -10,6 +10,7 @@ import com.socialseller.clothcrew.api.UserInfoResponce
 import com.socialseller.clothcrew.api.UserRequest
 import com.socialseller.clothcrew.api.UserResponse
 import com.socialseller.clothcrew.apiResponce.ApiResponse
+import com.socialseller.clothcrew.apiResponce.SearchProductApiResponce
 import com.socialseller.clothcrew.modelResponce.BannerResponse
 import com.socialseller.clothcrew.modelResponce.CategoriesResponse
 import com.socialseller.clothcrew.modelResponce.CategoryProductResponce
@@ -44,6 +45,10 @@ class ProductRepository @Inject constructor(private val apiProduct: ApiProducts)
 
     suspend fun getCategoryProduct(id: String): ApiResponse<CategoryProductResponce> {
         return safeApiCall { apiProduct.getCategoryProducts(id)}
+    }
+
+    suspend fun getSearchProduct(query: String): ApiResponse<SearchProductApiResponce> {
+        return safeApiCall { apiProduct.getSearchProducts(query)}
     }
 
     private suspend fun <T> safeApiCall(apiCall: suspend () -> Response<T>): ApiResponse<T> {

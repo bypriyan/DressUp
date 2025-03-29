@@ -1,14 +1,12 @@
 package com.socialseller.clothcrew.modelResponce
 
-import android.text.SpannableString
-
-class CategoryProductResponce (
+data class CategoryProductResponce(
     val id: Int,
-    val name: SpannableString,
+    val name: String,
     val createdAt: String,
     val updatedAt: String,
-    val thumbnail: CategoryProductThumbnail,
-    val sub_categories: List<Any>, // Empty in your JSON
+    val thumbnail: CategoryProductThumbnail?,
+    val sub_categories: List<Any>,
     val products: List<Product>
 )
 
@@ -19,7 +17,7 @@ data class CategoryProductThumbnail(
     val caption: String?,
     val width: Int,
     val height: Int,
-    val formats: Formats,
+    val formats: Formats?,
     val hash: String,
     val ext: String,
     val mime: String,
@@ -27,20 +25,20 @@ data class CategoryProductThumbnail(
     val url: String,
     val previewUrl: String?,
     val provider: String,
-    val provider_metadata: Any?, // Could be more specific if you know the type
+    val provider_metadata: Any?,
     val folderPath: String,
     val createdAt: String,
     val updatedAt: String
 )
 
 data class Formats(
-    val small: CategoryImageFormat?,
-    val thumbnail: CategoryImageFormat?,
-    val large: CategoryImageFormat?,
-    val medium: CategoryImageFormat?
+    val small: ImageFormatProduct?,
+    val medium: ImageFormatProduct?,
+    val large: ImageFormatProduct?,
+    val thumbnail: ImageFormatProduct?
 )
 
-data class CategoryImageFormat(
+data class ImageFormatProduct(
     val ext: String,
     val url: String,
     val hash: String,
@@ -57,7 +55,7 @@ data class Product(
     val slug: String,
     val name: String,
     val desc: String,
-    val yt_video_link: String,
+    val yt_video_link: String?,
     val isActive: Boolean,
     val shipping_price: Int,
     val cod_enabled: Boolean,
@@ -69,9 +67,9 @@ data class Product(
     val security_money_type: String,
     val security_money_value: Int,
     val is_available: Boolean,
-    val thumbnail: Thumbnail,
+    val thumbnail: Thumbnail?,
     val product_variants: List<ProductVariant>,
-    val sub_category_ssa: Any?, // Could be more specific
+    val sub_category_ssa: Any?,
     val category_ssa: Int
 )
 

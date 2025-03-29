@@ -1,5 +1,6 @@
 package com.socialseller.clothcrew.api
 
+import com.socialseller.clothcrew.apiResponce.SearchProductApiResponce
 import com.socialseller.clothcrew.modelResponce.BannerResponse
 import com.socialseller.clothcrew.modelResponce.CategoriesResponse
 import com.socialseller.clothcrew.modelResponce.CategoryProductResponce
@@ -35,6 +36,9 @@ interface ApiProducts {
 
     @GET("custom/categories/{id}")
     suspend fun getCategoryProducts(@Path("id") id: String): Response<CategoryProductResponce>
+
+    @GET("custom/search_products/{key}")
+    suspend fun getSearchProducts(@Path("key") key: String): Response<SearchProductApiResponce>
 
 }
 
