@@ -15,6 +15,7 @@ import com.bypriyan.bustrackingsystem.utility.Constants
 import com.socialseller.clothcrew.R
 import com.socialseller.clothcrew.activity.auth.LoginActivity
 import com.socialseller.clothcrew.adapter.AdapterProducts
+import com.socialseller.clothcrew.adapter.AdapterSearchProducts
 import com.socialseller.clothcrew.adapter.AdapyterBigCategory
 import com.socialseller.clothcrew.databinding.ActivityHomeBinding
 import com.socialseller.clothcrew.databinding.ActivityLoginBinding
@@ -37,6 +38,7 @@ class SearchActivity : MyActivity() {
     private val binding by lazy { ActivitySearchBinding.inflate(layoutInflater) }
     private val poductViewModel: ProductViewModel by viewModels()
     private val adapterProducts by lazy { AdapterProducts(this, mutableListOf()) }
+    private val adapterSearchProducts by lazy { AdapterSearchProducts(this, mutableListOf()) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,11 +66,15 @@ class SearchActivity : MyActivity() {
     private fun setupSearchListener() {
         binding.searchEditText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                if(s.toString().length>0){
-                    poductViewModel.getSearchProduct(s.toString())
+                val query = s.toString().trim()
+                if (query.isNotEmpty()) {
+                    poductViewModel.getSearchProduct(query)
+                    binding.recyclerViewProduct.adapter = adapterSearchProducts // Set search adapter
+                } else {
+                    binding.recyclerViewProduct.adapter = adapterProducts // Revert to category adapter
                 }
-
             }
+
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
@@ -93,11 +99,12 @@ class SearchActivity : MyActivity() {
 
     private fun observeSearchProduct(){
         lifecycleScope.launch {
-            poductViewModel.searchProduct.collect { response->
+            poductViewModel.searchProduct.collect { response ->
                 ResponceHelper.handleApiResponse(
                     response,
                     onSuccess = {
                         Log.d("srch", "observeSearchProduct: ${it.data}")
+                        adapterSearchProducts.updateData(it.data) // Update search results
                     },
                     logTag = "search"
                 )
