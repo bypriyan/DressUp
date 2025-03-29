@@ -19,17 +19,19 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/productImage"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_120sdp"
                 android:src="@drawable/temp_cat_img_girl"
                 android:scaleType="centerCrop"/>
 
             <ImageView
-                android:id="@+id/back"
+                android:id="@+id/favirote"
                 android:layout_width="@dimen/_27sdp"
                 android:layout_height="@dimen/_27sdp"
-                android:src="@drawable/delete"
-                android:padding="@dimen/_2sdp"
+                android:src="@drawable/favorite"
+                android:padding="@dimen/_6sdp"
+                android:background="@drawable/appcolor_circle_background"
                 android:layout_centerVertical="true"
                 android:layout_gravity="end"
                 android:layout_margin="@dimen/_15sdp"/>
@@ -38,6 +40,7 @@
         </FrameLayout>
 
         <TextView
+            android:id="@+id/productName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Charming 22 Karat Yellow Gold Long Beh"
@@ -53,6 +56,7 @@
             android:textColor="@color/dark_greay"/>
 
         <TextView
+            android:id="@+id/productSellingPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="₹58,720"
@@ -71,6 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="₹58,720"
+            android:id="@+id/productMrp"
             android:paddingLeft="@dimen/_10sdp"
             android:paddingRight="@dimen/_10sdp"
             android:paddingTop="@dimen/_1sdp"
@@ -82,6 +87,7 @@
             android:textColor="@color/dark_greay"/>
 
         <TextView
+            android:id="@+id/productDiscountPercentage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="2% OFF"

@@ -1,8 +1,10 @@
 package com.socialseller.clothcrew.modelResponce
 
+import android.text.SpannableString
+
 class CategoryProductResponce (
     val id: Int,
-    val name: String,
+    val name: SpannableString,
     val createdAt: String,
     val updatedAt: String,
     val thumbnail: CategoryProductThumbnail,

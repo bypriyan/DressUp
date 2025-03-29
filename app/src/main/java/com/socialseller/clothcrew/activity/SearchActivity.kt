@@ -12,8 +12,9 @@ import com.socialseller.clothcrew.databinding.ActivityHomeBinding
 import com.socialseller.clothcrew.databinding.ActivitySearchBinding
 import com.socialseller.clothcrew.databinding.FragmentSavedBinding
 import com.socialseller.clothcrew.model.Item
+import com.socialseller.clothcrew.utility.MyActivity
 
-class SearchActivity : AppCompatActivity() {
+class SearchActivity : MyActivity() {
 
     private lateinit var binding: ActivitySearchBinding
 
@@ -22,24 +23,6 @@ class SearchActivity : AppCompatActivity() {
         binding = ActivitySearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val itemList = listOf(
-            Item(R.drawable.category_girl_img, "Traditional"),
-            Item(R.drawable.category_girl_img, "Printed"),
-            Item(R.drawable.category_girl_img, "Ethnic Wear"),
-            Item(R.drawable.category_girl_img, "Gown")
-        )
-
-        binding.recyclerViewProduct.adapter = AdapterProducts(this, itemList)
-
-        binding.back.setOnClickListener{
-            onBackPressedDispatcher.onBackPressed()
-        }
-        //back pressed
-        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                finish()
-            }
-        })
 
     }
 }
