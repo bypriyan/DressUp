@@ -17,7 +17,7 @@ data class CategoryProductThumbnail(
     val caption: String?,
     val width: Int,
     val height: Int,
-    val formats: Formats?,
+    val formats: ProductDetailFormats?,
     val hash: String,
     val ext: String,
     val mime: String,
@@ -31,7 +31,7 @@ data class CategoryProductThumbnail(
     val updatedAt: String
 )
 
-data class Formats(
+data class ProductDetailFormats(
     val small: ImageFormatProduct?,
     val medium: ImageFormatProduct?,
     val large: ImageFormatProduct?,
@@ -68,12 +68,12 @@ data class Product(
     val security_money_value: Int,
     val is_available: Boolean,
     val thumbnail: Thumbnail?,
-    val product_variants: List<ProductVariant>,
+    val product_variants: List<ProductDetailsVariant>,
     val sub_category_ssa: Any?,
     val category_ssa: Int
 )
 
-data class ProductVariant(
+data class ProductDetailsVariant(
     val id: Int,
     val name: String,
     val quantity: Int,

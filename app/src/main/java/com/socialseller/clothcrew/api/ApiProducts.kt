@@ -40,5 +40,11 @@ interface ApiProducts {
     @GET("custom/search_products/{key}")
     suspend fun getSearchProducts(@Path("key") key: String): Response<SearchProductApiResponce>
 
+    @GET("custom/products/{id}")
+    suspend fun getProductDetail(
+        @Path("id") productId: String,
+        @Header("Authorization") token: String
+    ): Response<SearchProductApiResponce>
+
 }
 
