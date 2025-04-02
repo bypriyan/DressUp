@@ -2,12 +2,15 @@ package com.socialseller.clothcrew.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.socialseller.clothcrew.R
@@ -18,56 +21,43 @@ import com.socialseller.clothcrew.adapter.AdapterProductHorizontal
 import com.socialseller.clothcrew.adapter.AdapterProductImages
 import com.socialseller.clothcrew.adapter.SizeAdapter
 import com.socialseller.clothcrew.databinding.ActivityAddressBinding
+import com.socialseller.clothcrew.databinding.ActivityLoginBinding
 import com.socialseller.clothcrew.databinding.ActivityProductDetailsBinding
 import com.socialseller.clothcrew.model.Item
+import com.socialseller.clothcrew.utility.MyActivity
+import com.socialseller.clothcrew.utility.ResponceHelper
+import com.socialseller.clothcrew.viewModel.ProductViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+import kotlin.getValue
 
-class ProductDetailsActivity : AppCompatActivity() {
+@AndroidEntryPoint
+class ProductDetailsActivity : MyActivity() {
 
-    private lateinit var binding: ActivityProductDetailsBinding
-    val itemList = listOf(
-        Item(R.drawable.category_girl_img, "Traditional"),
-        Item(R.drawable.category_girl_img, "Printed"),
-        Item(R.drawable.category_girl_img, "Ethnic Wear"),
-        Item(R.drawable.category_girl_img, "Gown")
-    )
-
-    private lateinit var sizeAdapter: SizeAdapter
-    private val sizes = listOf("S", "L", "XL", "XXL", "FREE SIZE")
+    private val binding by lazy { ActivityProductDetailsBinding.inflate(layoutInflater) }
+    private val poductViewModel: ProductViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityProductDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setupBackButton(binding.back)
 
-        binding.imageRV.adapter = AdapterProductImages(this, itemList)
-        binding.partSizeRvRV.adapter = AdapterBodySize(this, itemList)
-        binding.relatedProductRv.adapter = AdapterProductHorizontal(this, itemList)
-        //size
-        val recyclerView: RecyclerView = findViewById(R.id.sizeRV)
-        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        poductViewModel.getProductDetails(33)
+        observeProductDetails()
 
-        sizeAdapter = SizeAdapter(sizes) { selectedSize ->
-            Toast.makeText(this, "Selected: $selectedSize", Toast.LENGTH_SHORT).show()
-        }
-        recyclerView.adapter = sizeAdapter
+    }
 
-        binding.addToCartTv.setOnClickListener {
-            startActivity(Intent(this, MyCartActivity::class.java))
-        }
-
-        binding.continueBtn.setOnClickListener {
-            startActivity(Intent(this, MyCartActivity::class.java))
-        }
-
-        binding.back.setOnClickListener{
-            onBackPressedDispatcher.onBackPressed()
-        }
-        //back pressed
-        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                finish()
+    private fun observeProductDetails(){
+        lifecycleScope.launch {
+            poductViewModel.productDetails.collect { response->
+                ResponceHelper.handleApiResponse(
+                    response,
+                    onSuccess = {
+                        Log.d("prod", "observeCategoryProduct: ${it}")
+                    },
+                    logTag = "prod"
+                )
             }
-        })
-
+        }
     }
 }

@@ -3,6 +3,7 @@ package com.bypriyan.togocartstore.DI.module
 import android.content.Context
 import android.content.SharedPreferences
 import android.location.Geocoder
+import com.socialseller.clothcrew.api.ApiAddress
 import com.socialseller.clothcrew.api.ApiAuth
 import com.socialseller.clothcrew.api.ApiProducts
 import dagger.Module
@@ -38,6 +39,12 @@ object AppModule {
     @Singleton
     fun provideApiProducts(retrofit: Retrofit): ApiProducts {
         return retrofit.create(ApiProducts::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideApiAddress(retrofit: Retrofit): ApiAddress {
+        return retrofit.create(ApiAddress::class.java)
     }
 
 }

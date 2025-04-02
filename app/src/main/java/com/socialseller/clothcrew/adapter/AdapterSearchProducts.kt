@@ -20,7 +20,6 @@ import com.socialseller.clothcrew.activity.orders.OrderDetailsActivity
 import com.socialseller.clothcrew.apiResponce.ProductSearch
 import com.socialseller.clothcrew.databinding.RowProductsBinding
 import com.socialseller.clothcrew.modelResponce.CategoryProductResponce
-import com.socialseller.clothcrew.modelResponce.Product
 import com.socialseller.clothcrew.utility.GlideHelper
 import kotlin.math.ceil
 

@@ -1,13 +1,11 @@
 package com.socialseller.clothcrew.modelResponce
 
-import java.util.*
-
-data class ProductDetailsApiResponce(
-    val product: Product,
-    val randomProducts: List<RandomProduct>
+data class ProductDetailsApiResponceDT(
+    val product: ProductDT,
+    val randomProducts: List<RandomProductDT>
 )
 
-data class Product(
+data class ProductDT(
     val id: Int,
     val name: String,
     val slug: String,
@@ -20,15 +18,15 @@ data class Product(
     val security_money_type: String,
     val security_money_value: Int,
     val is_available: Boolean,
-    val size_chart: SizeChart,
-    val gallery: List<GalleryItem>,
-    val product_variants: List<ProductVariant>,
-    val category: Category,
-    val thumbnail: Thumbnail,
+    val size_chart: SizeChartDT,
+    val gallery: List<GalleryItemDT>,
+    val product_variants: List<ProductVariantDT>,
+    val category: CategoryDT,
+    val thumbnail: ThumbnailDT,
     val msg: String
 )
 
-data class RandomProduct(
+data class RandomProductDT(
     val id: Int,
     val slug: String,
     val name: String,
@@ -45,31 +43,31 @@ data class RandomProduct(
     val security_money_type: String,
     val security_money_value: Int,
     val is_available: Boolean,
-    val product_variants: List<RandomProductVariant>,
-    val thumbnail: Thumbnail
+    val product_variants: List<RandomProductVariantDT>,
+    val thumbnail: ThumbnailDT
 )
 
-data class SizeChart(
-    val measurements: List<Measurement>
+data class SizeChartDT(
+    val measurements: List<MeasurementDT>
 )
 
-data class Measurement(
+data class MeasurementDT(
     val name: String,
-    val value: List<Value>
+    val value: List<ValueDT>
 )
 
-data class Value(
+data class ValueDT(
     val data: String
 )
 
-data class GalleryItem(
+data class GalleryItemDT(
     val id: Int,
     val name: String,
     val alternativeText: String?,
     val caption: String?,
     val width: Int,
     val height: Int,
-    val formats: Formats,
+    val formats: FormatsDT,
     val hash: String,
     val ext: String,
     val mime: String,
@@ -83,13 +81,13 @@ data class GalleryItem(
     val updatedAt: String
 )
 
-data class Formats(
-    val small: FormatItem?,
-    val medium: FormatItem?,
-    val thumbnail: FormatItem
+data class FormatsDT(
+    val small: FormatItemDT?,
+    val medium: FormatItemDT?,
+    val thumbnail: FormatItemDT
 )
 
-data class FormatItem(
+data class FormatItemDT(
     val ext: String,
     val url: String,
     val hash: String,
@@ -101,7 +99,7 @@ data class FormatItem(
     val height: Int
 )
 
-data class ProductVariant(
+data class ProductVariantDT(
     val id: Int,
     val name: String,
     val quantity: Int,
@@ -115,7 +113,7 @@ data class ProductVariant(
     val isSaved: Boolean
 )
 
-data class RandomProductVariant(
+data class RandomProductVariantDT(
     val id: Int,
     val name: String,
     val quantity: Int,
@@ -125,30 +123,30 @@ data class RandomProductVariant(
     val isActive: Boolean,
     val createdAt: String,
     val updatedAt: String,
-    val measurement: List<MeasurementItem>?,
+    val measurement: List<MeasurementItemDT>?,
     val isSaved: Boolean
 )
 
-data class MeasurementItem(
+data class MeasurementItemDT(
     val name: String,
     val value: String
 )
 
-data class Category(
+data class CategoryDT(
     val id: Int,
     val name: String,
     val createdAt: String,
     val updatedAt: String
 )
 
-data class Thumbnail(
+data class ThumbnailDT(
     val id: Int,
     val name: String,
     val alternativeText: String?,
     val caption: String?,
     val width: Int,
     val height: Int,
-    val formats: ThumbnailFormats,
+    val formats: ThumbnailFormatsDT,
     val hash: String,
     val ext: String,
     val mime: String,
@@ -162,8 +160,8 @@ data class Thumbnail(
     val updatedAt: String
 )
 
-data class ThumbnailFormats(
-    val small: FormatItem?,
-    val medium: FormatItem?,
-    val thumbnail: FormatItem
+data class ThumbnailFormatsDT(
+    val small: FormatItemDT?,
+    val medium: FormatItemDT?,
+    val thumbnail: FormatItemDT
 )

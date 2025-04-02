@@ -19,13 +19,13 @@ import com.socialseller.clothcrew.activity.ProductDetailsActivity
 import com.socialseller.clothcrew.activity.orders.OrderDetailsActivity
 import com.socialseller.clothcrew.databinding.RowProductsBinding
 import com.socialseller.clothcrew.modelResponce.CategoryProductResponce
-import com.socialseller.clothcrew.modelResponce.Product
+import com.socialseller.clothcrew.modelResponce.ProductCategory
 import com.socialseller.clothcrew.utility.GlideHelper
 import kotlin.math.ceil
 
 class AdapterProducts(
     private val context: Context,
-    private var itemList: MutableList<Product>
+    private var itemList: MutableList<ProductCategory>
 ) : RecyclerView.Adapter<AdapterProducts.ItemViewHolder>() {
 
     inner class ItemViewHolder(val binding: RowProductsBinding) : RecyclerView.ViewHolder(binding.root)
@@ -64,7 +64,7 @@ class AdapterProducts(
     override fun getItemCount(): Int = itemList.size
 
     // Efficiently update the list using DiffUtil
-    fun updateData(newList: List<Product>) {
+    fun updateData(newList: List<ProductCategory>) {
         val diffCallback = object : DiffUtil.Callback() {
             override fun getOldListSize(): Int = itemList.size
             override fun getNewListSize(): Int = newList.size

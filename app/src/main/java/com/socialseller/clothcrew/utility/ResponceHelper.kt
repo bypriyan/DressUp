@@ -2,6 +2,7 @@ package com.socialseller.clothcrew.utility
 
 import android.util.Log
 import com.socialseller.clothcrew.apiResponce.ApiResponse
+import retrofit2.Response
 
 object ResponceHelper {
      fun <T> handleApiResponse(
@@ -19,6 +20,19 @@ object ResponceHelper {
             is ApiResponse.Error -> {
                 Log.d(logTag, "Error fetching $logTag: ${response.message}")
             }
+        }
+    }
+
+     suspend fun <T> safeApiCall(apiCall: suspend () -> Response<T>): ApiResponse<T> {
+        return try {
+            val response = apiCall()
+            if (response.isSuccessful) {
+                ApiResponse.Success(response.body()!!)
+            } else {
+                ApiResponse.Error(HttpStatusHelper.getMessage(response.code()), null)
+            }
+        } catch (e: Exception) {
+            ApiResponse.Error("Network Error: ${e.message}")
         }
     }
 

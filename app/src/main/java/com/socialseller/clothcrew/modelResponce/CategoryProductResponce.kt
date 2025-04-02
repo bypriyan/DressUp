@@ -7,7 +7,7 @@ data class CategoryProductResponce(
     val updatedAt: String,
     val thumbnail: CategoryProductThumbnail?,
     val sub_categories: List<Any>,
-    val products: List<Product>
+    val products: List<ProductCategory>
 )
 
 data class CategoryProductThumbnail(
@@ -50,7 +50,7 @@ data class ImageFormatProduct(
     val height: Int
 )
 
-data class Product(
+data class ProductCategory(
     val id: Int,
     val slug: String,
     val name: String,

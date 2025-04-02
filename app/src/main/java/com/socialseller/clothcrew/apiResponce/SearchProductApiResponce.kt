@@ -2,7 +2,6 @@ package com.socialseller.clothcrew.apiResponce
 
 import com.google.gson.annotations.SerializedName
 import com.socialseller.clothcrew.modelResponce.Meta
-import com.socialseller.clothcrew.modelResponce.Product
 
 data class SearchProductApiResponce (
     @SerializedName("data") val data: List<ProductSearch>,

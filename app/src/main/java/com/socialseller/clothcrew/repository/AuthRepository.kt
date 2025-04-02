@@ -10,6 +10,7 @@ import com.socialseller.clothcrew.api.UserRequest
 import com.socialseller.clothcrew.api.UserResponse
 import com.socialseller.clothcrew.apiResponce.ApiResponse
 import com.socialseller.clothcrew.utility.HttpStatusHelper
+import com.socialseller.clothcrew.utility.ResponceHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -55,20 +56,7 @@ class AuthRepository @Inject constructor(private val apiAuth: ApiAuth) {
     }
 
     suspend fun getUserInfo(token: String): ApiResponse<UserInfoResponce> {
-        return safeApiCall { apiAuth.getUserInfo("Bearer $token") }
-    }
-
-    private suspend fun <T> safeApiCall(apiCall: suspend () -> Response<T>): ApiResponse<T> {
-        return try {
-            val response = apiCall()
-            if (response.isSuccessful) {
-                ApiResponse.Success(response.body()!!)
-            } else {
-                ApiResponse.Error(HttpStatusHelper.getMessage(response.code()), null)
-            }
-        } catch (e: Exception) {
-            ApiResponse.Error("Network Error: ${e.message}")
-        }
+        return ResponceHelper.safeApiCall { apiAuth.getUserInfo("Bearer $token") }
     }
 
 }

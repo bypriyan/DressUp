@@ -20,6 +20,7 @@ import com.socialseller.clothcrew.apiResponce.SearchProductApiResponce
 import com.socialseller.clothcrew.modelResponce.BannerResponse
 import com.socialseller.clothcrew.modelResponce.CategoriesResponse
 import com.socialseller.clothcrew.modelResponce.CategoryProductResponce
+import com.socialseller.clothcrew.modelResponce.ProductDetailsApiResponceDT
 import com.socialseller.clothcrew.modelResponce.SellerStoreResponce
 import com.socialseller.clothcrew.modelResponce.collectionsResponse
 import com.socialseller.clothcrew.repository.AuthRepository
@@ -64,6 +65,9 @@ class ProductViewModel @Inject constructor(
 
     private val _searchProduct = MutableStateFlow<ApiResponse<SearchProductApiResponce>>(ApiResponse.Loading())
     val searchProduct: StateFlow<ApiResponse<SearchProductApiResponce>> = _searchProduct
+
+    private val _productDetails = MutableStateFlow<ApiResponse<ProductDetailsApiResponceDT>>(ApiResponse.Loading())
+    val productDetails: StateFlow<ApiResponse<ProductDetailsApiResponceDT>> = _productDetails
 
     init {
         getCollections()
@@ -152,6 +156,23 @@ class ProductViewModel @Inject constructor(
         viewModelScope.launch {
             dataStoreManager.getString(Constants.KEY_USER_TOKEN).collect { token ->
                 token?.let { getStore(it) }
+            }
+        }
+    }
+
+    fun getProductDetails(productId: Int) {
+        viewModelScope.launch {
+            _productDetails.value = ApiResponse.Loading() // Set loading state
+            dataStoreManager.getString(Constants.KEY_USER_TOKEN).collect { token ->
+                token?.let {
+                    Log.d("tkn", "getProductDetails: $token")
+                    try {
+                        val response = productRepository.getProductDetails(productId, "Bearer $token")
+                        _productDetails.value = response
+                    } catch (e: Exception) {
+                        _productDetails.value = ApiResponse.Error("Unexpected error: ${e.message}")
+                    }
+                }
             }
         }
     }

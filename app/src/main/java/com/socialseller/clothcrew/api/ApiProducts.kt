@@ -4,6 +4,7 @@ import com.socialseller.clothcrew.apiResponce.SearchProductApiResponce
 import com.socialseller.clothcrew.modelResponce.BannerResponse
 import com.socialseller.clothcrew.modelResponce.CategoriesResponse
 import com.socialseller.clothcrew.modelResponce.CategoryProductResponce
+import com.socialseller.clothcrew.modelResponce.ProductDetailsApiResponceDT
 import com.socialseller.clothcrew.modelResponce.SellerStoreResponce
 import com.socialseller.clothcrew.modelResponce.collectionsResponse
 import retrofit2.Response
@@ -42,9 +43,9 @@ interface ApiProducts {
 
     @GET("custom/products/{id}")
     suspend fun getProductDetail(
-        @Path("id") productId: String,
+        @Path("id") productId: Int,
         @Header("Authorization") token: String
-    ): Response<SearchProductApiResponce>
+    ): Response<ProductDetailsApiResponceDT>
 
 }
 
